@@ -1,0 +1,8 @@
+﻿<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PCI aperture mark">
+  <circle cx="24" cy="24" r="21" stroke="#ccd6f6" stroke-width="3"/>
+  <path d="M24 5 A19 19 0 0 1 40.45 14.5" stroke="#3a6bf0" stroke-width="3" stroke-linecap="round"/>
+  <path d="M40.45 33.5 A19 19 0 0 1 7.55 33.5" stroke="#2ee6c0" stroke-width="3" stroke-linecap="round"/>
+  <path d="M7.55 14.5 A19 19 0 0 1 24 5" stroke="#ccd6f6" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="24" cy="24" r="7" fill="#ccd6f6"/>
+  <circle cx="24" cy="24" r="3" fill="#2ee6c0"/>
+</svg>

@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>What is IHC? &#8212; PCI-AI Education</title>
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="/static/css/education.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="mouse-glow" id="mouseGlow"></div>
+
+  <nav class="nav" id="nav">
+    <a href="/" class="nav-logo"><img src="/static/images/cancer-cell-mark-v2.svg" class="aperture-mark" width="28" height="28" alt="">PCI<span class="logo-dot">-</span><span class="logo-accent">AI</span></a>
+    <div class="nav-links">
+      <a href="https://www.pcibio.com" target="_blank">PCI-AI</a>
+      <a href="/#features">Platform</a>
+      <a href="/#products">Products</a>
+      <a href="/education" style="color:var(--accent);">Education</a>
+      <a href="/#workflow">Workflow</a>
+      <a href="/#about">About</a>
+      <a href="/login" class="nav-signin">Sign in</a>
+      <a href="/register" class="btn-primary btn-sm">Get started &#8594;</a>
+    </div>
+  </nav>
+
+  <div style="height:60px;"></div>
+
+  <div style="background:var(--bg);border-bottom:1px solid var(--border);">
+    <div class="edu-page-header">
+      <div class="edu-breadcrumb">
+        <a href="/education">Education</a>
+        <span>/</span>
+        <a href="/education">Foundations</a>
+        <span>/</span>
+        What is IHC?
+      </div>
+      <div class="section-tag" style="margin-bottom:1.25rem;">Foundations</div>
+      <h1>What is IHC?</h1>
+    </div>
+  </div>
+
+  <div class="edu-content">
+
+    <div class="edu-objectives-inner reveal">
+      <div class="edu-objectives-eyebrow">LEARNING OBJECTIVES</div>
+      <ul class="edu-objectives-list">
+        <li>Understand what IHC is and why it is used in pathology</li>
+        <li>Recognize what antibodies detect in tissue samples</li>
+        <li>Understand what a positive vs. negative IHC result looks like</li>
+      </ul>
+    </div>
+
+    <section class="edu-section">
+      <p class="reveal">Immunohistochemistry (IHC) is a laboratory technique that uses antibodies to detect specific proteins in tissue samples. It is one of the most widely used diagnostic tools in surgical pathology, allowing pathologists to identify what proteins a tissue is expressing and at what level, directly from a stained glass slide.</p>
+      <p class="reveal">The technique works by applying a targeted antibody to a thin slice of tissue mounted on a glass slide. If the protein that antibody is designed to detect is present in the tissue, the antibody binds to it. A detection system then converts that binding event into a visible color signal, most commonly a brown stain called DAB (3,3&#8242;-diaminobenzidine), so the pathologist can see exactly where and how strongly the protein is expressed under a microscope.</p>
+      <p class="reveal">Many cancers are defined not just by how cells look under a microscope, but by which proteins those cells are expressing. IHC allows pathologists to answer questions like: Is this tumor expressing a receptor that a targeted therapy could act on? Has this tumor lost expression of a protein that normally suppresses growth? Is this protein present at normal levels, elevated levels, or absent entirely?</p>
+      <p class="reveal">Those answers directly influence treatment decisions, including which therapies a patient is eligible for, whether a tumor is likely to respond to immunotherapy, and how a cancer is formally classified.</p>
+      <p class="reveal">A standard IHC slide has two color components. Hematoxylin (blue/purple) is a background counterstain that colors all cell nuclei, giving the pathologist a reference map of the tissue architecture. DAB (brown) is the specific signal that appears only where the target protein is present.</p>
+      <p class="reveal">A pathologist reading an IHC slide is looking at where the brown signal appears, how intense it is, and what percentage of cells show it. A slide with no brown staining indicates the target protein is absent or below detection threshold. A slide with strong, widespread brown staining indicates high protein expression.</p>
+    </section>
+
+  </div>
+
+  <div class="edu-quiz-section">
+    <div class="edu-content">
+      <div class="edu-quiz-inner">
+        <div class="edu-quiz-eyebrow">KNOWLEDGE CHECK</div>
+        <div id="quiz-area"></div>
+        <div id="quiz-score" style="display:none;"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo"><img src="/static/images/cancer-cell-mark-v2.svg" class="aperture-mark" width="28" height="28" alt="">PCI<span class="logo-dot">-</span><span class="logo-accent">AI</span></a>
+        <div class="footer-tagline">Digital Pathology Platform</div>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.pcibio.com" target="_blank">pcibio.com</a>
+        <a href="https://www.pcibio.com/about" target="_blank">About</a>
+        <a href="https://www.pcibio.com/contact" target="_blank">Contact</a>
+        <a href="https://www.pcibio.com/products" target="_blank">Products</a>
+        <a href="/privacy">Privacy Policy &amp; Terms of Use</a>
+      </div>
+      <div class="footer-right">
+        <span class="footer-copy">&#169; 2025 PCI-AI, Inc.</span>
+        <div class="footer-location"><span>Helix Park</span>, Houston TX</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mouseGlow = document.getElementById('mouseGlow');
+    document.addEventListener('mousemove', e => {
+      mouseGlow.style.left = e.clientX + 'px';
+      mouseGlow.style.top  = e.clientY + 'px';
+    });
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.06 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    (function () {
+      var QUESTIONS = [
+        {
+          q: "What is the purpose of the DAB stain in IHC?",
+          opts: [
+            "To color all cell nuclei for reference",
+            "To mark where a specific target protein is present",
+            "To preserve the tissue sample",
+            "To identify the type of cancer"
+          ],
+          correct: 1
+        },
+        {
+          q: "In IHC, what does an antibody bind to?",
+          opts: [
+            "The glass slide",
+            "The hematoxylin counterstain",
+            "A specific protein in the tissue",
+            "The DAB detection reagent"
+          ],
+          correct: 2
+        },
+        {
+          q: "A pathologist reads an IHC slide and sees no brown staining. This most likely means:",
+          opts: [
+            "The staining protocol failed",
+            "The tissue was not properly fixed",
+            "The target protein is absent or below detection threshold",
+            "The antibody was too concentrated"
+          ],
+          correct: 2
+        },
+        {
+          q: "Which color does hematoxylin produce on a standard IHC slide?",
+          opts: [
+            "Brown",
+            "Red",
+            "Blue/purple",
+            "Green"
+          ],
+          correct: 2
+        }
+      ];
+      var idx = 0, score = 0;
+
+      function render() {
+        var q = QUESTIONS[idx];
+        var area = document.getElementById('quiz-area');
+        var html = '<div class="quiz-q-area">';
+        html += '<div class="quiz-q-num">Question ' + (idx + 1) + ' of ' + QUESTIONS.length + '</div>';
+        html += '<div class="quiz-q-text">' + q.q + '</div>';
+        html += '<div class="quiz-options">';
+        q.opts.forEach(function (opt, i) {
+          html += '<button class="quiz-option" data-idx="' + i + '">' + opt + '</button>';
+        });
+        html += '</div>';
+        html += '<div class="quiz-feedback" id="quiz-fb" style="display:none;"></div>';
+        html += '<div class="quiz-nav" id="quiz-nav" style="display:none;">';
+        html += '<button class="quiz-next-btn" id="quiz-next">' + (idx < QUESTIONS.length - 1 ? 'Next Question →' : 'See Results') + '</button>';
+        html += '</div></div>';
+        area.innerHTML = html;
+        area.querySelectorAll('.quiz-option').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var chosen = parseInt(this.dataset.idx);
+            var correct = QUESTIONS[idx].correct;
+            area.querySelectorAll('.quiz-option').forEach(function (b) { b.disabled = true; });
+            if (chosen === correct) {
+              score++;
+              this.classList.add('quiz-option-correct');
+              document.getElementById('quiz-fb').textContent = '✓ Correct';
+              document.getElementById('quiz-fb').className = 'quiz-feedback quiz-feedback-correct';
+            } else {
+              this.classList.add('quiz-option-wrong');
+              area.querySelectorAll('.quiz-option')[correct].classList.add('quiz-option-correct');
+              document.getElementById('quiz-fb').textContent = '✗ Incorrect. Correct answer: ' + QUESTIONS[idx].opts[correct];
+              document.getElementById('quiz-fb').className = 'quiz-feedback quiz-feedback-wrong';
+            }
+            document.getElementById('quiz-fb').style.display = 'block';
+            document.getElementById('quiz-nav').style.display = 'block';
+            document.getElementById('quiz-next').addEventListener('click', function () {
+              idx++;
+              if (idx >= QUESTIONS.length) { showScore(); } else { render(); }
+            });
+          });
+        });
+      }
+
+      function showScore() {
+        document.getElementById('quiz-area').style.display = 'none';
+        var s = document.getElementById('quiz-score');
+        s.style.display = 'block';
+        s.innerHTML = '<div class="quiz-score-inner">' +
+          '<div class="quiz-score-num">' + score + '/' + QUESTIONS.length + '</div>' +
+          '<div class="quiz-score-label">' + (score === QUESTIONS.length ? 'Perfect score!' : score + ' of ' + QUESTIONS.length + ' correct') + '</div>' +
+          '<button class="quiz-restart-btn" onclick="location.reload()">Retake Quiz</button>' +
+          '</div>';
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        if (document.getElementById('quiz-area')) render();
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,936 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PCI-AI — Digital Pathology Platform</title>
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Particle canvas background -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Mouse glow cursor -->
+  <div class="mouse-glow" id="mouseGlow"></div>
+
+  <!-- Fixed background layers -->
+  <div class="hero-bg"></div>
+  <div class="grid-overlay"></div>
+  <div class="orb orb-1" id="orb1"></div>
+  <div class="orb orb-2" id="orb2"></div>
+  <div class="orb orb-3" id="orb3"></div>
+  <div class="orb orb-4" id="orb4"></div>
+
+  <!-- Nav -->
+  <nav class="nav" id="nav">
+    <a href="/" class="nav-logo"><img src="/static/images/cancer-cell-mark-v2.svg" class="aperture-mark" width="28" height="28" alt="">PCI<span class="logo-dot">-</span><span class="logo-accent">AI</span></a>
+    <div class="nav-links">
+      <a href="https://www.pcibio.com" target="_blank">PCI-AI</a>
+      <a href="#features">Platform</a>
+      <a href="#products">Products</a>
+      <a href="/education">Education</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#about">About</a>
+      <a href="/login" class="nav-signin">Sign in</a>
+      <a href="/register" class="btn-primary btn-sm">Get started →</a>
+    </div>
+  </nav>
+
+  <!-- ── Hero ──────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>
+        PCI-AI — Digital Slide Viewer
+      </div>
+      <h1 class="reveal delay-1">Precision IHC Controls.<br><span class="gradient-text">AI-Powered Assessment.</span></h1>
+      <p class="hero-sub reveal delay-2">Improving pathologist accuracy and clinical efficiency through characterized cell line quality controls and automated AI biomarker analysis.</p>
+      <div class="hero-actions reveal delay-3">
+        <a href="https://www.pcibio.com/shop" class="btn-primary btn-lg" target="_blank">Browse Products →</a>
+        <a href="/login" class="btn-ghost btn-lg">Try the AI Viewer</a>
+      </div>
+
+      <!-- Objective zoom slider -->
+      <div class="zoom-slider-wrap reveal delay-4">
+        <span class="zoom-label">Objective</span>
+        <input type="range" class="zoom-slider" id="zoomSlider" min="0" max="4" step="1" value="4">
+        <span class="zoom-val" id="zoomVal">40×</span>
+      </div>
+
+      <div class="hero-stats reveal delay-5">
+        <div class="stat">
+          <span class="stat-num" data-target="10" data-suffix="+">0+</span>
+          <span class="stat-lbl">Biomarkers</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-target="40" data-suffix="×">0×</span>
+          <span class="stat-lbl">Magnification</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">Patent</span>
+          <span class="stat-lbl">Pending tech</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">&lt;10</span>
+          <span class="stat-lbl">Min AI speed</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Browser mockup -->
+    <div class="hero-visual reveal-right delay-2">
+      <div class="viewer-float">
+      <div class="viewer-mockup">
+        <div class="mockup-bar">
+          <div class="mockup-dots"><span></span><span></span><span></span></div>
+          <div class="mockup-url">pcibio.ai/viewer/slide</div>
+          <div class="mockup-controls"><span>⊕</span><span>⊗</span></div>
+        </div>
+        <div class="mockup-app">
+          <div class="mockup-sidebar">
+            <div class="mock-section-label">Magnification</div>
+            <div class="mock-mags">
+              <button class="mag-btn" data-idx="0">1×</button>
+              <button class="mag-btn" data-idx="1">5×</button>
+              <button class="mag-btn" data-idx="2">10×</button>
+              <button class="mag-btn" data-idx="3">20×</button>
+              <button class="mag-btn active" data-idx="4">40×</button>
+            </div>
+            <div class="mock-divider"></div>
+            <div class="mock-section-label">Slide info</div>
+            <div class="mock-info"><span>Stain</span><span>H&amp;E</span></div>
+            <div class="mock-info"><span>Vendor</span><span>Aperio</span></div>
+            <div class="mock-info"><span>Scan</span><span id="mockMagVal">40×</span></div>
+            <div class="mock-info"><span>Size</span><span>2.1 GB</span></div>
+            <div class="mock-info"><span>MPP</span><span>0.2527</span></div>
+            <div class="mock-divider"></div>
+            <div class="mock-section-label">Navigator</div>
+            <div class="mock-thumb"><div class="thumb-viewport" id="thumbViewport"></div></div>
+          </div>
+
+          <div class="mockup-canvas" id="mockCanvas">
+            <!-- Tissue pan container — draggable -->
+            <div class="tissue-pan" id="tissuePan">
+              <div class="canvas-eosin"></div>
+              <div class="canvas-hema"></div>
+              <div class="tissue-layer"></div>
+              <div class="tissue-layer"></div>
+              <div class="tissue-layer"></div>
+              <div class="nuclei-layer">
+                <div class="nucleus" style="width:7px;height:7px;top:32%;left:37%"></div>
+                <div class="nucleus" style="width:5px;height:5px;top:36%;left:44%"></div>
+                <div class="nucleus" style="width:6px;height:6px;top:29%;left:50%"></div>
+                <div class="nucleus" style="width:5px;height:5px;top:44%;left:53%"></div>
+                <div class="nucleus" style="width:7px;height:7px;top:51%;left:41%"></div>
+                <div class="nucleus" style="width:4px;height:4px;top:47%;left:34%"></div>
+                <div class="nucleus" style="width:6px;height:6px;top:57%;left:59%"></div>
+                <div class="nucleus" style="width:5px;height:5px;top:61%;left:47%"></div>
+                <div class="nucleus" style="width:4px;height:4px;top:28%;left:63%"></div>
+                <div class="nucleus" style="width:6px;height:6px;top:54%;left:32%"></div>
+                <div class="nucleus" style="width:5px;height:5px;top:40%;left:67%"></div>
+                <div class="nucleus" style="width:7px;height:7px;top:65%;left:55%"></div>
+                <div class="nucleus" style="width:4px;height:4px;top:38%;left:29%"></div>
+                <div class="nucleus" style="width:5px;height:5px;top:68%;left:38%"></div>
+                <div class="nucleus" style="width:6px;height:6px;top:24%;left:57%"></div>
+              </div>
+            </div>
+
+            <!-- Fixed UI overlays (not panned) -->
+            <div class="reticle">
+              <div class="reticle-h"></div>
+              <div class="reticle-v"></div>
+              <div class="reticle-ring reticle-ring-outer"></div>
+              <div class="reticle-ring reticle-ring-mid"></div>
+              <div class="reticle-ring reticle-ring-inner"></div>
+              <div class="reticle-tick tick-t"></div>
+              <div class="reticle-tick tick-b"></div>
+              <div class="reticle-tick tick-l"></div>
+              <div class="reticle-tick tick-r"></div>
+            </div>
+            <div class="scan-line"></div>
+
+            <!-- Stain channel selector -->
+            <div class="channel-selector">
+              <button class="chan-btn active" data-chan="he">H&amp;E</button>
+              <button class="chan-btn" data-chan="ihc">IHC</button>
+            </div>
+
+            <!-- Coordinate readout -->
+            <div class="viewer-coord" id="viewerCoord"></div>
+            <div class="zoom-indicator" id="zoomIndicator">40× · H&amp;E · Aperio SVS</div>
+
+            <!-- Toolbar with annotation tools -->
+            <div class="mockup-toolbar">
+              <button class="tool-btn active" data-tool="pan" title="Pan">↔</button>
+              <button class="tool-btn" data-tool="annotate" title="Annotate">✎</button>
+              <button class="tool-btn" data-tool="measure" title="Measure">⊿</button>
+              <div class="tool-sep"></div>
+              <button id="tbZoomIn" title="Zoom in">+</button>
+              <button id="tbZoomOut" title="Zoom out">−</button>
+              <button id="tbFit" title="Fit to screen">⊡</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Ticker ──────────────────────────────────────── -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span>IHC Biomarkers</span><span class="sep">·</span>
+      <span>p53 Controls</span><span class="sep">·</span>
+      <span>Antibody Optimization</span><span class="sep">·</span>
+      <span>MLH1</span><span class="sep">·</span>
+      <span>MSH2</span><span class="sep">·</span>
+      <span>MSH6</span><span class="sep">·</span>
+      <span>PMS2</span><span class="sep">·</span>
+      <span>PD-L1</span><span class="sep">·</span>
+      <span>PTEN</span><span class="sep">·</span>
+      <span>BRAF V600E</span><span class="sep">·</span>
+      <span>Diffuse Expression</span><span class="sep">·</span>
+      <span>Null Expression</span><span class="sep">·</span>
+      <span>Wild-type Expression</span><span class="sep">·</span>
+      <span>H&amp;E Staining</span><span class="sep">·</span>
+      <span>DAB Calibration</span><span class="sep">·</span>
+      <span>AI Assessment</span><span class="sep">·</span>
+      <span>FFPE Controls</span><span class="sep">·</span>
+      <span>Cell Line QC</span><span class="sep">·</span>
+      <!-- duplicate for seamless loop -->
+      <span>IHC Biomarkers</span><span class="sep">·</span>
+      <span>p53 Controls</span><span class="sep">·</span>
+      <span>Antibody Optimization</span><span class="sep">·</span>
+      <span>MLH1</span><span class="sep">·</span>
+      <span>MSH2</span><span class="sep">·</span>
+      <span>MSH6</span><span class="sep">·</span>
+      <span>PMS2</span><span class="sep">·</span>
+      <span>PD-L1</span><span class="sep">·</span>
+      <span>PTEN</span><span class="sep">·</span>
+      <span>BRAF V600E</span><span class="sep">·</span>
+      <span>Diffuse Expression</span><span class="sep">·</span>
+      <span>Null Expression</span><span class="sep">·</span>
+      <span>Wild-type Expression</span><span class="sep">·</span>
+      <span>H&amp;E Staining</span><span class="sep">·</span>
+      <span>DAB Calibration</span><span class="sep">·</span>
+      <span>AI Assessment</span><span class="sep">·</span>
+      <span>FFPE Controls</span><span class="sep">·</span>
+      <span>Cell Line QC</span><span class="sep">·</span>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- ── Features ──────────────────────────────────── -->
+  <section class="features section-alt" id="features">
+    <div class="section-banner features-banner"><div class="banner-track"><span>ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · </span><span>ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · </span></div></div>
+    <div class="section-wrap">
+      <div class="section-tag reveal">Our Offerings</div>
+      <h2 class="reveal delay-1">Engineered for<br>Pathological Precision</h2>
+      <p class="section-sub reveal delay-2">Reimagining quality validation and clinical image workflows using our physical controls and machine-learning software tools.</p>
+      <div class="features-grid features-grid-3">
+        <a class="feat-card reveal delay-1" href="https://www.pcibio.com/cell-line-quality-controls-page" target="_blank">
+          <div class="feat-icon-wrap">IHC</div>
+          <h3>Cell Line IHC Controls</h3>
+          <p>Physical FFPE cell plugs arranged strategically. Built to standardize validation protocols and avoid staining failure pitfalls.</p>
+          <div class="feat-extra">TriControl™, QuadControl™, and DualControl™ panels provide characterized null, wild-type, and diffuse expression profiles across standardized cell lines.</div>
+          <span class="feat-tag">FFPE Controls</span>
+        </a>
+        <a class="feat-card reveal delay-2" href="https://www.pcibio.com/new-page" target="_blank">
+          <div class="feat-icon-wrap">AI</div>
+          <h3>AI Biomarker Assessment</h3>
+          <p>Automated image recognition scoring calibrated against characterized reference plug standards. Eliminates manual cognitive fatigue.</p>
+          <div class="feat-extra">Machine learning algorithms measure DAB expression and separation compared to reference cells — preparing outputs in under 10 minutes.</div>
+          <span class="feat-tag">&lt;10 min</span>
+        </a>
+        <a class="feat-card reveal delay-3" href="https://www.pcibio.com/digital-pathology-education" target="_blank">
+          <div class="feat-icon-wrap">EDU</div>
+          <h3>Digital Pathology Education</h3>
+          <p>A rich teaching compilation curated for pathologists, histologists, and research trainees to learn whole slide quantitative metrics.</p>
+          <div class="feat-extra">Interactive topic modules covering IHC expression patterns, MMR protein assessment, antibody optimization, and AI-assisted scoring — for pathologists and laboratory scientists.</div>
+          <span class="feat-tag">Topic Modules</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider section-divider-hema">
+
+  <!-- ── Products ──────────────────────────────────── -->
+  <section class="products-section" id="products">
+    <div class="section-banner products-banner"><div class="banner-track"><span>MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · </span><span>MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · </span></div></div>
+    <div class="section-wrap" style="position:relative;overflow:hidden;">
+      <!-- Circular motifs -->
+      <div class="circle-decor circle-decor-lg circle-hema" style="top:-80px;right:-100px;opacity:0.07;"></div>
+      <div class="circle-decor circle-decor-md circle-hema" style="top:-20px;right:-30px;opacity:0.05;"></div>
+      <div class="circle-decor circle-decor-sm circle-teal" style="bottom:60px;left:-35px;opacity:0.08;"></div>
+
+      <div class="section-tag section-tag-hema reveal">IHC Control Panels</div>
+      <h2 class="reveal delay-1">Precision cell line<br>control panels</h2>
+      <p class="section-sub reveal delay-2">TriControl™, QuadControl™, and DualControl™ panels enrich biomarker antibody optimization and decrease time for IHC assessment. Characterized cell line plugs provide reproducible expression benchmarks across null, wild-type, and overexpression patterns.</p>
+      <div class="products-grid">
+        <a class="product-card reveal delay-1" href="https://www.pcibio.com/cell-line-quality-controls-page" target="_blank">
+          <div class="product-circle">3</div>
+          <h3><span>Tri</span>Control™</h3>
+          <div class="product-name-sub">Three-cell-line IHC panel</div>
+          <p>Three cell lines presenting null (mutant), wild-type, and diffuse (overexpressed) expression patterns. Built for antibody optimization and assay development across triple-biomarker IHC panels including p53 and p16.</p>
+          <span class="product-badge">Null · Wild-type · Overexpressed</span>
+        </a>
+        <a class="product-card reveal delay-2" href="https://www.pcibio.com/cell-line-quality-controls-page" target="_blank">
+          <div class="product-circle">4</div>
+          <h3><span>Quad</span>Control™</h3>
+          <div class="product-name-sub">Four-cell-line IHC panel</div>
+          <p>Four cell lines covering null, low-normal, high-normal, and overexpression. The MMR QuadControl™ consolidates MLH1, MSH2, MSH6, and PMS2 mismatch repair proteins in a single, high-throughput FFPE block.</p>
+          <span class="product-badge">MLH1 · MSH2 · MSH6 · PMS2</span>
+        </a>
+        <a class="product-card reveal delay-3" href="https://www.pcibio.com/cell-line-quality-controls-page" target="_blank">
+          <div class="product-circle">2</div>
+          <h3><span>Dual</span>Control™</h3>
+          <div class="product-name-sub">Two-cell-line IHC panel</div>
+          <p>One or two cell lines contrasting in expression levels to improve assessment capabilities. Available in wildtype/knockout and overexpression variants — including MSH6, PDL1, PTEN, BRAF V600E, p53, and p16 configurations.</p>
+          <span class="product-badge">Wildtype · Knockout</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider section-divider-eosin">
+
+  <!-- ── Research ─────────────────────────────────── -->
+  <section class="section-light" id="research" style="padding:0;">
+    <div class="section-wrap">
+      <div class="section-tag section-tag-teal reveal">Peer-Reviewed Research</div>
+      <h2 class="reveal delay-1">Published Science Behind the Product</h2>
+      <p class="section-sub reveal delay-2">The science behind PCI-AI&#8217;s control panel approach, validated through peer review and published in an international pathology journal.</p>
+      <a href="/research/p53-cell-line-panel" class="reveal delay-2" style="display:flex;gap:1.5rem;align-items:flex-start;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:1.5rem 1.75rem;text-decoration:none;color:inherit;max-width:640px;transition:border-color 0.18s,box-shadow 0.18s;">
+        <div style="flex:0 0 48px;width:48px;height:48px;border-radius:10px;background:rgba(27,79,216,0.10);border:1px solid rgba(27,79,216,0.20);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke="rgba(27,79,216,0.80)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:9.5px;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:0.12em;color:var(--text3);margin-bottom:0.35rem;">Featured Publication &#183; IJGyn Pathology 2019</div>
+          <div style="font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:0.4rem;line-height:1.25;">p53 Cell Line Control Panel</div>
+          <p style="font-size:13px;color:var(--text2);line-height:1.6;margin:0 0 0.85rem;">Peer-reviewed research demonstrating that a cell line&#8211;based p53 IHC control panel improves interrater reliability and reduces null pattern misinterpretation in ovarian cancer subtyping.</p>
+          <span style="font-size:12.5px;font-weight:600;color:var(--accent);">Read Publication Highlight &#8594;</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <hr class="section-divider section-divider-eosin">
+
+  <!-- ── Education ─────────────────────────────────── -->
+  <section class="education-section section-light" id="education">
+    <div class="section-banner education-banner"><div class="banner-track"><span>dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · </span><span>dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · </span></div></div>
+    <div class="section-wrap">
+      <div class="section-tag section-tag-teal reveal">Digital Pathology Education</div>
+      <h2 class="reveal delay-1">A Rich Teaching<br>Compilation</h2>
+      <p class="section-sub reveal delay-2">Guided topic modules covering IHC expression classification, MMR protein assessment, antibody optimization, and AI-assisted scoring &#8212; for pathologists, trainees, and laboratory scientists.</p>
+
+      <div class="edu-grid">
+        <a class="edu-card reveal delay-1" href="/education/mmr-assessment">
+          <div class="edu-card-bg"></div>
+          <h3>MMR Protein Assessment</h3>
+          <p>Interpret mismatch repair IHC staining for MLH1, MSH2, MSH6, and PMS2. Learn to distinguish intact from deficient nuclear expression using PCI-AI's QuadControl™ as your reference standard.</p>
+          <div class="edu-tags"><span class="edu-tag">MLH1</span><span class="edu-tag">MSH2</span><span class="edu-tag">MSH6</span><span class="edu-tag">PMS2</span><span class="edu-tag">QuadControl™</span></div>
+        </a>
+        <a class="edu-card reveal delay-2" href="/education/antibody-optimization">
+          <div class="edu-card-bg"></div>
+          <h3>Antibody Optimization with Cell Line Controls</h3>
+          <p>Use TriControl™ and QuadControl™ panels to eliminate batch-to-batch variability during antibody titration. Standardized null, wild-type, and diffuse controls accelerate assay development and sign-off.</p>
+          <div class="edu-tags"><span class="edu-tag">TriControl™</span><span class="edu-tag">QuadControl™</span><span class="edu-tag">Titration</span><span class="edu-tag">HIER</span></div>
+        </a>
+        <a class="edu-card reveal delay-3" href="/education/p53-classification">
+          <div class="edu-card-bg"></div>
+          <h3>IHC Expression Classification</h3>
+          <p>Understand PCI-AI's three-tier expression framework — null, wild-type, and diffuse. Learn how each tier maps to PCI-AI's DualControl™ and TriControl™ panels for consistent, reproducible reporting.</p>
+          <div class="edu-tags"><span class="edu-tag">Null</span><span class="edu-tag">Wild-type</span><span class="edu-tag">Diffuse</span><span class="edu-tag">H-score</span></div>
+        </a>
+        <a class="edu-card reveal delay-4" href="/education/ai-biomarker-assessment">
+          <div class="edu-card-bg"></div>
+          <h3>AI-Assisted Biomarker Assessment</h3>
+          <p>Explore how PCI-AI's AI algorithms assist with IHC scoring — reducing pathologist evaluation time on demanding caseloads while maintaining accuracy across complex biomarker expression patterns.</p>
+          <div class="edu-tags"><span class="edu-tag">AI Scoring</span><span class="edu-tag">Biomarker AI</span><span class="edu-tag">Automation</span></div>
+        </a>
+      </div>
+      <div class="edu-footer reveal delay-5">
+        <p class="edu-note">Topic modules and guided resources — powered by <span>PCI-AI</span></p>
+        <a href="https://www.pcibio.com/digital-pathology-education" target="_blank" class="btn-primary">Explore full education library →</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ── Workflow ───────────────────────────────────── -->
+  <section class="workflow-section section-hema" id="workflow">
+    <div class="section-banner workflow-banner"><div class="banner-track"><span>IHC STAINING · UPLOAD · AI SCORE · STANDARDIZE · DIGITIZE · INTERPRET · DAB CALIBRATION · REFERENCE PLUG · BENCHMARK · IHC STAINING · UPLOAD · AI SCORE · STANDARDIZE · DIGITIZE · INTERPRET · DAB CALIBRATION · REFERENCE PLUG · BENCHMARK · IHC STAINING · UPLOAD · AI SCORE · </span><span>IHC STAINING · UPLOAD · AI SCORE · STANDARDIZE · DIGITIZE · INTERPRET · DAB CALIBRATION · REFERENCE PLUG · BENCHMARK · IHC STAINING · UPLOAD · AI SCORE · STANDARDIZE · DIGITIZE · INTERPRET · DAB CALIBRATION · REFERENCE PLUG · BENCHMARK · IHC STAINING · UPLOAD · AI SCORE · </span></div></div>
+    <div class="section-wrap">
+      <div class="section-tag section-tag-hema reveal">Workflow</div>
+      <h2 class="reveal delay-1">Pathology Staining<br>to AI Score</h2>
+      <p class="section-sub reveal delay-2">Standardize, digitize, and interpret without any disruptive pipeline friction.</p>
+      <div class="workflow-grid">
+        <div class="workflow-step reveal delay-1">
+          <div class="step-num">01</div>
+          <h3>Run IHC Staining</h3>
+          <p>Insert a PCI slide carrying characterized cell line plugs during your routine patient run to serve as a benchmark for antibody calibration.</p>
+        </div>
+        <div class="workflow-step reveal delay-2">
+          <div class="step-num">02</div>
+          <h3>Upload Whole Slide Image</h3>
+          <p>Export the high-resolution scanner output and drop it into the secure, tiled PCI Digital Viewer at pcibio.ai for instant rendering.</p>
+        </div>
+        <div class="workflow-step reveal delay-3">
+          <div class="step-num">03</div>
+          <h3>Receive Objective Score</h3>
+          <p>Our machine learning algorithm measures DAB expression and separation compared to reference cells, preparing objective outputs in minutes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ── About ──────────────────────────────────────── -->
+  <section class="about-section section-light" id="about">
+    <div class="section-banner about-banner"><div class="banner-track"><span>NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · </span><span>NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · </span></div></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-tag section-tag-hema reveal">About PCI-AI</div>
+        <h2 class="reveal delay-1">Precision Cellular<br>Immunology</h2>
+        <p class="reveal delay-2">PCI-AI improves patient care through precision cell line IHC control panels and AI assessment assistance. Our work in cell line characterization and biomarker quality control helps pathologists and histologists achieve higher reproducibility and clinical efficiency.</p>
+        <p class="reveal delay-3">Characterized FFPE cell line plugs enrich biomarker antibody optimization and decrease time for IHC assessment — assisting pathologists in their evaluation and reducing time spent on individual IHC cases.</p>
+        <div class="about-links reveal delay-4">
+          <a href="https://www.pcibio.com" class="btn-ghost" target="_blank">Visit pcibio.com →</a>
+          <a href="https://www.pcibio.com/about" class="btn-text" target="_blank">Meet the team</a>
+        </div>
+      </div>
+      <div class="about-cards">
+        <a class="about-card reveal delay-2" href="https://www.pcibio.com/cell-line-quality-controls-page" target="_blank">
+          <h4>Cell line IHC controls</h4>
+          <p>TriControl™, QuadControl™ and DualControl™ panels for antibody optimization and quality control — defined null, wild-type, and diffuse expression profiles across validated cell lines.</p>
+        </a>
+        <a class="about-card reveal delay-3" href="/education/ai-biomarker-assessment">
+          <h4>Biomarker AI assessment</h4>
+          <p>AI algorithms to assist with IHC biomarker interpretation — automated classification of null, wild-type, and diffuse expression patterns to reduce pathologist evaluation time.</p>
+        </a>
+        <a class="about-card reveal delay-4" href="https://www.pcibio.com/about" target="_blank">
+          <h4>Digital pathology education</h4>
+          <p>Guided topic modules covering IHC interpretation, biomarker assessment, and digital pathology fundamentals. Curated examples help pathologists and scientists distinguish null from diffuse expression in complex biomarker panels.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider section-divider-hema">
+
+  <!-- ── CTA ───────────────────────────────────────── -->
+  <section class="cta-section section-alt">
+    <div class="section-banner cta-banner"><div class="banner-track"><span>PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · </span><span>PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · </span></div></div>
+    <div class="cta-inner">
+      <div class="cta-glow"></div>
+      <!-- Circular motifs -->
+      <div class="circle-decor circle-decor-md circle-accent" style="top:50%;left:-60px;transform:translateY(-50%);opacity:0.07;"></div>
+      <div class="circle-decor circle-decor-md circle-teal"   style="top:50%;right:-60px;transform:translateY(-50%);opacity:0.07;"></div>
+      <div class="section-tag reveal">Get started</div>
+      <h2 class="reveal delay-1">Ready to Improve Your<br>IHC Assessment?</h2>
+      <p class="reveal delay-2">Achieve higher reproducibility, secure patient sample verification, and access seamless automated scoring algorithms. Located at Helix Park, Houston TX.</p>
+      <div class="hero-actions reveal delay-3" style="justify-content:center;">
+        <a href="https://www.pcibio.com/shop" class="btn-primary btn-lg" target="_blank">Shop Control Products →</a>
+        <a href="https://www.pcibio.com/contact" class="btn-ghost btn-lg" target="_blank">Contact Our Labs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo"><img src="/static/images/cancer-cell-mark-v2.svg" class="aperture-mark" width="28" height="28" alt="">PCI<span class="logo-dot">-</span><span class="logo-accent">AI</span></a>
+        <div class="footer-tagline">Digital Pathology Platform</div>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.pcibio.com" target="_blank">pcibio.com</a>
+        <a href="https://www.pcibio.com/about" target="_blank">About</a>
+        <a href="https://www.pcibio.com/contact" target="_blank">Contact</a>
+        <a href="https://www.pcibio.com/products" target="_blank">Products</a>
+        <a href="/privacy">Privacy Policy &amp; Terms of Use</a>
+      </div>
+      <div class="footer-right">
+        <span class="footer-copy">© 2025 PCI-AI, Inc.</span>
+        <div class="footer-location"><span>Helix Park</span>, Houston TX</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Mouse glow ───────────────────────────────── */
+    const mouseGlow = document.getElementById('mouseGlow');
+    document.addEventListener('mousemove', e => {
+      mouseGlow.style.left = e.clientX + 'px';
+      mouseGlow.style.top  = e.clientY + 'px';
+    });
+
+    /* ── Nav scroll ───────────────────────────────── */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    /* ── Smooth scroll ────────────────────────────── */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+
+    /* ── Scroll reveal (Intersection Observer) ────── */
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObs.observe(el));
+
+    /* ── Animated number counters ─────────────────── */
+    function animateCounter(el, target, suffix, duration) {
+      const start = performance.now();
+      (function step(now) {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.floor(eased * target) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      })(start);
+    }
+
+    const counterObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.dataset.target);
+        const suffix = el.dataset.suffix || '';
+        if (!isNaN(target)) animateCounter(el, target, suffix, 1400);
+        counterObs.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+
+    document.querySelectorAll('.stat-num[data-target]').forEach(el => counterObs.observe(el));
+
+    /* ── Orb parallax + float (rAF) ───────────────── */
+    const ORBS = [
+      { el: document.getElementById('orb1'), px: 0.12, fx: 26, fy: 42, period: 14000 },
+      { el: document.getElementById('orb2'), px: 0.07, fx: -38, fy: -48, period: 18000 },
+      { el: document.getElementById('orb3'), px: 0.20, fx: 32, fy: -36, period: 16000 },
+      { el: document.getElementById('orb4'), px: 0.09, fx: -24, fy: 30,  period: 20000 },
+    ];
+    let pageScrollY = 0;
+    window.addEventListener('scroll', () => { pageScrollY = window.scrollY; }, { passive: true });
+
+    const _bgCanvas    = document.getElementById('bgCanvas');
+    const _gridOverlay = document.querySelector('.grid-overlay');
+
+    (function animateOrbs(t) {
+      ORBS.forEach(o => {
+        if (!o.el) return;
+        const fx = Math.sin(t / o.period * Math.PI * 2) * o.fx;
+        const fy = Math.cos(t / o.period * Math.PI * 2) * o.fy + pageScrollY * o.px;
+        o.el.style.transform = 'translate(' + fx.toFixed(2) + 'px,' + fy.toFixed(2) + 'px)';
+      });
+      if (_bgCanvas)    _bgCanvas.style.transform    = 'translateY(' + (pageScrollY * 0.14).toFixed(2) + 'px)';
+      if (_gridOverlay) _gridOverlay.style.transform = 'translateY(' + (pageScrollY * 0.07).toFixed(2) + 'px)';
+      requestAnimationFrame(animateOrbs);
+    })(0);
+
+    /* ── Zoom slider + mockup mag buttons ─────────── */
+    const MAGS    = ['1×', '5×', '10×', '20×', '40×'];
+    const SCALES  = [0.65, 0.78, 0.92, 1.08, 1.25];
+    const slider    = document.getElementById('zoomSlider');
+    const zoomVal   = document.getElementById('zoomVal');
+    const magBtns   = document.querySelectorAll('.mock-mags .mag-btn');
+    const indicator = document.getElementById('zoomIndicator');
+    const mockMagEl = document.getElementById('mockMagVal');
+    const tLayers   = document.querySelectorAll('#mockCanvas .tissue-layer');
+
+    function setZoom(idx) {
+      idx = Math.max(0, Math.min(4, idx));
+      slider.value = idx;
+      zoomVal.textContent = MAGS[idx];
+      if (mockMagEl)  mockMagEl.textContent = MAGS[idx];
+      if (indicator)  indicator.textContent  = MAGS[idx] + ' · H&E · Aperio SVS';
+      magBtns.forEach((btn, i) => btn.classList.toggle('active', i === idx));
+      const s  = SCALES[idx];
+      const tr = 'transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94)';
+      tLayers.forEach((t, i) => {
+        t.style.transition = tr;
+        t.style.transform  = 'scale(' + (s + i * 0.12).toFixed(3) + ')';
+      });
+    }
+
+    slider.addEventListener('input', () => setZoom(parseInt(slider.value)));
+    magBtns.forEach(btn => btn.addEventListener('click', () => setZoom(parseInt(btn.dataset.idx))));
+    setZoom(4);
+
+    /* ── Background particle canvas ──────────────────── */
+    (function() {
+      const canvas = document.getElementById('bgCanvas');
+      const ctx    = canvas.getContext('2d');
+
+      function resize() {
+        canvas.width  = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+
+      /* Particles */
+      const NUM_P  = 140;
+      const MAX_D  = 210;
+      const pts    = [];
+
+      function mkPt() {
+        return {
+          x:  Math.random() * canvas.width,
+          y:  Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.28,
+          vy: (Math.random() - 0.5) * 0.28,
+          r:  Math.random() * 2.2 + 0.9,
+          op: Math.random() * 0.60 + 0.28,
+          c:  Math.random() > 0.5 ? '27,79,216' : '46,204,154',
+        };
+      }
+      for (var i = 0; i < NUM_P; i++) pts.push(mkPt());
+
+      /* DNA helix — single full-screen wandering strand */
+      var dnaph   = 0;   /* helix scroll phase */
+      var dnaAmpP = 0;   /* amplitude oscillation phase */
+      var dnaSph1 = 0;   /* spine primary phase — slow large wave */
+      var dnaSph2 = 0;   /* spine secondary phase — faster small wave */
+
+      /* Mouse interaction */
+      var mx           = -9999;
+      var my           = -9999;
+      var dnaDispScale = 0;   /* lerps 0→1 slowly — scales spine repulsion */
+      var dnaGlow      = 0;
+      var dnaRate      = 0.035;
+
+      var REPULSE_R   = 250;  /* radius of influence (px) */
+      var REPULSE_MAX = 85;   /* max spine Y push at full engagement */
+
+      document.addEventListener('mousemove', function(e) {
+        var r = canvas.getBoundingClientRect();
+        mx = (e.clientX - r.left) * (canvas.width  / r.width);
+        my = (e.clientY - r.top)  * (canvas.height / r.height);
+      }, { passive: true });
+      window.addEventListener('mouseout', function(e) {
+        if (!e.relatedTarget) { mx = -9999; my = -9999; }
+      }, { passive: true });
+      function drawDNA() {
+        var W     = canvas.width;
+        var H     = canvas.height;
+        var dnaWL = 140;
+        var amp   = 28 * (0.72 + 0.28 * Math.sin(dnaAmpP));
+        var op    = 0.30;
+        var nSt   = Math.ceil(W / 3);
+
+        /* Spine: base wave + radial repulsion from mouse (Y-only so shape is preserved) */
+        function spineY(x) {
+          var base = H * 0.5
+            + H * 0.30 * Math.sin(2 * Math.PI * x / (W * 0.85) + dnaSph1)
+            + H * 0.10 * Math.sin(2 * Math.PI * x / (W * 0.38) + dnaSph2);
+          if (mx > -100 && dnaDispScale > 0.001) {
+            var dx = x - mx, dy = base - my;
+            var d2 = dx * dx + dy * dy;
+            if (d2 < REPULSE_R * REPULSE_R && d2 > 0.25) {
+              var dist = Math.sqrt(d2);
+              var t    = 1 - dist / REPULSE_R;
+              base    += (dy / dist) * t * t * dnaDispScale * REPULSE_MAX;
+            }
+          }
+          return base;
+        }
+
+        ctx.lineWidth = 1.6;
+        ctx.beginPath();
+        for (var si = 0; si <= nSt; si++) {
+          var px = si / nSt * W;
+          var py = spineY(px) + Math.sin(px / dnaWL * Math.PI * 2 + dnaph) * amp;
+          si === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+        }
+        ctx.strokeStyle = 'rgba(46,204,154,' + op + ')';
+        ctx.stroke();
+
+        ctx.beginPath();
+        for (var si2 = 0; si2 <= nSt; si2++) {
+          var px2 = si2 / nSt * W;
+          var py2 = spineY(px2) + Math.sin(px2 / dnaWL * Math.PI * 2 + dnaph + Math.PI) * amp;
+          si2 === 0 ? ctx.moveTo(px2, py2) : ctx.lineTo(px2, py2);
+        }
+        ctx.strokeStyle = 'rgba(27,79,216,' + op + ')';
+        ctx.stroke();
+
+        ctx.lineWidth = 0.8;
+        var rStep = dnaWL / 8;
+        for (var rx = 0; rx <= W; rx += rStep) {
+          var cy  = spineY(rx);
+          var ry1 = cy + Math.sin(rx / dnaWL * Math.PI * 2 + dnaph) * amp;
+          var ry2 = cy + Math.sin(rx / dnaWL * Math.PI * 2 + dnaph + Math.PI) * amp;
+          ctx.beginPath();
+          ctx.moveTo(rx, ry1);
+          ctx.lineTo(rx, ry2);
+          ctx.strokeStyle = 'rgba(192,57,43,' + (op * 0.85) + ')';
+          ctx.stroke();
+        }
+
+        /* Glow pass — brightens the helix near the cursor */
+        if (dnaGlow > 0.02 && mx > 0) {
+          var gop = op + dnaGlow * 0.32;
+          ctx.save();
+          ctx.beginPath();
+          ctx.rect(mx - 230, 0, 460, H);
+          ctx.clip();
+
+          ctx.lineWidth = 2.4;
+          ctx.beginPath();
+          for (var gi = 0; gi <= nSt; gi++) {
+            var gx = gi / nSt * W;
+            var gy = spineY(gx) + Math.sin(gx / dnaWL * Math.PI * 2 + dnaph) * amp;
+            gi === 0 ? ctx.moveTo(gx, gy) : ctx.lineTo(gx, gy);
+          }
+          ctx.strokeStyle = 'rgba(46,204,154,' + gop + ')';
+          ctx.stroke();
+
+          ctx.beginPath();
+          for (var gi2 = 0; gi2 <= nSt; gi2++) {
+            var gx2 = gi2 / nSt * W;
+            var gy2 = spineY(gx2) + Math.sin(gx2 / dnaWL * Math.PI * 2 + dnaph + Math.PI) * amp;
+            gi2 === 0 ? ctx.moveTo(gx2, gy2) : ctx.lineTo(gx2, gy2);
+          }
+          ctx.strokeStyle = 'rgba(27,79,216,' + gop + ')';
+          ctx.stroke();
+
+          ctx.lineWidth = 1.2;
+          for (var grx = 0; grx <= W; grx += rStep) {
+            var gcy  = spineY(grx);
+            var gry1 = gcy + Math.sin(grx / dnaWL * Math.PI * 2 + dnaph) * amp;
+            var gry2 = gcy + Math.sin(grx / dnaWL * Math.PI * 2 + dnaph + Math.PI) * amp;
+            ctx.beginPath();
+            ctx.moveTo(grx, gry1);
+            ctx.lineTo(grx, gry2);
+            ctx.strokeStyle = 'rgba(192,57,43,' + (gop * 0.85) + ')';
+            ctx.stroke();
+          }
+          ctx.restore();
+        }
+      }
+
+      function frame() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        /* Slowly lerp the repulsion scale in and out */
+        if (mx > -100) {
+          dnaDispScale += (1 - dnaDispScale) * 0.006;
+          var sYm  = canvas.height * 0.5
+            + canvas.height * 0.30 * Math.sin(2 * Math.PI * mx / (canvas.width * 0.85) + dnaSph1)
+            + canvas.height * 0.10 * Math.sin(2 * Math.PI * mx / (canvas.width * 0.38) + dnaSph2);
+          var prox = Math.max(0, 1 - Math.abs(my - sYm) / 280);
+          dnaGlow  += (prox - dnaGlow) * 0.04;
+        } else {
+          dnaDispScale += (0 - dnaDispScale) * 0.004;
+          dnaGlow      += (0 - dnaGlow)      * 0.03;
+        }
+        dnaRate += (0.035 - dnaRate) * 0.02;
+        dnaph   += dnaRate;
+        dnaAmpP += 0.004;
+        dnaSph1 += 0.004;
+        dnaSph2 += 0.007;
+        drawDNA();
+
+        /* Connection lines */
+        ctx.lineWidth = 0.5;
+        for (var a = 0; a < pts.length; a++) {
+          for (var b = a + 1; b < pts.length; b++) {
+            var dx = pts[a].x - pts[b].x;
+            var dy = pts[a].y - pts[b].y;
+            var d2 = dx * dx + dy * dy;
+            if (d2 < MAX_D * MAX_D) {
+              var fade = (1 - Math.sqrt(d2) / MAX_D) * 0.42;
+              ctx.beginPath();
+              ctx.moveTo(pts[a].x, pts[a].y);
+              ctx.lineTo(pts[b].x, pts[b].y);
+              ctx.strokeStyle = 'rgba(' + pts[a].c + ',' + fade + ')';
+              ctx.stroke();
+            }
+          }
+        }
+
+        /* Particles */
+        for (var pi = 0; pi < pts.length; pi++) {
+          var p = pts[pi];
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < 0) p.x = canvas.width;
+          if (p.x > canvas.width)  p.x = 0;
+          if (p.y < 0) p.y = canvas.height;
+          if (p.y > canvas.height) p.y = 0;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r * 3.5, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(' + p.c + ',' + (p.op * 0.42) + ')';
+          ctx.fill();
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(' + p.c + ',' + p.op + ')';
+          ctx.fill();
+        }
+
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    })();
+
+    /* ── Interactive mockup viewer ─────────────────────────── */
+    (function() {
+      var mc      = document.getElementById('mockCanvas');
+      var tpan    = document.getElementById('tissuePan');
+      var coordEl = document.getElementById('viewerCoord');
+      var thumbVP = document.getElementById('thumbViewport');
+      if (!mc || !tpan) return;
+
+      var drag = false, lastX = 0, lastY = 0, panX = 0, panY = 0;
+      var SLIDE_W = 18342, SLIDE_H = 14250;
+      var MAG_FIELD = [8.0, 2.4, 1.2, 0.55, 0.22];
+
+      function curMag() { return parseInt(slider.value); }
+
+      function clampPan() {
+        var rect = mc.getBoundingClientRect();
+        var lvl  = curMag();
+        var mx   = rect.width  * MAG_FIELD[lvl] * 0.38;
+        var my   = rect.height * MAG_FIELD[lvl] * 0.38;
+        panX = Math.max(-mx, Math.min(mx, panX));
+        panY = Math.max(-my, Math.min(my, panY));
+      }
+
+      function applyPan() {
+        clampPan();
+        tpan.style.transform = 'translate(' + panX.toFixed(1) + 'px,' + panY.toFixed(1) + 'px)';
+        updateVP();
+      }
+
+      function updateVP() {
+        if (!thumbVP) return;
+        var lvl  = curMag();
+        var frac = 1.0 / (MAG_FIELD[lvl] * 4.5);
+        var vpW  = Math.min(95, frac * 100);
+        var vpH  = Math.min(95, frac * 100);
+        var rect = mc.getBoundingClientRect();
+        var vpL  = 50 - vpW / 2 - (panX / (rect.width  || 1)) * frac * 100;
+        var vpT  = 50 - vpH / 2 - (panY / (rect.height || 1)) * frac * 100;
+        thumbVP.style.width  = vpW.toFixed(1) + '%';
+        thumbVP.style.height = vpH.toFixed(1) + '%';
+        thumbVP.style.left   = Math.max(0, Math.min(100 - vpW, vpL)).toFixed(1) + '%';
+        thumbVP.style.top    = Math.max(0, Math.min(100 - vpH, vpT)).toFixed(1) + '%';
+      }
+
+      function coordsAt(cx, cy) {
+        var rect  = mc.getBoundingClientRect();
+        var lvl   = curMag();
+        var field = MAG_FIELD[lvl];
+        var rx    = (cx - rect.left) / (rect.width  || 1);
+        var ry    = (cy - rect.top)  / (rect.height || 1);
+        var xum   = Math.round((rx - 0.5 - panX / (rect.width  || 1)) * field * SLIDE_W + SLIDE_W / 2);
+        var yum   = Math.round((ry - 0.5 - panY / (rect.height || 1)) * field * SLIDE_H + SLIDE_H / 2);
+        return { x: Math.max(0, Math.min(SLIDE_W, xum)), y: Math.max(0, Math.min(SLIDE_H, yum)) };
+      }
+
+      mc.addEventListener('mousedown', function(e) {
+        drag = true; lastX = e.clientX; lastY = e.clientY;
+        mc.style.cursor = 'grabbing'; e.preventDefault();
+      });
+
+      mc.addEventListener('mousemove', function(e) {
+        if (coordEl) {
+          var c = coordsAt(e.clientX, e.clientY);
+          coordEl.textContent = 'X: ' + c.x.toLocaleString() + ' µm   Y: ' + c.y.toLocaleString() + ' µm';
+        }
+      });
+
+      mc.addEventListener('mouseleave', function() {
+        if (coordEl) coordEl.textContent = '';
+      });
+
+      window.addEventListener('mousemove', function(e) {
+        if (!drag) return;
+        panX += e.clientX - lastX; panY += e.clientY - lastY;
+        lastX = e.clientX; lastY = e.clientY;
+        applyPan();
+      });
+
+      window.addEventListener('mouseup', function() {
+        if (drag) { drag = false; mc.style.cursor = 'crosshair'; }
+      });
+
+      mc.addEventListener('wheel', function(e) {
+        e.preventDefault();
+        var idx = curMag();
+        setZoom(idx + (e.deltaY < 0 ? 1 : -1));
+        panX *= 0.80; panY *= 0.80;
+        applyPan();
+      }, { passive: false });
+
+      mc.querySelectorAll('.chan-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          mc.querySelectorAll('.chan-btn').forEach(function(b) { b.classList.remove('active'); });
+          this.classList.add('active');
+          var eosinL = mc.querySelector('.canvas-eosin');
+          var hemaL  = mc.querySelector('.canvas-hema');
+          var nuclL  = mc.querySelector('.nuclei-layer');
+          if (this.dataset.chan === 'ihc') {
+            if (eosinL) { eosinL.style.opacity = '0.12'; eosinL.style.filter = 'hue-rotate(90deg)'; }
+            if (hemaL)  { hemaL.style.filter   = 'hue-rotate(200deg) saturate(2.2) brightness(1.3)'; }
+            if (nuclL)  { nuclL.style.filter   = 'hue-rotate(200deg) saturate(2.5)'; }
+          } else {
+            if (eosinL) { eosinL.style.opacity = ''; eosinL.style.filter = ''; }
+            if (hemaL)  { hemaL.style.filter   = ''; }
+            if (nuclL)  { nuclL.style.filter   = ''; }
+          }
+        });
+      });
+
+      mc.querySelectorAll('.tool-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          mc.querySelectorAll('.tool-btn').forEach(function(b) { b.classList.remove('active'); });
+          this.classList.add('active');
+        });
+      });
+
+      var tbZI = document.getElementById('tbZoomIn');
+      var tbZO = document.getElementById('tbZoomOut');
+      var tbFt = document.getElementById('tbFit');
+      if (tbZI) tbZI.addEventListener('click', function() { setZoom(curMag()+1); applyPan(); });
+      if (tbZO) tbZO.addEventListener('click', function() { setZoom(curMag()-1); applyPan(); });
+      if (tbFt) tbFt.addEventListener('click', function() { panX=0; panY=0; setZoom(4); applyPan(); });
+
+      mc.style.cursor = 'crosshair';
+      updateVP();
+    })();
+  </script>
+  <script>
+    /* ── 3D card tilt ── */
+    document.querySelectorAll('.feat-card, .product-card, .edu-card, .about-card').forEach(function(card) {
+      card.addEventListener('mousemove', function(e) {
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width  - 0.5;
+        var y = (e.clientY - r.top)  / r.height - 0.5;
+        card.style.transition = 'transform 0.05s ease, box-shadow 0.18s, border-color 0.18s';
+        card.style.transform  = 'perspective(700px) rotateX(' + (-y * 7) + 'deg) rotateY(' + (x * 7) + 'deg) translateY(-3px)';
+      });
+      card.addEventListener('mouseleave', function() {
+        card.style.transition = 'transform 0.35s ease, box-shadow 0.18s, border-color 0.18s';
+        card.style.transform  = '';
+      });
+    });
+  </script>
+</body>
+</html>

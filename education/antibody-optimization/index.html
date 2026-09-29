@@ -1,0 +1,415 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Antibody Optimization &#8212; PCI-AI Education</title>
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="/static/css/education.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="mouse-glow" id="mouseGlow"></div>
+
+  <nav class="nav" id="nav">
+    <a href="/" class="nav-logo"><img src="/static/images/cancer-cell-mark-v2.svg" class="aperture-mark" width="28" height="28" alt="">PCI<span class="logo-dot">-</span><span class="logo-accent">AI</span></a>
+    <div class="nav-links">
+      <a href="https://www.pcibio.com" target="_blank">PCI-AI</a>
+      <a href="/#features">Platform</a>
+      <a href="/#products">Products</a>
+      <a href="/education" style="color:var(--accent);">Education</a>
+      <a href="/#workflow">Workflow</a>
+      <a href="/#about">About</a>
+      <a href="/login" class="nav-signin">Sign in</a>
+      <a href="/register" class="btn-primary btn-sm">Get started &#8594;</a>
+    </div>
+  </nav>
+
+  <div style="height:60px;"></div>
+
+  <div style="background:var(--bg);border-bottom:1px solid var(--border);">
+    <div class="edu-page-header">
+      <div class="edu-breadcrumb">
+        <a href="/education">Education</a>
+        <span>/</span>
+        Antibody Optimization with Cell Line Controls
+      </div>
+      <div class="section-tag" style="margin-bottom:1.25rem;">IHC Biomarker Series</div>
+      <h1>Antibody Optimization<br>with Cell Line Controls</h1>
+      <p class="section-sub">How IHC results go from unreliable to reproducible &#8212; and the role cell line controls play in locking in quality at every step.</p>
+      <div class="edu-header-tags">
+        <span class="edu-tag">Antibody Titration</span>
+        <span class="edu-tag">Positive Control</span>
+        <span class="edu-tag">Negative Control</span>
+        <span class="edu-tag">FFPE Cell Block</span>
+        <span class="edu-tag">Signal-to-Noise</span>
+        <span class="edu-tag">TriControl&#8482;</span>
+        <span class="edu-tag">QuadControl&#8482;</span>
+        <span class="edu-tag">DualControl&#8482;</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="edu-subnav" id="eduSubnav">
+    <a href="#s1" class="subnav-link active">Why It Matters</a>
+    <a href="#s2" class="subnav-link">Cell Line Controls</a>
+    <a href="#s3" class="subnav-link">Titration</a>
+    <a href="#s4" class="subnav-link">PCI-AI Panels</a>
+  </nav>
+
+  <div class="edu-content">
+
+    <div class="edu-objectives-inner reveal">
+      <div class="edu-objectives-eyebrow">LEARNING OBJECTIVES</div>
+      <ul class="edu-objectives-list">
+        <li>Understand how cell line controls eliminate batch-to-batch variability during antibody titration</li>
+        <li>Learn how TriControl&#8482; and QuadControl&#8482; panels accelerate assay development and sign-off</li>
+        <li>Recognize the role of standardized null, wild-type, and diffuse controls in IHC protocol validation</li>
+      </ul>
+    </div>
+
+    <!-- Section 1 -->
+    <section class="edu-section" id="s1">
+      <div class="edu-section-num">Section 01</div>
+      <h2 class="reveal">Why Antibody Optimization Matters</h2>
+      <p class="reveal">IHC sounds straightforward in principle &#8212; apply an antibody, see where it stains, interpret the pattern. In practice, getting a clean, reliable result requires careful calibration. Use too much antibody, and the stain bleeds into areas where the protein isn&#8217;t actually present (false positives). Use too little, and real expression goes undetected (false negatives). The wrong incubation time, diluent, or tissue preparation can produce the same problems.</p>
+      <p class="reveal">This process of finding the right conditions &#8212; antibody concentration, incubation time, blocking steps, <span class="gloss">antigen retrieval<span class="gloss-tip">A preparatory step that &#8220;unmasks&#8221; proteins in FFPE tissue that were chemically altered during fixation, allowing the antibody to bind correctly.</span></span> &#8212; is called <span class="gloss">antibody optimization<span class="gloss-tip">The process of testing an antibody at multiple concentrations to find the optimal amount that produces clear, specific staining with minimal background noise.</span></span>, and it has to happen before any staining result can be trusted diagnostically.</p>
+      <p class="reveal">The critical issue is reproducibility: a test that works perfectly in one laboratory needs to produce the same result in another, on a different day, with different staff. Without standardized controls built into every run, there&#8217;s no reliable way to confirm that a result reflects the patient&#8217;s biology rather than a technical variable in that day&#8217;s staining run.</p>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="edu-section" id="s2">
+      <div class="edu-section-num">Section 02</div>
+      <h2 class="reveal">What Cell Line Controls Are and Why They&#8217;re Used</h2>
+      <p class="reveal">Controls are the quality assurance layer of IHC. Every staining run includes control samples alongside the patient tissue &#8212; not to generate diagnostic information, but to verify the run itself is performing correctly before trusting any patient result.</p>
+      <div class="reveal">
+        <p><span class="pattern-type"><span class="pattern-dot wildtype"></span><span class="gloss">Positive controls<span class="gloss-tip">A sample known to express the target protein, run alongside patient tissue to confirm the staining procedure worked correctly.</span></span></span> are samples known to express the target protein. If a positive control doesn&#8217;t stain when it should, something went wrong with the procedure &#8212; and any patient results from that run can&#8217;t be trusted. They confirm the antibody, reagents, and protocol are all working.</p>
+        <p><span class="pattern-type"><span class="pattern-dot null"></span><span class="gloss">Negative controls<span class="gloss-tip">A sample known not to express the target protein, used to detect any false-positive or non-specific background staining.</span></span></span> are samples known not to express the target protein. If a negative control stains, it signals <span class="gloss">non-specific binding<span class="gloss-tip">When an antibody sticks to structures it wasn&#8217;t designed to target, producing misleading background staining.</span></span> &#8212; a false positive problem that would also affect patient tissue on the same run.</p>
+      </div>
+      <p class="reveal">Cell lines make particularly reliable controls because their protein expression levels are stable, well-characterized, and reproducible. Unlike human tissue samples &#8212; which vary between patients, fixation batches, and processing conditions &#8212; cell lines can be prepared consistently as <span class="gloss">FFPE cell blocks<span class="gloss-tip">Formalin-fixed, paraffin-embedded cells prepared the same way as patient tissue, used as a standardized control material.</span></span> that behave like tissue under the microscope. This makes them ideal as a fixed reference point: you always know what they should look like, so any deviation is immediately meaningful.</p>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="edu-section" id="s3">
+      <div class="edu-section-num">Section 03</div>
+      <h2 class="reveal">How Titration Works</h2>
+      <p class="reveal">Finding the optimal antibody concentration is done through <span class="gloss">titration<span class="gloss-tip">The process of testing an antibody at multiple concentrations to find the optimal amount that produces clear, specific staining with minimal background noise.</span></span> &#8212; running the same antibody at a series of dilutions (for example, 1:50, 1:100, 1:200, 1:400) against a positive control and a negative control simultaneously, then comparing results. The goal is the concentration that produces the highest <span class="gloss">signal-to-noise ratio<span class="gloss-tip">The balance between true staining signal (where the protein is) and background noise (non-specific staining everywhere else) &#8212; higher is better.</span></span>: strong, specific staining where the protein should be, and clean background where it shouldn&#8217;t.</p>
+
+      <!-- Step progression -->
+      <div class="step-progression reveal">
+        <div class="step-nav" id="stepNav">
+          <button class="step-num-btn active" data-step="0">1</button>
+          <button class="step-num-btn" data-step="1">2</button>
+          <button class="step-num-btn" data-step="2">3</button>
+          <button class="step-num-btn" data-step="3">4</button>
+          <button class="step-num-btn" data-step="4">5</button>
+          <button class="step-num-btn" data-step="5">6</button>
+        </div>
+        <div class="step-progress-track"><div class="step-progress-fill" id="stepProgress" style="width:0%;"></div></div>
+        <div class="step-content-area">
+
+          <!-- Step 1 -->
+          <div class="step-panel active" data-step="0">
+            <div class="step-title-row">
+              <div class="step-badge">1</div>
+              <div class="step-title">Select target protein and antibody</div>
+            </div>
+            <p class="step-body">Identify the biomarker of interest and choose a primary antibody validated for IHC use. Antibody selection depends on the protein being targeted, the host species the antibody was raised in, and the detection platform. Not all antibodies against the same protein perform equally &#8212; clone selection, lot consistency, and vendor validation data all affect how a result translates to patient tissue.</p>
+            <div class="step-illustration">
+              <svg viewBox="0 0 160 90" class="step-svg">
+                <line x1="80" y1="10" x2="80" y2="52" stroke="#1B4FD8" stroke-width="3" stroke-linecap="round"/>
+                <line x1="80" y1="52" x2="38" y2="84" stroke="#1B4FD8" stroke-width="3" stroke-linecap="round"/>
+                <line x1="80" y1="52" x2="122" y2="84" stroke="#1B4FD8" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="38" cy="84" r="9" fill="rgba(27,79,216,0.12)" stroke="#1B4FD8" stroke-width="1.5"/>
+                <circle cx="122" cy="84" r="9" fill="rgba(27,79,216,0.12)" stroke="#1B4FD8" stroke-width="1.5"/>
+                <ellipse cx="80" cy="10" rx="8" ry="6" fill="rgba(27,79,216,0.09)" stroke="#1B4FD8" stroke-width="1.5"/>
+                <text x="80" y="36" text-anchor="middle" fill="rgba(27,79,216,0.45)" font-size="7.5" font-family="IBM Plex Mono,monospace">Fc region</text>
+                <text x="29" y="90" text-anchor="middle" fill="rgba(27,79,216,0.60)" font-size="7" font-family="IBM Plex Mono,monospace">Fab</text>
+                <text x="131" y="90" text-anchor="middle" fill="rgba(27,79,216,0.60)" font-size="7" font-family="IBM Plex Mono,monospace">Fab</text>
+                <text x="80" y="7" text-anchor="middle" fill="rgba(27,79,216,0.35)" font-size="6.5" font-family="IBM Plex Mono,monospace">antigen binding</text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-panel" data-step="1">
+            <div class="step-title-row">
+              <div class="step-badge">2</div>
+              <div class="step-title">Prepare positive and negative cell line controls</div>
+            </div>
+            <p class="step-body">Source or prepare FFPE cell blocks from cell lines with known, stable expression of the target protein (positive control) and known absence of the protein (negative control). Cell lines are preferred over patient tissue as controls because their expression levels are consistent and reproducible across preparations &#8212; you always know what they should look like, so any deviation is immediately flagged.</p>
+            <div class="step-illustration">
+              <svg viewBox="0 0 160 90" class="step-svg">
+                <rect x="16" y="10" width="56" height="68" rx="6" fill="rgba(5,150,105,0.07)" stroke="rgba(5,150,105,0.38)" stroke-width="1.5"/>
+                <text x="44" y="48" text-anchor="middle" fill="rgba(5,150,105,0.90)" font-size="26" font-weight="600">+</text>
+                <text x="44" y="67" text-anchor="middle" fill="rgba(5,150,105,0.62)" font-size="7.5" font-family="IBM Plex Mono,monospace">POSITIVE</text>
+                <rect x="88" y="10" width="56" height="68" rx="6" fill="rgba(100,116,139,0.07)" stroke="rgba(100,116,139,0.30)" stroke-width="1.5"/>
+                <text x="116" y="48" text-anchor="middle" fill="rgba(100,116,139,0.85)" font-size="26" font-weight="600">&#8722;</text>
+                <text x="116" y="67" text-anchor="middle" fill="rgba(100,116,139,0.58)" font-size="7.5" font-family="IBM Plex Mono,monospace">NEGATIVE</text>
+                <text x="44" y="85" text-anchor="middle" fill="rgba(5,150,105,0.50)" font-size="6.5" font-family="IBM Plex Mono,monospace">expresses target</text>
+                <text x="116" y="85" text-anchor="middle" fill="rgba(100,116,139,0.50)" font-size="6.5" font-family="IBM Plex Mono,monospace">no expression</text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-panel" data-step="2">
+            <div class="step-title-row">
+              <div class="step-badge">3</div>
+              <div class="step-title">Run the titration series</div>
+            </div>
+            <p class="step-body">Run the same antibody at multiple dilutions &#8212; for example 1:50, 1:100, 1:200, and 1:400 &#8212; against both the positive and negative controls simultaneously. Every concentration is stained and processed under the exact same conditions so that only the antibody concentration varies. This isolation is what makes the result interpretable.</p>
+            <div class="step-illustration">
+              <svg viewBox="0 0 210 100" class="step-svg">
+                <!-- 1:50 - over-concentrated -->
+                <text x="26" y="11" text-anchor="middle" fill="rgba(192,57,43,0.75)" font-size="6.5" font-family="IBM Plex Mono,monospace">too high</text>
+                <rect x="10" y="17" width="32" height="64" rx="3" fill="rgba(239,68,68,0.05)" stroke="rgba(239,68,68,0.28)" stroke-width="1.2"/>
+                <rect x="11" y="23" width="30" height="38" rx="2" fill="rgba(27,79,216,0.55)"/>
+                <rect x="11" y="61" width="30" height="19" rx="2" fill="rgba(220,60,50,0.32)"/>
+                <text x="26" y="93" text-anchor="middle" fill="rgba(100,116,139,0.75)" font-size="7" font-family="IBM Plex Mono,monospace">1:50</text>
+                <!-- 1:100 -->
+                <rect x="57" y="17" width="32" height="64" rx="3" fill="rgba(249,115,22,0.04)" stroke="rgba(249,115,22,0.25)" stroke-width="1.2"/>
+                <rect x="58" y="27" width="30" height="30" rx="2" fill="rgba(27,79,216,0.50)"/>
+                <rect x="58" y="57" width="30" height="23" rx="2" fill="rgba(249,115,22,0.28)"/>
+                <text x="73" y="93" text-anchor="middle" fill="rgba(100,116,139,0.70)" font-size="7" font-family="IBM Plex Mono,monospace">1:100</text>
+                <!-- 1:200 - OPTIMAL -->
+                <text x="126" y="8" text-anchor="middle" fill="#1B4FD8" font-size="6.5" font-family="IBM Plex Mono,monospace" font-weight="600">OPTIMAL</text>
+                <rect x="107" y="13" width="38" height="68" rx="4" fill="rgba(27,79,216,0.06)" stroke="#1B4FD8" stroke-width="2"/>
+                <rect x="108" y="20" width="36" height="38" rx="2" fill="rgba(27,79,216,0.58)"/>
+                <rect x="108" y="58" width="36" height="5" rx="2" fill="rgba(100,116,139,0.16)"/>
+                <text x="126" y="95" text-anchor="middle" fill="#1B4FD8" font-size="7.5" font-family="IBM Plex Mono,monospace" font-weight="600">1:200 &#10003;</text>
+                <!-- 1:400 - too dilute -->
+                <text x="176" y="11" text-anchor="middle" fill="rgba(100,116,139,0.62)" font-size="6.5" font-family="IBM Plex Mono,monospace">too low</text>
+                <rect x="160" y="17" width="32" height="64" rx="3" fill="rgba(100,116,139,0.04)" stroke="rgba(100,116,139,0.20)" stroke-width="1.2"/>
+                <rect x="161" y="55" width="30" height="14" rx="2" fill="rgba(27,79,216,0.22)"/>
+                <text x="176" y="93" text-anchor="middle" fill="rgba(100,116,139,0.62)" font-size="7" font-family="IBM Plex Mono,monospace">1:400</text>
+                <!-- Legend -->
+                <rect x="10" y="98" width="7" height="4" rx="1" fill="rgba(27,79,216,0.52)"/>
+                <text x="20" y="102" fill="rgba(100,116,139,0.65)" font-size="6" font-family="IBM Plex Mono,monospace">Signal</text>
+                <rect x="58" y="98" width="7" height="4" rx="1" fill="rgba(220,60,50,0.30)"/>
+                <text x="68" y="102" fill="rgba(100,116,139,0.65)" font-size="6" font-family="IBM Plex Mono,monospace">Non-specific</text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-panel" data-step="3">
+            <div class="step-title-row">
+              <div class="step-badge">4</div>
+              <div class="step-title">Compare signal vs. background across concentrations</div>
+            </div>
+            <p class="step-body">Evaluate each concentration side by side. Too concentrated: both controls stain heavily &#8212; the positive and negative look similar, making it impossible to distinguish true expression from background. Too dilute: the positive control barely stains, meaning real expression in patient tissue would be missed. The optimal concentration is the one with the highest ratio of true signal to background noise.</p>
+            <div class="step-illustration">
+              <svg viewBox="0 0 210 106" class="step-svg">
+                <text x="105" y="10" text-anchor="middle" fill="rgba(100,116,139,0.65)" font-size="7.5" font-family="IBM Plex Mono,monospace" font-weight="600">Signal vs. Noise by Concentration</text>
+                <!-- Row labels -->
+                <text x="42" y="27" text-anchor="end" fill="rgba(192,57,43,0.75)" font-size="7" font-family="IBM Plex Mono,monospace">1:50</text>
+                <text x="42" y="47" text-anchor="end" fill="rgba(100,116,139,0.70)" font-size="7" font-family="IBM Plex Mono,monospace">1:100</text>
+                <text x="42" y="67" text-anchor="end" fill="#1B4FD8" font-size="7" font-family="IBM Plex Mono,monospace" font-weight="600">1:200</text>
+                <text x="42" y="87" text-anchor="end" fill="rgba(100,116,139,0.60)" font-size="7" font-family="IBM Plex Mono,monospace">1:400</text>
+                <!-- Signal bars (blue) -->
+                <rect x="45" y="19" width="92" height="11" rx="2" fill="rgba(27,79,216,0.52)"/>
+                <rect x="45" y="39" width="78" height="11" rx="2" fill="rgba(27,79,216,0.46)"/>
+                <rect x="45" y="59" width="90" height="11" rx="2" fill="rgba(27,79,216,0.65)"/>
+                <rect x="45" y="79" width="42" height="11" rx="2" fill="rgba(27,79,216,0.28)"/>
+                <!-- Noise bars (red/orange) stacked -->
+                <rect x="137" y="19" width="46" height="11" rx="2" fill="rgba(220,50,40,0.36)"/>
+                <rect x="123" y="39" width="26" height="11" rx="2" fill="rgba(249,115,22,0.30)"/>
+                <rect x="135" y="59" width="5" height="11" rx="2" fill="rgba(100,116,139,0.18)"/>
+                <rect x="87" y="79" width="3" height="11" rx="2" fill="rgba(100,116,139,0.14)"/>
+                <!-- Optimal highlight -->
+                <rect x="43" y="56" width="101" height="17" rx="3" fill="none" stroke="#1B4FD8" stroke-width="1.5" stroke-dasharray="4,3"/>
+                <text x="148" y="67" fill="#1B4FD8" font-size="7" font-family="IBM Plex Mono,monospace" font-weight="600">&#8592; optimal</text>
+                <!-- Legend -->
+                <rect x="45" y="97" width="8" height="5" rx="1" fill="rgba(27,79,216,0.52)"/>
+                <text x="56" y="102" fill="rgba(100,116,139,0.65)" font-size="6.5" font-family="IBM Plex Mono,monospace">Signal</text>
+                <rect x="100" y="97" width="8" height="5" rx="1" fill="rgba(220,50,40,0.34)"/>
+                <text x="111" y="102" fill="rgba(100,116,139,0.65)" font-size="6.5" font-family="IBM Plex Mono,monospace">Non-specific noise</text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="step-panel" data-step="4">
+            <div class="step-title-row">
+              <div class="step-badge">5</div>
+              <div class="step-title">Lock in the optimal working concentration</div>
+            </div>
+            <p class="step-body">Once the optimal concentration is identified &#8212; the dilution that gives the clearest distinction between positive and negative controls &#8212; it&#8217;s validated and locked in as the standard working concentration for that antibody on that platform. From this point forward, all patient staining runs for that biomarker use this concentration. Any future change requires re-validation.</p>
+            <div class="step-illustration">
+              <svg viewBox="0 0 200 90" class="step-svg">
+                <!-- Padlock body -->
+                <rect x="78" y="44" width="44" height="34" rx="6" fill="rgba(5,150,105,0.09)" stroke="rgba(5,150,105,0.38)" stroke-width="2"/>
+                <!-- Padlock shackle -->
+                <path d="M 88,44 L 88,32 Q 88,20 100,20 Q 112,20 112,32 L 112,44" fill="none" stroke="rgba(5,150,105,0.38)" stroke-width="2.5" stroke-linecap="round"/>
+                <!-- Keyhole -->
+                <circle cx="100" cy="60" r="5" fill="rgba(5,150,105,0.28)" stroke="rgba(5,150,105,0.50)" stroke-width="1.5"/>
+                <rect x="98" y="60" width="4" height="8" rx="1" fill="rgba(5,150,105,0.28)"/>
+                <!-- Label -->
+                <text x="100" y="14" text-anchor="middle" fill="rgba(5,150,105,0.60)" font-size="7" font-family="IBM Plex Mono,monospace">Working concentration</text>
+                <text x="100" y="89" text-anchor="middle" fill="rgba(5,150,105,0.70)" font-size="8" font-family="IBM Plex Mono,monospace" font-weight="600">Conditions locked in &#10003;</text>
+                <!-- Left checkmarks -->
+                <text x="28" y="48" text-anchor="middle" fill="rgba(5,150,105,0.55)" font-size="10">&#10003;</text>
+                <text x="28" y="62" text-anchor="middle" fill="rgba(5,150,105,0.55)" font-size="10">&#10003;</text>
+                <text x="28" y="76" text-anchor="middle" fill="rgba(5,150,105,0.55)" font-size="10">&#10003;</text>
+                <text x="54" y="48" fill="rgba(5,150,105,0.50)" font-size="6.5" font-family="IBM Plex Mono,monospace">Antibody conc.</text>
+                <text x="54" y="62" fill="rgba(5,150,105,0.50)" font-size="6.5" font-family="IBM Plex Mono,monospace">Incubation time</text>
+                <text x="54" y="76" fill="rgba(5,150,105,0.50)" font-size="6.5" font-family="IBM Plex Mono,monospace">Antigen retrieval</text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="step-panel" data-step="5">
+            <div class="step-title-row">
+              <div class="step-badge">6</div>
+              <div class="step-title">Run controls on every subsequent patient staining run</div>
+            </div>
+            <p class="step-body">Optimization doesn&#8217;t end once conditions are set. Cell line controls must be run alongside patient tissue on every staining batch, indefinitely. A control that stains correctly on Tuesday doesn&#8217;t guarantee the same on Friday &#8212; reagents degrade, instruments drift, technicians vary. Controls are the mechanism that catches these shifts before they reach a patient report.</p>
+            <div class="step-illustration">
+              <svg viewBox="0 0 200 90" class="step-svg">
+                <!-- Patient slide box -->
+                <rect x="8" y="28" width="46" height="34" rx="5" fill="rgba(27,79,216,0.07)" stroke="rgba(27,79,216,0.28)" stroke-width="1.5"/>
+                <text x="31" y="44" text-anchor="middle" fill="rgba(27,79,216,0.72)" font-size="6.5" font-family="IBM Plex Mono,monospace" font-weight="600">Patient</text>
+                <text x="31" y="55" text-anchor="middle" fill="rgba(27,79,216,0.72)" font-size="6.5" font-family="IBM Plex Mono,monospace">slide</text>
+                <!-- Arrow 1-->
+                <line x1="54" y1="45" x2="70" y2="45" stroke="rgba(100,116,139,0.35)" stroke-width="1.5"/>
+                <polygon points="70,41 76,45 70,49" fill="rgba(100,116,139,0.45)"/>
+                <!-- Controls box -->
+                <rect x="76" y="28" width="48" height="34" rx="5" fill="rgba(46,204,154,0.07)" stroke="rgba(46,204,154,0.28)" stroke-width="1.5"/>
+                <text x="100" y="43" text-anchor="middle" fill="rgba(46,204,154,0.75)" font-size="6.5" font-family="IBM Plex Mono,monospace" font-weight="600">Controls</text>
+                <text x="100" y="54" text-anchor="middle" fill="rgba(46,204,154,0.75)" font-size="6.5" font-family="IBM Plex Mono,monospace">verified</text>
+                <!-- Arrow 2 -->
+                <line x1="124" y1="45" x2="140" y2="45" stroke="rgba(100,116,139,0.35)" stroke-width="1.5"/>
+                <polygon points="140,41 146,45 140,49" fill="rgba(100,116,139,0.45)"/>
+                <!-- Pass/Fail box -->
+                <rect x="146" y="28" width="46" height="34" rx="5" fill="rgba(5,150,105,0.07)" stroke="rgba(5,150,105,0.30)" stroke-width="1.5"/>
+                <text x="169" y="43" text-anchor="middle" fill="rgba(5,150,105,0.80)" font-size="6.5" font-family="IBM Plex Mono,monospace" font-weight="600">Report</text>
+                <text x="169" y="54" text-anchor="middle" fill="rgba(5,150,105,0.80)" font-size="6.5" font-family="IBM Plex Mono,monospace">issued &#10003;</text>
+                <!-- Cycle arrow -->
+                <path d="M 169,62 Q 169,78 100,78 Q 31,78 31,62" fill="none" stroke="rgba(100,116,139,0.25)" stroke-width="1.5" stroke-dasharray="5,3"/>
+                <polygon points="31,57 27,64 35,64" fill="rgba(100,116,139,0.35)"/>
+                <text x="100" y="89" text-anchor="middle" fill="rgba(100,116,139,0.50)" font-size="6.5" font-family="IBM Plex Mono,monospace">every staining run</text>
+              </svg>
+            </div>
+          </div>
+
+        </div><!-- /.step-content-area -->
+        <div class="step-controls">
+          <button class="step-btn" id="stepPrev" disabled>&#8592; Previous</button>
+          <span class="step-counter" id="stepCounter">Step 1 of 6</span>
+          <button class="step-btn primary" id="stepNext">Next &#8594;</button>
+        </div>
+      </div><!-- /.step-progression -->
+
+      <p class="reveal" style="margin-top:1.75rem;">Once optimal conditions are established, they need to be validated and locked in, so that every subsequent staining run produces equivalent results regardless of when or where it&#8217;s performed.</p>
+    </section>
+
+    <!-- Section 4 -->
+    <section class="edu-section" id="s4">
+      <div class="edu-section-num">Section 04</div>
+      <h2 class="reveal">How PCI-AI&#8217;s Control Panels Support This Process</h2>
+      <p class="reveal">PCI-AI&#8217;s TriControl&#8482;, QuadControl&#8482;, and DualControl&#8482; panels provide ready-made, characterized cell line controls covering multiple expression levels of a given biomarker &#8212; built specifically to streamline the titration and quality control process. Rather than sourcing and preparing individual control cell lines separately for each biomarker, a lab can run a single panel slide alongside patient tissue and immediately confirm whether staining intensity falls within the expected range across high, medium, and low (or absent) expression levels.</p>
+      <p class="reveal">This is the real-world application of the control concepts above: each circular plug on a TriControl&#8482; slide represents a different, pre-characterized expression tier, so a pathologist can calibrate their read of a patient slide against a built-in reference on the same physical glass. The panel replaces steps 2 through 4 of the titration workflow above with a single ready-made tool &#8212; one that has already been validated across those expression levels by PCI-AI.</p>
+
+      <div class="tricontrol-callout reveal">
+        <div class="product-circle" style="background:rgba(124,58,237,0.06);border-color:rgba(124,58,237,0.28);color:var(--hematoxylin);">3</div>
+        <div class="tricontrol-body">
+          <h4>TriControl&#8482; &#8212; three expression tiers on one slide</h4>
+          <p>Null, wild-type, and diffuse expression profiles in a single FFPE cell block. Run it alongside patient tissue to verify antibody performance and calibrate scoring across the full expression range &#8212; all without sourcing separate control tissue for each biomarker.</p>
+          <a href="https://www.pcibio.com/cell-line-quality-controls-page" target="_blank" class="btn-primary btn-sm">View all control panels &#8594;</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="edu-citations">
+      <strong>Sources:</strong> PMC (2014) &#8212; Antibody Validation of IHC for Biomarker Discovery: Recommendations of a Consortium of Academic and Pharmaceutical Histopathology Researchers; PMC (2016) &#8212; Immunohistochemistry for Pathologists: Protocols, Pitfalls, and Tips; Abcam &#8212; Controls in IHC; Bio-Rad &#8212; Crucial Controls and Tips for IHC Experiments; Boster Bio &#8212; 6 Essential IHC Controls for Reliable Staining Results; Novus Biologicals (Bio-Techne) &#8212; IHC Primary Antibody Selection and Optimization.
+    </div>
+
+  </div><!-- /.edu-content -->
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo"><img src="/static/images/cancer-cell-mark-v2.svg" class="aperture-mark" width="28" height="28" alt="">PCI<span class="logo-dot">-</span><span class="logo-accent">AI</span></a>
+        <div class="footer-tagline">Digital Pathology Platform</div>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.pcibio.com" target="_blank">pcibio.com</a>
+        <a href="https://www.pcibio.com/about" target="_blank">About</a>
+        <a href="https://www.pcibio.com/contact" target="_blank">Contact</a>
+        <a href="https://www.pcibio.com/products" target="_blank">Products</a>
+        <a href="/privacy">Privacy Policy &amp; Terms of Use</a>
+      </div>
+      <div class="footer-right">
+        <span class="footer-copy">&#169; 2025 PCI-AI, Inc.</span>
+        <div class="footer-location"><span>Helix Park</span>, Houston TX</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mouseGlow = document.getElementById('mouseGlow');
+    document.addEventListener('mousemove', e => {
+      mouseGlow.style.left = e.clientX + 'px';
+      mouseGlow.style.top  = e.clientY + 'px';
+    });
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' }); }
+      });
+    });
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+    const sectionObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        document.querySelectorAll('.subnav-link').forEach(l => l.classList.remove('active'));
+        const link = document.querySelector('.subnav-link[href="#' + entry.target.id + '"]');
+        if (link) link.classList.add('active');
+      });
+    }, { rootMargin: '-15% 0px -75% 0px' });
+    ['s1','s2','s3','s4'].forEach(id => { const el = document.getElementById(id); if (el) sectionObs.observe(el); });
+
+    /* ── Step progression ──────────────────────────────────── */
+    let currentStep = 0;
+    const TOTAL = 6;
+
+    function goToStep(n) {
+      n = Math.max(0, Math.min(TOTAL - 1, n));
+      document.querySelectorAll('.step-panel').forEach((p, i) => p.classList.toggle('active', i === n));
+      document.querySelectorAll('.step-num-btn').forEach((b, i) => {
+        b.classList.toggle('active', i === n);
+        b.classList.toggle('completed', i < n);
+      });
+      const pct = n === 0 ? 0 : Math.round((n / (TOTAL - 1)) * 100);
+      document.getElementById('stepProgress').style.width = pct + '%';
+      document.getElementById('stepCounter').textContent = 'Step ' + (n + 1) + ' of ' + TOTAL;
+      document.getElementById('stepPrev').disabled = n === 0;
+      const nextBtn = document.getElementById('stepNext');
+      if (n === TOTAL - 1) {
+        nextBtn.textContent = 'Done ✓';
+        nextBtn.classList.remove('primary');
+        nextBtn.disabled = true;
+      } else {
+        nextBtn.textContent = 'Next →';
+        nextBtn.classList.add('primary');
+        nextBtn.disabled = false;
+      }
+      currentStep = n;
+    }
+
+    document.getElementById('stepPrev').addEventListener('click', () => goToStep(currentStep - 1));
+    document.getElementById('stepNext').addEventListener('click', () => goToStep(currentStep + 1));
+    document.querySelectorAll('.step-num-btn').forEach((btn, i) => btn.addEventListener('click', () => goToStep(i)));
+  </script>
+</body>
+</html>

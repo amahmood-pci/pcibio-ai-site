@@ -1,0 +1,304 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>p53 IHC Expression Classification &#8212; PCI-AI Education</title>
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="/static/css/education.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="mouse-glow" id="mouseGlow"></div>
+
+  <!-- Nav -->
+  <nav class="nav" id="nav">
+    <a href="/" class="nav-logo"><img src="/static/images/cancer-cell-mark-v2.svg" class="aperture-mark" width="28" height="28" alt="">PCI<span class="logo-dot">-</span><span class="logo-accent">AI</span></a>
+    <div class="nav-links">
+      <a href="https://www.pcibio.com" target="_blank">PCI-AI</a>
+      <a href="/#features">Platform</a>
+      <a href="/#products">Products</a>
+      <a href="/education" style="color:var(--accent);">Education</a>
+      <a href="/#workflow">Workflow</a>
+      <a href="/#about">About</a>
+      <a href="/login" class="nav-signin">Sign in</a>
+      <a href="/register" class="btn-primary btn-sm">Get started &#8594;</a>
+    </div>
+  </nav>
+
+  <!-- Spacer for fixed nav -->
+  <div style="height:60px;"></div>
+
+  <!-- Page header -->
+  <div style="background:var(--bg);border-bottom:1px solid var(--border);">
+    <div class="edu-page-header">
+      <div class="edu-breadcrumb">
+        <a href="/education">Education</a>
+        <span>/</span>
+        IHC Expression Classification
+      </div>
+      <div class="section-tag section-tag-teal" style="margin-bottom:1.25rem;">IHC Biomarker Series</div>
+      <h1>p53 IHC Expression<br>Classification</h1>
+      <p class="section-sub">Understanding wild-type, null, and diffuse staining patterns as a surrogate for TP53 mutation status in tumor pathology.</p>
+      <div class="edu-header-tags">
+        <span class="edu-tag">p53</span>
+        <span class="edu-tag">TP53</span>
+        <span class="edu-tag">IHC</span>
+        <span class="edu-tag">Null</span>
+        <span class="edu-tag">Wild-type</span>
+        <span class="edu-tag">Diffuse</span>
+        <span class="edu-tag">Endometrial Cancer</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky in-page subnav -->
+  <nav class="edu-subnav" id="eduSubnav">
+    <a href="#s1" class="subnav-link active">What is p53?</a>
+    <a href="#s2" class="subnav-link">What is IHC?</a>
+    <a href="#s3" class="subnav-link">p53 Applied</a>
+    <a href="#s4" class="subnav-link">Clinical Relevance</a>
+  </nav>
+
+  <!-- Content -->
+  <div class="edu-content">
+
+    <div class="edu-objectives-inner reveal">
+      <div class="edu-objectives-eyebrow">LEARNING OBJECTIVES</div>
+      <ul class="edu-objectives-list">
+        <li>Understand PCI-AI&#8217;s three-tier p53 expression framework: null, wild-type, and diffuse</li>
+        <li>Recognize how each expression pattern maps to the underlying mutation type</li>
+        <li>Learn how TriControl&#8482; and DualControl&#8482; panels provide reference standards for each tier</li>
+      </ul>
+    </div>
+
+    <!-- Section 1: What is p53? -->
+    <section class="edu-section" id="s1">
+      <div class="edu-section-num">Section 01</div>
+      <h2 class="reveal">What is p53?</h2>
+      <p class="reveal">p53 is a protein commonly referred to as the &#8220;Guardian of the Genome,&#8221; whose main function is to protect the integrity of DNA within a cell. p53 is made from a gene called <span class="gloss">TP53<span class="gloss-tip">The gene that codes for the p53 protein, one of the most frequently mutated genes across human cancers.</span></span>, and is classified as a tumor suppressor, as its normal function is to stop tumors from forming.</p>
+      <p class="reveal">Mechanically speaking, p53 acts as a transcription factor, meaning it turns other genes on or off in response to various factors, such as cellular stress, DNA repair, or apoptosis. p53 is like the quality control inspector of a genome: when a cell&#8217;s DNA gets damaged, p53 assesses the damage and will either pause the cell to allow for repairs, or trigger the cell to self-destruct rather than risk becoming cancerous.</p>
+      <p class="reveal">TP53 is the most frequently mutated gene found across human tumors. For example, a rare, heritable condition called Li-Fraumeni syndrome develops when an individual only inherits one functional copy of the p53 gene, predisposing them to developing tumors across different tissues in early adulthood.</p>
+    </section>
+
+    <!-- Section 2: What is IHC? -->
+    <section class="edu-section" id="s2">
+      <div class="edu-section-num">Section 02</div>
+      <h2 class="reveal">What is Immunohistochemistry (IHC)?</h2>
+      <p class="reveal">IHC is a lab technique that utilizes antibodies to detect specific proteins, or antigens, in a tissue sample. Similarly to how the immune system makes antibodies to find and destroy harmful substances, IHC uses that antigen-finding ability to diagnostically detect proteins in a tissue sample instead.</p>
+      <p class="reveal">Mechanically, an antibody that only binds to specific target proteins (p53, for example) is applied to a sample. This is followed by a chemical reaction that makes that binding visible under a microscope. IHC preserves the surrounding tissue architecture while showing exactly where a target protein is located &#8212; including whether it appears as <span class="gloss">nuclear expression<span class="gloss-tip">Protein staining localized to the cell nucleus, as opposed to the cytoplasm or cell membrane.</span></span> &#8212; making it incredibly valuable to pathologists.</p>
+    </section>
+
+    <!-- Section 3: p53 Applied -->
+    <section class="edu-section" id="s3">
+      <div class="edu-section-num">Section 03</div>
+      <h2 class="reveal">p53 Applied</h2>
+
+      <!-- Optional H&E reference image -->
+      <figure class="reference-figure reveal">
+        <img
+          src="/static/images/education/p53/h_and_e_reference.png"
+          alt="H&amp;E stained tissue reference"
+          class="reference-img"
+          onerror="this.closest('figure').style.display='none'"
+        />
+        <figcaption>H&amp;E reference: standard hematoxylin and eosin staining, the baseline against which IHC patterns are interpreted.</figcaption>
+      </figure>
+
+      <p class="reveal">p53 is one of the most studied biomarkers in pathology, and its IHC staining pattern is read using a three-tier classification that closely tracks the underlying gene&#8217;s mutation status. Because p53 is mutated in such a wide range of cancers, this pattern has become a very practical alternative to genetic testing. There are three different patterns of p53 that are clinically tested for: wild-type, null, and overexpressed (diffuse) patterns.</p>
+
+      <!-- Full biological descriptions — live above the slider -->
+      <div class="reveal">
+        <p><span class="pattern-type"><span class="pattern-dot wildtype"></span>Wild-type (normal)</span> &#8212; shows up at a low, variable intensity, typically present in less than half of tumor cells. This is the pattern expected when TP53 is not mutated, and the protein is continuing its normal and expected function within the cell.</p>
+        <p><span class="pattern-type"><span class="pattern-dot null"></span>Null</span> &#8212; a complete absence of nuclear p53 staining, despite positive <span class="gloss">internal positive controls<span class="gloss-tip">Normal adjacent tissue used to confirm the staining procedure itself worked, so a &#8220;null&#8221; result can be trusted as biological rather than a technical failure.</span></span> confirming the test&#8217;s accuracy. This pattern typically points to a <span class="gloss">truncating mutation<span class="gloss-tip">A mutation that cuts a protein short, often preventing it from being made or functioning at all.</span></span> &#8212; a mutation that stops the cell from producing any functional protein at all.</p>
+        <p><span class="pattern-type"><span class="pattern-dot diffuse"></span>Diffuse / overexpressed</span> &#8212; strong, uniform staining across at least 80% of tumor cells. This also signifies a mutation, but a different kind: certain mutations produce a dysfunctional p53 that accumulates in the cell rather than dissipating, leading to an overabundance of protein.</p>
+      </div>
+
+      <!-- Interactive pattern slider -->
+      <div class="pattern-toggle reveal">
+        <div class="pattern-toggle-label">Explore staining patterns</div>
+        <div class="pattern-tabs">
+          <button class="ptab active" data-pattern="wildtype">Wild-type</button>
+          <button class="ptab" data-pattern="null">Null</button>
+          <button class="ptab" data-pattern="diffuse">Diffuse</button>
+        </div>
+        <p class="color-note">&#9432; Colors here indicate classification category, not actual stain color.</p>
+        <div class="pattern-panel state-wildtype" id="patternPanel">
+          <div class="pattern-img-wrap">
+            <img
+              id="patternImg"
+              class="pattern-img"
+              src="/static/images/education/p53/wildtype_pattern.png"
+              alt="Wild-type p53 staining pattern"
+            />
+          </div>
+          <div class="pattern-info">
+            <div class="pattern-name" id="patternName">Wild-type</div>
+            <div>
+              <div class="pattern-pct-label">
+                <span>Cells stained</span>
+                <span class="pattern-pct-num" id="pctNum">&lt;50%</span>
+              </div>
+              <div class="pattern-bar-track">
+                <div class="pattern-bar-fill" id="patternBar" style="width:35%"></div>
+              </div>
+            </div>
+            <p class="pattern-desc" id="patternDesc">Look for: scattered, low-intensity staining covering less than half the tissue.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TriControl callout -->
+      <div class="tricontrol-callout reveal">
+        <div class="product-circle">3</div>
+        <div class="tricontrol-body">
+          <h4>TriControl&#8482; covers all three patterns</h4>
+          <p>PCI-AI&#8217;s TriControl&#8482; panel includes null, wild-type, and diffuse cell lines &#8212; providing a physical reference standard for each p53 expression category described above.</p>
+          <a href="https://www.pcibio.com/cell-line-quality-controls-page" target="_blank" class="btn-primary btn-sm">View TriControl&#8482; &#8594;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Clinical Relevance -->
+    <section class="edu-section reveal" id="s4">
+      <div class="edu-section-num">Section 04</div>
+      <h2>Clinical Relevance</h2>
+      <p>Pathologists treat abnormal p53 IHC patterns as a reliable <span class="gloss">surrogate marker<span class="gloss-tip">A practical, faster stand-in for a more complex or expensive test &#8212; here, p53 IHC pattern standing in for direct TP53 sequencing.</span></span> for an underlying TP53 mutation. In endometrial cancer specifically, p53 status has been incorporated into the WHO-endorsed molecular classification system.</p>
+      <div class="prognosis-box">
+        <p>In the WHO molecular classification of endometrial cancer, p53-abnormal tumors represent a subgroup of patients with the <strong>poorest prognosis</strong> and the greatest likelihood of benefiting from additional treatment.</p>
+      </div>
+    </section>
+
+    <!-- Citations -->
+    <div class="edu-citations">
+      <strong>Sources:</strong> NCBI Bookshelf &#8212; Genes and Disease; PMC &#8212; Tumor Suppressor p53: Biology, Signaling Pathways, and Therapeutic Targeting; PMC &#8212; Targeting p53 Pathways; Cleveland Clinic &#8212; Immunohistochemistry; Thermo Fisher Scientific &#8212; Immunohistochemistry (IHC); Abcam &#8212; IHC Staining Techniques; Virchows Archiv (2024) &#8212; Pattern-Based p53 IHC Interpretation in Colorectal Cancer; PMC (2024) &#8212; p53 Expression Patterns in Breast Carcinoma; Modern Pathology (2022) &#8212; p53 IHC in Endometrial Cancer (PORTEC-3 Trial); Performance of Pattern-Based p53 IHC in Vulvar Squamous Cell Carcinoma.
+    </div>
+
+  </div><!-- /.edu-content -->
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo"><img src="/static/images/cancer-cell-mark-v2.svg" class="aperture-mark" width="28" height="28" alt="">PCI<span class="logo-dot">-</span><span class="logo-accent">AI</span></a>
+        <div class="footer-tagline">Digital Pathology Platform</div>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.pcibio.com" target="_blank">pcibio.com</a>
+        <a href="https://www.pcibio.com/about" target="_blank">About</a>
+        <a href="https://www.pcibio.com/contact" target="_blank">Contact</a>
+        <a href="https://www.pcibio.com/products" target="_blank">Products</a>
+        <a href="/privacy">Privacy Policy &amp; Terms of Use</a>
+      </div>
+      <div class="footer-right">
+        <span class="footer-copy">&#169; 2025 PCI-AI, Inc.</span>
+        <div class="footer-location"><span>Helix Park</span>, Houston TX</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* Mouse glow */
+    const mouseGlow = document.getElementById('mouseGlow');
+    document.addEventListener('mousemove', e => {
+      mouseGlow.style.left = e.clientX + 'px';
+      mouseGlow.style.top  = e.clientY + 'px';
+    });
+
+    /* Nav scroll shadow */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    /* Smooth scroll — offset for fixed nav + sticky subnav */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const top = target.getBoundingClientRect().top + window.scrollY - 120;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    /* Scroll reveal */
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    /* Subnav active section tracking */
+    const sectionObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        document.querySelectorAll('.subnav-link').forEach(l => l.classList.remove('active'));
+        const link = document.querySelector('.subnav-link[href="#' + entry.target.id + '"]');
+        if (link) link.classList.add('active');
+      });
+    }, { rootMargin: '-15% 0px -75% 0px' });
+    ['s1','s2','s3','s4'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) sectionObs.observe(el);
+    });
+
+    /* Pattern toggle */
+    const patternData = {
+      wildtype: {
+        imgSrc: '/static/images/education/p53/wildtype_pattern.png',
+        imgAlt: 'Wild-type p53 staining pattern',
+        name:   'Wild-type',
+        pct:    '<50%',
+        barW:   '35%',
+        desc:   'Look for: scattered, low-intensity staining covering less than half the tissue.',
+      },
+      null: {
+        imgSrc: '/static/images/education/p53/null_pattern.png',
+        imgAlt: 'Null p53 staining pattern',
+        name:   'Null',
+        pct:    '0%',
+        barW:   '2%',
+        desc:   'Look for: little to no staining intensity — most of the tissue appears unstained.',
+      },
+      diffuse: {
+        imgSrc: '/static/images/education/p53/overexpressed_pattern.png',
+        imgAlt: 'Diffuse / overexpressed p53 staining pattern',
+        name:   'Diffuse / Overexpressed',
+        pct:    '≥80%',
+        barW:   '85%',
+        desc:   'Look for: strong, uniform staining intensity covering nearly all visible tissue.',
+      },
+    };
+
+    const panel    = document.getElementById('patternPanel');
+    const patImg   = document.getElementById('patternImg');
+    const pName    = document.getElementById('patternName');
+    const pctNum   = document.getElementById('pctNum');
+    const barFill  = document.getElementById('patternBar');
+    const descEl   = document.getElementById('patternDesc');
+
+    document.querySelectorAll('.ptab').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.ptab').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const key  = this.dataset.pattern;
+        const data = patternData[key];
+
+        panel.className      = 'pattern-panel state-' + key;
+        patImg.src           = data.imgSrc;
+        patImg.alt           = data.imgAlt;
+        pName.textContent    = data.name;
+        pctNum.textContent   = data.pct;
+        barFill.style.width  = data.barW;
+
+        descEl.classList.remove('pattern-anim');
+        void descEl.offsetWidth;
+        descEl.textContent = data.desc;
+        descEl.classList.add('pattern-anim');
+      });
+    });
+  </script>
+</body>
+</html>

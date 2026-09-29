@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/education/cases/p53-ai", "destination": "/", "permanent": false },
+    { "source": "/education/cases/p53-ai-case2", "destination": "/", "permanent": false }
+  ]
+}

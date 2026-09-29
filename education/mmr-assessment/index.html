@@ -1,0 +1,416 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MMR Protein Assessment &#8212; PCI-AI Education</title>
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="/static/css/education.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="mouse-glow" id="mouseGlow"></div>
+
+  <!-- Nav -->
+  <nav class="nav" id="nav">
+    <a href="/" class="nav-logo"><img src="/static/images/cancer-cell-mark-v2.svg" class="aperture-mark" width="28" height="28" alt="">PCI<span class="logo-dot">-</span><span class="logo-accent">AI</span></a>
+    <div class="nav-links">
+      <a href="https://www.pcibio.com" target="_blank">PCI-AI</a>
+      <a href="/#features">Platform</a>
+      <a href="/#products">Products</a>
+      <a href="/education" style="color:var(--accent);">Education</a>
+      <a href="/#workflow">Workflow</a>
+      <a href="/#about">About</a>
+      <a href="/login" class="nav-signin">Sign in</a>
+      <a href="/register" class="btn-primary btn-sm">Get started &#8594;</a>
+    </div>
+  </nav>
+
+  <div style="height:60px;"></div>
+
+  <!-- Page header -->
+  <div style="background:var(--bg);border-bottom:1px solid var(--border);">
+    <div class="edu-page-header">
+      <div class="edu-breadcrumb">
+        <a href="/education">Education</a>
+        <span>/</span>
+        MMR Protein Assessment
+      </div>
+      <div class="section-tag section-tag-teal" style="margin-bottom:1.25rem;">IHC Biomarker Series</div>
+      <h1>MMR Protein<br>Assessment</h1>
+      <p class="section-sub">Understanding mismatch repair IHC as a binary read &#8212; and how protein pairing patterns point toward the underlying gene defect.</p>
+      <div class="edu-header-tags">
+        <span class="edu-tag">MMR</span>
+        <span class="edu-tag">MLH1</span>
+        <span class="edu-tag">MSH2</span>
+        <span class="edu-tag">MSH6</span>
+        <span class="edu-tag">PMS2</span>
+        <span class="edu-tag">Lynch Syndrome</span>
+        <span class="edu-tag">MSI</span>
+        <span class="edu-tag">Immunotherapy</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky subnav -->
+  <nav class="edu-subnav" id="eduSubnav">
+    <a href="#s1" class="subnav-link active">What is MMR?</a>
+    <a href="#s2" class="subnav-link">IHC Interpretation</a>
+    <a href="#s3" class="subnav-link">Clinical Relevance</a>
+  </nav>
+
+  <div class="edu-content">
+
+    <div class="edu-objectives-inner reveal">
+      <div class="edu-objectives-eyebrow">LEARNING OBJECTIVES</div>
+      <ul class="edu-objectives-list">
+        <li>Interpret mismatch repair IHC staining for MLH1, MSH2, MSH6, and PMS2</li>
+        <li>Distinguish intact from deficient nuclear expression patterns</li>
+        <li>Understand how the QuadControl&#8482; panel serves as a reference standard for MMR assessment</li>
+      </ul>
+    </div>
+
+    <!-- Section 1 -->
+    <section class="edu-section" id="s1">
+      <div class="edu-section-num">Section 01</div>
+      <h2 class="reveal">What is the Mismatch Repair (MMR) System?</h2>
+      <p class="reveal">Every time a cell divides, it must copy its entire genome &#8212; roughly 3 billion base pairs. Errors are inevitable. The <span class="gloss">mismatch repair system<span class="gloss-tip">A system of proteins that detect and fix errors introduced during DNA replication.</span></span> is the cell&#8217;s proofreading mechanism: a group of proteins that scan newly replicated DNA, find mistakes, and fix them before they become permanent mutations.</p>
+      <p class="reveal">The four proteins most clinically relevant to this process are <span class="gloss">MLH1, MSH2, MSH6, and PMS2<span class="gloss-tip">The four MMR proteins tested by IHC. Each is the product of a specific gene in the MMR pathway.</span></span>. They don&#8217;t work alone &#8212; they operate in pairs called <span class="gloss">heterodimers<span class="gloss-tip">A pair of two different proteins that work together as a functional unit. MLH1 pairs with PMS2; MSH2 pairs with MSH6.</span></span>: MLH1 bonds with PMS2, and MSH2 bonds with MSH6. These pairs are interdependent: if one partner is lost, the other becomes unstable and is also lost. This pairing relationship is one of the most important things a pathologist looks for when reading an MMR IHC panel, because it narrows down which gene is actually defective.</p>
+      <p class="reveal">When the MMR system breaks down &#8212; either through an inherited gene mutation or an acquired one &#8212; replication errors accumulate unchecked. This leads to a pattern called <span class="gloss">microsatellite instability (MSI)<span class="gloss-tip">A pattern of DNA replication errors that accumulates when the MMR system is not functioning &#8212; a hallmark of dMMR tumors.</span></span>, a hallmark of MMR-deficient tumors. MMR deficiency is found in approximately 15% of colorectal cancers and is also common in endometrial, gastric, and other cancer types.</p>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="edu-section" id="s2">
+      <div class="edu-section-num">Section 02</div>
+      <h2 class="reveal">How IHC Reads MMR Proteins</h2>
+      <p class="reveal">Unlike p53 &#8212; which uses a three-tier classification &#8212; MMR protein IHC is read as a simple binary: <span class="gloss">proficient (pMMR)<span class="gloss-tip">All four MMR proteins show intact nuclear staining &#8212; the repair system is functioning normally.</span></span> or <span class="gloss">deficient (dMMR)<span class="gloss-tip">One or more MMR proteins show complete loss of nuclear staining &#8212; the repair system has broken down.</span></span>.</p>
+
+      <!-- Written descriptions -->
+      <div class="reveal">
+        <p><span class="pattern-type"><span class="pattern-dot wildtype"></span>Intact (proficient / pMMR)</span> &#8212; normal, strong nuclear staining is present in tumor cells for all four proteins. This confirms the MMR system is functioning. A tumor is only classified as MMR-proficient when all four proteins show intact staining &#8212; if even one is lost, the tumor is deficient.</p>
+        <p><span class="pattern-type"><span class="pattern-dot diffuse"></span>Deficient (lost / dMMR)</span> &#8212; complete absence of nuclear staining in tumor cells for one or more proteins, despite intact staining in surrounding normal tissue (which confirms the test itself worked). Loss of one protein almost always pulls its heterodimer partner down with it.</p>
+      </div>
+
+      <!-- Binary toggle -->
+      <div class="pattern-toggle reveal">
+        <div class="pattern-toggle-label">Explore staining states</div>
+        <div class="pattern-tabs">
+          <button class="ptab active" data-pattern="intact">Intact (pMMR)</button>
+          <button class="ptab" data-pattern="deficient">Deficient (dMMR)</button>
+        </div>
+        <p class="color-note">&#9432; Schematic cell-field illustration showing nuclear staining patterns &#8212; not derived from actual IHC slide images.</p>
+        <div class="pattern-panel state-intact" id="patternPanel">
+          <div class="pattern-img-wrap">
+            <div class="stain-svg-wrap" id="stainView"></div>
+          </div>
+          <div class="pattern-info">
+            <div class="pattern-name" id="patternName">Intact (pMMR)</div>
+            <div class="mmr-status" id="mmrStatus">All 4 proteins present</div>
+            <p class="pattern-desc" id="patternDesc">Look for: strong nuclear staining present in tumor cells across all four proteins.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive heterodimer diagram -->
+      <div class="mmr-diagram-v2 reveal">
+        <div class="mmr-diagram-title">Heterodimer pairing &amp; co-loss &#8212; select a scenario</div>
+
+        <!-- Protein nodes -->
+        <div class="mmr-nodes-row">
+          <div class="mmr-pair-wrap">
+            <div class="mmr-nodes-pair">
+              <div class="mmr-node" id="node-mlh1" data-protein="mlh1">
+                <div class="mmr-node-inner">MLH1</div>
+                <div class="mmr-node-badge" id="badge-mlh1"></div>
+              </div>
+              <div class="mmr-bond" id="bond-1">&#8596;</div>
+              <div class="mmr-node" id="node-pms2" data-protein="pms2">
+                <div class="mmr-node-inner">PMS2</div>
+                <div class="mmr-node-badge" id="badge-pms2"></div>
+              </div>
+            </div>
+            <div class="mmr-complex-name">MutL&alpha; complex</div>
+          </div>
+
+          <div class="mmr-pairs-divider"></div>
+
+          <div class="mmr-pair-wrap">
+            <div class="mmr-nodes-pair">
+              <div class="mmr-node" id="node-msh2" data-protein="msh2">
+                <div class="mmr-node-inner">MSH2</div>
+                <div class="mmr-node-badge" id="badge-msh2"></div>
+              </div>
+              <div class="mmr-bond" id="bond-2">&#8596;</div>
+              <div class="mmr-node" id="node-msh6" data-protein="msh6">
+                <div class="mmr-node-inner">MSH6</div>
+                <div class="mmr-node-badge" id="badge-msh6"></div>
+              </div>
+            </div>
+            <div class="mmr-complex-name">MutS&alpha; complex</div>
+          </div>
+        </div>
+
+        <!-- Scenario buttons -->
+        <div class="mmr-scenario-selector">
+          <div class="mmr-scenario-selector-label">Select a loss pattern:</div>
+          <div class="mmr-scenario-btns">
+            <button class="mmr-scenario-btn active" data-scenario="none">All intact</button>
+            <button class="mmr-scenario-btn" data-scenario="mlh1">MLH1 lost</button>
+            <button class="mmr-scenario-btn" data-scenario="msh2">MSH2 lost</button>
+            <button class="mmr-scenario-btn" data-scenario="pms2">PMS2 alone</button>
+            <button class="mmr-scenario-btn" data-scenario="msh6">MSH6 alone</button>
+          </div>
+        </div>
+
+        <!-- Explanation panel -->
+        <div class="mmr-scenario-panel" id="mmrScenarioPanel">
+          <div class="mmr-scenario-headline" id="scenarioHeadline">All proteins intact (pMMR)</div>
+          <div class="mmr-scenario-pattern" id="scenarioPattern">The MMR system is functioning normally. All four proteins show intact nuclear staining in tumor cells.</div>
+          <div class="mmr-scenario-mechanism" id="scenarioMechanism" style="display:none;"></div>
+          <div class="mmr-scenario-clinical">
+            <div class="mmr-scenario-clinical-label">Clinical interpretation</div>
+            <span id="scenarioClinicalText">Lynch syndrome is unlikely based on IHC alone. No reflex testing indicated by MMR IHC result.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="edu-section" id="s3">
+      <div class="edu-section-num">Section 03</div>
+      <h2 class="reveal">Clinical Relevance</h2>
+      <p class="reveal">MMR IHC status has direct, immediate impact on patient care in two areas.</p>
+
+      <div class="reveal">
+        <h3 class="edu-subsection-head"><span class="edu-subsection-num">01</span> Lynch Syndrome Screening</h3>
+        <p><span class="gloss">Lynch syndrome<span class="gloss-tip">A hereditary condition caused by a germline mutation in one of the four MMR genes, significantly increasing lifetime cancer risk.</span></span> is an inherited condition caused by a germline mutation in one of the four MMR genes. It is responsible for a notable proportion of colorectal cancers and significantly raises lifetime risk of endometrial, gastric, urinary tract, and other cancers. Identifying dMMR through IHC is often the first step in flagging a patient for Lynch syndrome evaluation &#8212; particularly when the IHC profile shows isolated PMS2 or MSH2/MSH6 loss, patterns less commonly caused by sporadic methylation and more likely to reflect a true germline mutation.</p>
+      </div>
+
+      <div class="reveal">
+        <h3 class="edu-subsection-head"><span class="edu-subsection-num">02</span> Immunotherapy Eligibility</h3>
+        <p>MMR deficiency (dMMR) / high <span class="gloss">microsatellite instability (MSI-H)<span class="gloss-tip">A pattern of DNA replication errors that accumulates when the MMR system is not functioning &#8212; a hallmark of dMMR tumors.</span></span> is a key biomarker used to determine eligibility for immune checkpoint inhibitor therapy &#8212; a class of cancer treatment that works by lifting the brakes on the immune system&#8217;s ability to attack tumors. The FDA has approved checkpoint inhibitors specifically for dMMR/MSI-H tumors across multiple cancer types regardless of where in the body the tumor originated, making accurate MMR IHC interpretation directly tied to whether a patient receives this treatment.</p>
+      </div>
+
+      <!-- QuadControl callout -->
+      <div class="tricontrol-callout reveal">
+        <div class="product-circle" style="background:rgba(46,204,154,0.06);border-color:rgba(46,204,154,0.28);color:var(--teal);">4</div>
+        <div class="tricontrol-body">
+          <h4>QuadControl&#8482; covers all four MMR proteins</h4>
+          <p>PCI-AI&#8217;s QuadControl&#8482; panel includes cell lines for MLH1, MSH2, MSH6, and PMS2 &#8212; providing a characterized reference standard for MMR antibody optimization across the full four-protein panel.</p>
+          <a href="https://www.pcibio.com/cell-line-quality-controls-page" target="_blank" class="btn-primary btn-sm">View QuadControl&#8482; &#8594;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Citations -->
+    <div class="edu-citations">
+      <strong>Sources:</strong> Modern Pathology (2015) &#8212; Evaluation of Colorectal Cancers for Lynch Syndrome: Practical Molecular Diagnostics for Surgical Pathologists; Cancer Prevention Research (2012) / PMC &#8212; Identification of Cancer Patients with Lynch Syndrome: Discordances in MMR Testing; PMC (2024) &#8212; Null MMR Protein Expression Reveals Temporal Molecular Events in Lynch Syndrome-Related Cancers; Roche Diagnostics &#8212; VENTANA MMR IHC Panel Interpretation Guide (2017).
+    </div>
+
+  </div><!-- /.edu-content -->
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo"><img src="/static/images/cancer-cell-mark-v2.svg" class="aperture-mark" width="28" height="28" alt="">PCI<span class="logo-dot">-</span><span class="logo-accent">AI</span></a>
+        <div class="footer-tagline">Digital Pathology Platform</div>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.pcibio.com" target="_blank">pcibio.com</a>
+        <a href="https://www.pcibio.com/about" target="_blank">About</a>
+        <a href="https://www.pcibio.com/contact" target="_blank">Contact</a>
+        <a href="https://www.pcibio.com/products" target="_blank">Products</a>
+        <a href="/privacy">Privacy Policy &amp; Terms of Use</a>
+      </div>
+      <div class="footer-right">
+        <span class="footer-copy">&#169; 2025 PCI-AI, Inc.</span>
+        <div class="footer-location"><span>Helix Park</span>, Houston TX</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mouseGlow = document.getElementById('mouseGlow');
+    document.addEventListener('mousemove', e => {
+      mouseGlow.style.left = e.clientX + 'px';
+      mouseGlow.style.top  = e.clientY + 'px';
+    });
+
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const top = target.getBoundingClientRect().top + window.scrollY - 120;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    const sectionObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        document.querySelectorAll('.subnav-link').forEach(l => l.classList.remove('active'));
+        const link = document.querySelector('.subnav-link[href="#' + entry.target.id + '"]');
+        if (link) link.classList.add('active');
+      });
+    }, { rootMargin: '-15% 0px -75% 0px' });
+    ['s1','s2','s3'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) sectionObs.observe(el);
+    });
+
+    /* ── Staining SVG builder ──────────────────────────────── */
+    function buildStainSVG(state) {
+      const isIntact = state === 'intact';
+      const tumor = [
+        [26,26,20,17],[76,26,21,17],[126,26,20,18],[176,26,21,17],[226,26,20,17],
+        [51,68,21,17],[101,68,20,18],[151,68,21,17],[201,68,20,17],
+        [26,110,20,17],[76,110,21,18],[126,110,20,17],[176,110,21,17],[226,110,20,18],
+        [51,152,21,17],[101,152,20,18],[151,152,21,17],[201,152,20,17],
+      ];
+      const normal = [[26,222,13,10],[73,222,12,10],[120,222,13,10],[167,222,12,10],[214,222,13,10]];
+      const bg        = isIntact ? '#FFF6F2' : '#F6F2FF';
+      const cellFill  = isIntact ? 'rgba(243,195,158,0.38)' : 'rgba(205,195,228,0.35)';
+      const cellStroke= isIntact ? 'rgba(160,90,40,0.14)' : 'rgba(130,110,170,0.14)';
+      const nucFill   = isIntact ? '#7B3F00' : '#B5A2C6';
+      const nucStroke = isIntact ? '#562B00' : '#8E78A0';
+      const cells = tumor.map(([cx,cy,rx,ry]) =>
+        `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="${cellFill}" stroke="${cellStroke}" stroke-width="0.8"/>` +
+        `<ellipse cx="${cx}" cy="${cy}" rx="${Math.round(rx*0.49)}" ry="${Math.round(ry*0.47)}" fill="${nucFill}" stroke="${nucStroke}" stroke-width="0.5" opacity="0.91"/>`
+      ).join('');
+      let extra = '';
+      if (!isIntact) {
+        const nc = normal.map(([cx,cy,rx,ry]) =>
+          `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="rgba(243,195,158,0.38)" stroke="rgba(160,90,40,0.14)" stroke-width="0.8"/>` +
+          `<ellipse cx="${cx}" cy="${cy}" rx="${Math.round(rx*0.53)}" ry="${Math.round(ry*0.5)}" fill="#7B3F00" stroke="#562B00" stroke-width="0.5" opacity="0.88"/>`
+        ).join('');
+        extra = `<line x1="8" y1="184" x2="252" y2="184" stroke="rgba(100,70,170,0.18)" stroke-width="1" stroke-dasharray="5,4"/>`
+          + `<text x="8" y="198" fill="#9580B8" font-size="7.5" font-family="IBM Plex Mono,monospace" font-weight="600" letter-spacing="0.07em">NORMAL TISSUE — INTERNAL CONTROL</text>`
+          + nc
+          + `<g transform="translate(8,243)">`
+          + `<ellipse cx="5" cy="4" rx="4.5" ry="3.5" fill="#B5A2C6" opacity="0.9"/><text x="13" y="7.5" fill="#9580B8" font-size="7" font-family="IBM Plex Mono,monospace">Tumor nuclei (no staining — MMR protein absent)</text>`
+          + `<ellipse cx="5" cy="16" rx="4.5" ry="3.5" fill="#7B3F00" opacity="0.88"/><text x="13" y="19.5" fill="#8B6540" font-size="7" font-family="IBM Plex Mono,monospace">Normal tissue nuclei (DAB stained — internal control)</text>`
+          + `</g>`;
+      } else {
+        extra = `<g transform="translate(8,192)">`
+          + `<ellipse cx="5" cy="4" rx="4.5" ry="3.5" fill="#7B3F00" opacity="0.88"/>`
+          + `<text x="13" y="7.5" fill="#8B6540" font-size="7.5" font-family="IBM Plex Mono,monospace">Strong DAB staining across all nuclei (MMR proteins present)</text>`
+          + `</g>`;
+      }
+      return `<svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg"><rect width="260" height="260" fill="${bg}" rx="6"/>${cells}${extra}</svg>`;
+    }
+
+    /* ── Binary toggle ─────────────────────────────────────── */
+    const toggleData = {
+      intact:    { name:'Intact (pMMR)',    status:'All 4 proteins present',    desc:'Look for: strong nuclear staining present in tumor cells across all four proteins.' },
+      deficient: { name:'Deficient (dMMR)', status:'One or more proteins lost',  desc:'Look for: complete absence of nuclear staining in tumor cells, while surrounding normal tissue remains stained.' },
+    };
+    const panel     = document.getElementById('patternPanel');
+    const stainView = document.getElementById('stainView');
+    const pName     = document.getElementById('patternName');
+    const mmrStatus = document.getElementById('mmrStatus');
+    const descEl    = document.getElementById('patternDesc');
+
+    stainView.innerHTML = buildStainSVG('intact');
+
+    document.querySelectorAll('.ptab').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.ptab').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const key  = this.dataset.pattern;
+        const data = toggleData[key];
+        panel.className = 'pattern-panel state-' + key;
+        stainView.style.opacity = '0';
+        setTimeout(() => { stainView.innerHTML = buildStainSVG(key); stainView.style.opacity = '1'; }, 180);
+        stainView.style.transition = 'opacity 0.18s';
+        pName.textContent     = data.name;
+        mmrStatus.textContent = data.status;
+        descEl.classList.remove('pattern-anim');
+        void descEl.offsetWidth;
+        descEl.textContent = data.desc;
+        descEl.classList.add('pattern-anim');
+      });
+    });
+
+    /* ── Interactive pairing diagram ───────────────────────── */
+    const scenarioData = {
+      none: {
+        lost:[], coLost:[], bonds:[],
+        headline: 'All proteins intact (pMMR)',
+        pattern:  'The MMR system is functioning normally. All four proteins show intact nuclear staining in tumor cells.',
+        mechanism: '',
+        clinical: 'Lynch syndrome is unlikely based on IHC alone. No reflex testing indicated by MMR IHC result.',
+      },
+      mlh1: {
+        lost:['mlh1'], coLost:['pms2'], bonds:['bond-1'],
+        headline: 'MLH1 + PMS2 lost → MLH1 defect',
+        pattern:  'Loss of MLH1 destabilizes PMS2 — its obligate binding partner in the MutLα complex — causing both proteins to appear absent on IHC.',
+        mechanism: 'MLH1 is required for PMS2 stability. Without MLH1, PMS2 has no binding partner, becomes unstable, and is rapidly degraded. Because MLH1 drives this cascade, the IHC pattern points upstream to MLH1 as the gene of interest.',
+        clinical: 'Most common dMMR pattern in colorectal cancer. In sporadic tumors: somatic MLH1 promoter methylation. In Lynch syndrome: germline MLH1 mutation. Reflex BRAF V600E and MLH1 methylation analysis help distinguish sporadic from hereditary.',
+      },
+      msh2: {
+        lost:['msh2'], coLost:['msh6'], bonds:['bond-2'],
+        headline: 'MSH2 + MSH6 lost → MSH2 defect',
+        pattern:  'Loss of MSH2 destabilizes MSH6 — its binding partner in the MutSα complex — causing both proteins to appear absent on IHC.',
+        mechanism: 'MSH2 and MSH6 form MutSα, which recognizes single base mismatches and short insertion/deletion loops. Without MSH2, MSH6 cannot maintain stability and is degraded. MSH2 is the driver; MSH6 loss is a consequence.',
+        clinical: 'Sporadic MSH2 promoter methylation is rare, making this pattern a strong indicator of Lynch syndrome (germline MSH2 mutation). Germline testing is strongly indicated. MSH2 Lynch carriers carry significant lifetime risk across multiple cancer types.',
+      },
+      pms2: {
+        lost:['pms2'], coLost:[], bonds:['bond-1'],
+        headline: 'PMS2 lost alone → Primary PMS2 defect',
+        pattern:  'PMS2 is absent while MLH1 remains intact. The bond appears broken on the PMS2 side only — MLH1 survives because it can pair with alternate partners.',
+        mechanism: 'Unlike PMS2, MLH1 is not dependent on a single partner for stability. MLH1 can also bind PMS1 and MLH3. This flexibility allows MLH1 to remain intact even when PMS2 is lost, distinguishing a primary PMS2 defect from an MLH1 defect.',
+        clinical: 'Isolated PMS2 loss strongly suggests a germline PMS2 mutation (Lynch syndrome), since sporadic PMS2 methylation is uncommon. Germline testing for PMS2 is strongly indicated.',
+      },
+      msh6: {
+        lost:['msh6'], coLost:[], bonds:['bond-2'],
+        headline: 'MSH6 lost alone → Primary MSH6 defect',
+        pattern:  'MSH6 is absent while MSH2 remains intact. MSH2 survives because it can form an alternate complex (MutSβ) with MSH3.',
+        mechanism: 'MSH2 can partner with MSH3 to form MutSβ, which handles larger insertion/deletion loops. This alternate pairing maintains MSH2 protein stability even without MSH6, explaining why MSH2 appears intact on IHC when MSH6 alone is lost.',
+        clinical: 'Isolated MSH6 loss typically indicates a germline MSH6 mutation (Lynch syndrome). Associated with elevated endometrial cancer risk. May show a milder MSI phenotype due to MSH3 compensation. Germline testing is indicated.',
+      },
+    };
+
+    function applyScenario(key) {
+      const s = scenarioData[key];
+      ['mlh1','pms2','msh2','msh6'].forEach(p => {
+        document.getElementById('node-'+p).classList.remove('lost','co-lost');
+        document.getElementById('badge-'+p).textContent = '';
+      });
+      ['bond-1','bond-2'].forEach(b => document.getElementById(b).classList.remove('broken'));
+      s.lost.forEach(p => { document.getElementById('node-'+p).classList.add('lost'); document.getElementById('badge-'+p).textContent = 'lost'; });
+      s.coLost.forEach(p => { document.getElementById('node-'+p).classList.add('co-lost'); document.getElementById('badge-'+p).textContent = 'co-lost'; });
+      s.bonds.forEach(b => document.getElementById(b).classList.add('broken'));
+      const sp = document.getElementById('mmrScenarioPanel');
+      sp.classList.toggle('scenario-active', key !== 'none');
+      document.getElementById('scenarioHeadline').textContent  = s.headline;
+      document.getElementById('scenarioPattern').textContent   = s.pattern;
+      const mech = document.getElementById('scenarioMechanism');
+      mech.textContent   = s.mechanism;
+      mech.style.display = s.mechanism ? 'block' : 'none';
+      document.getElementById('scenarioClinicalText').textContent = s.clinical;
+      document.querySelectorAll('.mmr-scenario-btn').forEach(b => b.classList.remove('active','loss-btn'));
+      const ab = document.querySelector('.mmr-scenario-btn[data-scenario="'+key+'"]');
+      ab.classList.add('active');
+      if (key !== 'none') ab.classList.add('loss-btn');
+    }
+
+    document.querySelectorAll('.mmr-scenario-btn').forEach(btn => {
+      btn.addEventListener('click', () => applyScenario(btn.dataset.scenario));
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI-Assisted Biomarker Assessment &#8212; PCI-AI Education</title>
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="/static/css/education.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="mouse-glow" id="mouseGlow"></div>
+
+  <nav class="nav" id="nav">
+    <a href="/" class="nav-logo"><img src="/static/images/cancer-cell-mark-v2.svg" class="aperture-mark" width="28" height="28" alt="">PCI<span class="logo-dot">-</span><span class="logo-accent">AI</span></a>
+    <div class="nav-links">
+      <a href="https://www.pcibio.com" target="_blank">PCI-AI</a>
+      <a href="/#features">Platform</a>
+      <a href="/#products">Products</a>
+      <a href="/education" style="color:var(--accent);">Education</a>
+      <a href="/#workflow">Workflow</a>
+      <a href="/#about">About</a>
+      <a href="/login" class="nav-signin">Sign in</a>
+      <a href="/register" class="btn-primary btn-sm">Get started &#8594;</a>
+    </div>
+  </nav>
+
+  <div style="height:60px;"></div>
+
+  <div style="background:var(--bg);border-bottom:1px solid var(--border);">
+    <div class="edu-page-header">
+      <div class="edu-breadcrumb">
+        <a href="/education">Education</a>
+        <span>/</span>
+        AI-Assisted Biomarker Assessment
+      </div>
+      <div class="section-tag" style="margin-bottom:1.25rem;">IHC Biomarker Series</div>
+      <h1>AI-Assisted Biomarker<br>Assessment</h1>
+      <p class="section-sub">How machine learning transforms manual slide scoring into consistent, quantitative measurement &#8212; and what that means for reproducibility across labs and clinical trials.</p>
+      <div class="edu-header-tags">
+        <span class="edu-tag">Digital Pathology</span>
+        <span class="edu-tag">Automated Scoring</span>
+        <span class="edu-tag">Whole Slide Image</span>
+        <span class="edu-tag">Algorithmic Scoring</span>
+        <span class="edu-tag">Inter-observer Variability</span>
+        <span class="edu-tag">Assistive AI</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="edu-subnav" id="eduSubnav">
+    <a href="#s1" class="subnav-link active">The Problem</a>
+    <a href="#s2" class="subnav-link">How It Works</a>
+    <a href="#s3" class="subnav-link">Standardization</a>
+    <a href="#s4" class="subnav-link">The Future</a>
+  </nav>
+
+  <div class="edu-content">
+
+    <div class="edu-objectives-inner reveal">
+      <div class="edu-objectives-eyebrow">LEARNING OBJECTIVES</div>
+      <ul class="edu-objectives-list">
+        <li>Understand what problem AI-assisted scoring addresses in manual IHC interpretation</li>
+        <li>Recognize how machine learning algorithms produce quantitative scores from whole slide images</li>
+        <li>Understand why standardization across sites matters for clinical trial data integrity</li>
+      </ul>
+    </div>
+
+    <!-- Section 1 -->
+    <section class="edu-section" id="s1">
+      <div class="edu-section-num">Section 01</div>
+      <h2 class="reveal">The Problem AI Is Solving</h2>
+      <p class="reveal">Manual IHC interpretation &#8212; a pathologist examining a stained slide under a microscope and estimating what percentage of cells stain positive, and at what intensity &#8212; has been the standard for decades. It works, but it has a known limitation: it&#8217;s inherently subjective.</p>
+      <p class="reveal">That subjectivity has real clinical consequences. <span class="gloss">Inter-observer variability<span class="gloss-tip">Disagreement between two pathologists interpreting the same slide &#8212; a known limitation of manual IHC scoring that AI tools help reduce.</span></span> &#8212; two pathologists looking at the same slide and arriving at different scores &#8212; is a documented feature of manual IHC, not an edge case. For biomarkers where a scoring threshold determines treatment eligibility (HER2 status for targeted therapy, MMR status for immunotherapy, PD-L1 for checkpoint blockade), these inconsistencies affect which patients receive which treatments. The same pathologist may also score a slide differently on two different days, compounding the reliability problem.</p>
+      <p class="reveal">Scale adds a third constraint. A single <span class="gloss">whole slide image<span class="gloss-tip">A digital scan of an entire glass slide at high resolution, enabling viewing at any magnification on a computer rather than a physical microscope.</span></span> can contain millions of cells. Manual scoring requires a pathologist to estimate from a representative sample rather than evaluate every cell &#8212; a practical necessity that introduces sampling variability alongside the observer variability already present. The more heterogeneous the tumor, the more consequential that sampling limitation becomes.</p>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="edu-section" id="s2">
+      <div class="edu-section-num">Section 02</div>
+      <h2 class="reveal">What AI-Assisted Assessment Does</h2>
+      <p class="reveal">Machine learning allows algorithms to recognize patterns in annotated datasets and generalize those patterns to new inputs. Applied to <span class="gloss">digital pathology<span class="gloss-tip">The practice of converting glass slides into high-resolution digital images (whole slide images, or WSIs) that can be viewed, shared, and analyzed computationally.</span></span>, this enables <span class="gloss">automated image analysis<span class="gloss-tip">Software that scans a digital slide and quantifies features &#8212; like staining intensity or cell count &#8212; without requiring a human to score each cell manually.</span></span>: an algorithm scans the entire digitized slide, identifies individual cells, classifies each one by staining intensity, and produces a quantitative score that covers the full tissue section rather than a sampled subset &#8212; in a fraction of the time manual scoring would require.</p>
+      <p class="reveal">A direct comparison between manual pathological analysis and one such tool (IHC Profiler) resolved in a match rate of 88.6% &#8212; demonstrating that automated scoring can closely align with expert human interpretation while offering substantially greater consistency across repeated runs and participating laboratories.</p>
+
+      <!-- Manual vs AI comparison -->
+      <div class="comparison-grid reveal">
+        <div class="comparison-col">
+          <div class="comparison-method-label">Manual Scoring</div>
+          <div class="compare-icon-wrap manual-wrap">
+            <svg viewBox="0 0 48 36" class="compare-method-icon">
+              <path d="M 3,18 Q 24,3 45,18 Q 24,33 3,18 Z" fill="rgba(100,116,139,0.08)" stroke="rgba(100,116,139,0.40)" stroke-width="1.8"/>
+              <circle cx="24" cy="18" r="7" fill="rgba(100,116,139,0.12)" stroke="rgba(100,116,139,0.42)" stroke-width="1.8"/>
+              <circle cx="24" cy="18" r="3" fill="rgba(100,116,139,0.32)"/>
+            </svg>
+          </div>
+          <ul class="comparison-step-list">
+            <li><span class="cmp-dot manual-dot"></span><span>Pathologist visually scans a representative sample of cells</span></li>
+            <li><span class="cmp-dot manual-dot"></span><span>Estimates staining intensity and positive cell percentage</span></li>
+            <li><span class="cmp-dot manual-dot"></span><span>Records a score based on a trained visual judgment</span></li>
+          </ul>
+          <div class="comparison-output">
+            <div class="comparison-output-note">Estimate &#183; Observer-dependent</div>
+          </div>
+        </div>
+
+        <div class="comparison-vs">VS</div>
+
+        <div class="comparison-col ai-col">
+          <div class="comparison-method-label ai-label">AI-Assisted Scoring</div>
+          <div class="compare-icon-wrap ai-wrap">
+            <svg viewBox="0 0 48 36" class="compare-method-icon">
+              <rect x="13" y="7" width="22" height="22" rx="4" fill="rgba(27,79,216,0.10)" stroke="#1B4FD8" stroke-width="1.8"/>
+              <line x1="18" y1="7" x2="18" y2="4" stroke="#1B4FD8" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="24" y1="7" x2="24" y2="4" stroke="#1B4FD8" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="30" y1="7" x2="30" y2="4" stroke="#1B4FD8" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="18" y1="29" x2="18" y2="32" stroke="#1B4FD8" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="24" y1="29" x2="24" y2="32" stroke="#1B4FD8" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="30" y1="29" x2="30" y2="32" stroke="#1B4FD8" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="13" y1="13" x2="10" y2="13" stroke="#1B4FD8" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="13" y1="18" x2="10" y2="18" stroke="#1B4FD8" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="13" y1="23" x2="10" y2="23" stroke="#1B4FD8" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="35" y1="13" x2="38" y2="13" stroke="#1B4FD8" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="35" y1="18" x2="38" y2="18" stroke="#1B4FD8" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="35" y1="23" x2="38" y2="23" stroke="#1B4FD8" stroke-width="1.5" stroke-linecap="round"/>
+              <rect x="18" y="12" width="12" height="12" rx="2" fill="rgba(27,79,216,0.20)"/>
+              <line x1="19.5" y1="18" x2="28.5" y2="18" stroke="rgba(27,79,216,0.60)" stroke-width="1.2"/>
+              <line x1="24" y1="13.5" x2="24" y2="22.5" stroke="rgba(27,79,216,0.60)" stroke-width="1.2"/>
+            </svg>
+          </div>
+          <ul class="comparison-step-list">
+            <li><span class="cmp-dot ai-dot"></span><span>Algorithm scans the entire digitized slide at cell level</span></li>
+            <li><span class="cmp-dot ai-dot"></span><span>Classifies every cell by staining intensity category</span></li>
+            <li><span class="cmp-dot ai-dot"></span><span>Outputs a precise quantitative score from full-section data</span></li>
+          </ul>
+          <div class="comparison-output">
+            <div class="comparison-output-note">Quantitative &#183; Consistent</div>
+          </div>
+        </div>
+      </div><!-- /.comparison-grid -->
+
+      <p class="reveal">The goal isn&#8217;t to replace the pathologist &#8212; it&#8217;s to give them a more consistent, quantitative starting point. Most regulatory-approved diagnostic tools using AI are designated as <span class="gloss">assistive AI<span class="gloss-tip">AI tools designed to support and augment a pathologist&#8217;s interpretation rather than replace it &#8212; currently the standard model for regulatory-approved diagnostic AI tools.</span></span>: they provide a score, the pathologist reviews it, applies clinical context, and makes the final determination. The human remains the decision-maker.</p>
+
+      <!-- AI as assistant callout -->
+      <div class="ai-assistant-callout reveal">
+        <div class="ai-assistant-header">
+          <svg viewBox="0 0 18 18" width="18" height="18" style="flex-shrink:0;">
+            <circle cx="9" cy="9" r="8.5" fill="rgba(27,79,216,0.10)" stroke="#1B4FD8" stroke-width="1.5"/>
+            <text x="9" y="13.5" text-anchor="middle" fill="#1B4FD8" font-size="11" font-weight="600" font-family="Inter,sans-serif">i</text>
+          </svg>
+          <span class="ai-assistant-title">AI as Assistant, Not Replacement</span>
+        </div>
+        <p>Current regulatory-approved AI diagnostic tools are designated as <strong>assistive</strong> &#8212; they provide a quantitative score as input to the pathologist&#8217;s review, not an independent diagnosis. The pathologist reviews the AI output, applies clinical context, and makes the final call. This is a deliberate regulatory design choice, not a temporary limitation: the goal is to augment expert judgment with quantitative data, not to automate away the expertise.</p>
+      </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="edu-section" id="s3">
+      <div class="edu-section-num">Section 03</div>
+      <h2 class="reveal">Why Standardization Matters</h2>
+      <p class="reveal">One of the most significant advantages of <span class="gloss">algorithmic scoring<span class="gloss-tip">A numerical score assigned by a machine learning model based on patterns it has learned from large datasets of annotated slides.</span></span> is reproducibility across sites. A manual score produced in one laboratory may not be directly comparable to a manual score produced in another &#8212; even using the same antibody and protocol &#8212; because different pathologists calibrate their visual estimates differently. An AI model, once validated, applies the same criteria consistently regardless of who is operating it or where it is deployed.</p>
+      <p class="reveal">This matters most for clinical trials, where biomarker scores from patients enrolled at different institutions need to be directly comparable for the trial data to be interpretable. It also matters for emerging biomarkers where scoring thresholds are still being established &#8212; consistency in measurement is critical to generating reliable evidence about where those thresholds should fall.</p>
+
+      <!-- Three advantage cards -->
+      <div class="adv-cards reveal">
+
+        <div class="adv-card">
+          <svg viewBox="0 0 40 40" class="adv-icon">
+            <circle cx="8" cy="10" r="5" fill="rgba(100,116,139,0.10)" stroke="rgba(100,116,139,0.38)" stroke-width="1.5"/>
+            <circle cx="32" cy="10" r="5" fill="rgba(100,116,139,0.10)" stroke="rgba(100,116,139,0.38)" stroke-width="1.5"/>
+            <path d="M 10.5,14.5 L 20,30" stroke="rgba(100,116,139,0.30)" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M 29.5,14.5 L 20,30" stroke="rgba(100,116,139,0.30)" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="20" cy="34" r="5" fill="rgba(27,79,216,0.12)" stroke="#1B4FD8" stroke-width="1.8"/>
+            <path d="M 17.5,34 L 19.5,36 L 22.5,31.5" fill="none" stroke="#1B4FD8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="adv-card-title">Consistent across observers</div>
+          <p class="adv-card-body">The same criteria applied to every slide, every time &#8212; eliminating the variability inherent in pathologist-to-pathologist interpretation of staining intensity.</p>
+        </div>
+
+        <div class="adv-card">
+          <svg viewBox="0 0 40 40" class="adv-icon">
+            <circle cx="7" cy="7" r="3" fill="rgba(46,204,154,0.32)" stroke="rgba(46,204,154,0.52)" stroke-width="1"/>
+            <circle cx="15" cy="7" r="3" fill="rgba(46,204,154,0.32)" stroke="rgba(46,204,154,0.52)" stroke-width="1"/>
+            <circle cx="23" cy="7" r="3" fill="rgba(46,204,154,0.32)" stroke="rgba(46,204,154,0.52)" stroke-width="1"/>
+            <circle cx="31" cy="7" r="3" fill="rgba(46,204,154,0.32)" stroke="rgba(46,204,154,0.52)" stroke-width="1"/>
+            <circle cx="7" cy="16" r="3" fill="rgba(46,204,154,0.32)" stroke="rgba(46,204,154,0.52)" stroke-width="1"/>
+            <circle cx="15" cy="16" r="3" fill="rgba(46,204,154,0.32)" stroke="rgba(46,204,154,0.52)" stroke-width="1"/>
+            <circle cx="23" cy="16" r="3" fill="rgba(46,204,154,0.32)" stroke="rgba(46,204,154,0.52)" stroke-width="1"/>
+            <circle cx="31" cy="16" r="3" fill="rgba(46,204,154,0.32)" stroke="rgba(46,204,154,0.52)" stroke-width="1"/>
+            <circle cx="7" cy="25" r="3" fill="rgba(46,204,154,0.32)" stroke="rgba(46,204,154,0.52)" stroke-width="1"/>
+            <circle cx="15" cy="25" r="3" fill="rgba(46,204,154,0.32)" stroke="rgba(46,204,154,0.52)" stroke-width="1"/>
+            <circle cx="23" cy="25" r="3" fill="rgba(46,204,154,0.32)" stroke="rgba(46,204,154,0.52)" stroke-width="1"/>
+            <circle cx="31" cy="25" r="3" fill="rgba(46,204,154,0.32)" stroke="rgba(46,204,154,0.52)" stroke-width="1"/>
+            <circle cx="7" cy="34" r="3" fill="rgba(46,204,154,0.32)" stroke="rgba(46,204,154,0.52)" stroke-width="1"/>
+            <circle cx="15" cy="34" r="3" fill="rgba(46,204,154,0.32)" stroke="rgba(46,204,154,0.52)" stroke-width="1"/>
+            <circle cx="23" cy="34" r="3" fill="rgba(46,204,154,0.32)" stroke="rgba(46,204,154,0.52)" stroke-width="1"/>
+            <circle cx="31" cy="34" r="3" fill="rgba(46,204,154,0.32)" stroke="rgba(46,204,154,0.52)" stroke-width="1"/>
+          </svg>
+          <div class="adv-card-title">Full tissue coverage</div>
+          <p class="adv-card-body">AI scores every cell in the section rather than estimating from a representative sample &#8212; reducing sampling bias, especially in heterogeneous tumors.</p>
+        </div>
+
+        <div class="adv-card">
+          <svg viewBox="0 0 40 40" class="adv-icon">
+            <rect x="1" y="20" width="14" height="18" rx="2" fill="rgba(27,79,216,0.08)" stroke="rgba(27,79,216,0.30)" stroke-width="1.5"/>
+            <rect x="4" y="13" width="8" height="7" rx="1.5" fill="rgba(27,79,216,0.12)" stroke="rgba(27,79,216,0.25)" stroke-width="1.2"/>
+            <rect x="3" y="23" width="4" height="4" rx="0.5" fill="rgba(27,79,216,0.22)"/>
+            <rect x="9" y="23" width="4" height="4" rx="0.5" fill="rgba(27,79,216,0.22)"/>
+            <rect x="25" y="20" width="14" height="18" rx="2" fill="rgba(46,204,154,0.08)" stroke="rgba(46,204,154,0.30)" stroke-width="1.5"/>
+            <rect x="28" y="13" width="8" height="7" rx="1.5" fill="rgba(46,204,154,0.12)" stroke="rgba(46,204,154,0.25)" stroke-width="1.2"/>
+            <rect x="27" y="23" width="4" height="4" rx="0.5" fill="rgba(46,204,154,0.22)"/>
+            <rect x="33" y="23" width="4" height="4" rx="0.5" fill="rgba(46,204,154,0.22)"/>
+            <line x1="15" y1="27" x2="25" y2="27" stroke="rgba(100,116,139,0.35)" stroke-width="1.5" stroke-dasharray="3,2"/>
+            <polygon points="15.5,24.5 12.5,27 15.5,29.5" fill="rgba(100,116,139,0.40)"/>
+            <polygon points="24.5,24.5 27.5,27 24.5,29.5" fill="rgba(100,116,139,0.40)"/>
+          </svg>
+          <div class="adv-card-title">Reproducible across sites</div>
+          <p class="adv-card-body">A validated AI model produces the same output at any participating laboratory, making cross-institution clinical trial data directly comparable.</p>
+        </div>
+
+      </div><!-- /.adv-cards -->
+    </section>
+
+    <!-- Section 4 -->
+    <section class="edu-section" id="s4">
+      <div class="edu-section-num">Section 04</div>
+      <h2 class="reveal">Where This Is Headed</h2>
+      <p class="reveal">The next generation of biomarkers may be defined through AI-first or AI-only assays &#8212; tests designed from the outset without a manual scoring equivalent. Rather than automating an existing manual score, these systems would identify entirely new patterns in slide data that human visual inspection wouldn&#8217;t detect: spatial relationships between cell types, subtle texture features, microenvironmental signatures, and correlations between morphological features and treatment response or survival outcomes.</p>
+      <p class="reveal">These capabilities build on the same underlying infrastructure &#8212; whole slide imaging, standardized tissue preparation, validated antibody staining &#8212; that supports current AI-assisted scoring. The direction is toward increasing integration of computational analysis into standard pathology workflow, not as a replacement for expertise, but as a tool that expands what&#8217;s measurable.</p>
+
+      <div class="tricontrol-callout reveal">
+        <div class="product-circle" style="background:rgba(27,79,216,0.06);border-color:rgba(27,79,216,0.25);color:var(--accent);font-size:12px;font-weight:800;font-family:'IBM Plex Mono',monospace;">AI</div>
+        <div class="tricontrol-body">
+          <h4>Reliable AI starts with reliable staining</h4>
+          <p>An AI model trained to score a biomarker at a specific staining intensity can only perform consistently if the staining itself is consistent run to run. PCI-AI&#8217;s TriControl&#8482;, QuadControl&#8482;, and DualControl&#8482; panels are designed to meet that requirement &#8212; providing a standardized, validated reference point that ensures the staining input to an AI scoring system falls within the expected range every time.</p>
+          <a href="https://www.pcibio.com/cell-line-quality-controls-page" target="_blank" class="btn-primary btn-sm">View control panels &#8594;</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="edu-citations">
+      <strong>Sources:</strong> MDPI Currents in Oncology (2026) &#8212; Machine Learning in Biomarker-Driven Precision Oncology: Automated IHC Scoring in Genitourinary Cancers; PMC (2022) &#8212; Digital Pathology: New Initiative in Pathology; PMC (2025) &#8212; Augmented Reality Microscopy to Bridge Trust Between AI and Pathologists (npj Precision Oncology); PMC (2014) &#8212; IHC Profiler: Open Source Plugin for Quantitative Evaluation and Automated Scoring of IHC Images (match rate 88.6% cited from this source); The Lancet Digital Health (2025) &#8212; Application of Artificial Intelligence and Digital Tools in Cancer Pathology.
+    </div>
+
+  </div><!-- /.edu-content -->
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo"><img src="/static/images/cancer-cell-mark-v2.svg" class="aperture-mark" width="28" height="28" alt="">PCI<span class="logo-dot">-</span><span class="logo-accent">AI</span></a>
+        <div class="footer-tagline">Digital Pathology Platform</div>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.pcibio.com" target="_blank">pcibio.com</a>
+        <a href="https://www.pcibio.com/about" target="_blank">About</a>
+        <a href="https://www.pcibio.com/contact" target="_blank">Contact</a>
+        <a href="https://www.pcibio.com/products" target="_blank">Products</a>
+        <a href="/privacy">Privacy Policy &amp; Terms of Use</a>
+      </div>
+      <div class="footer-right">
+        <span class="footer-copy">&#169; 2025 PCI-AI, Inc.</span>
+        <div class="footer-location"><span>Helix Park</span>, Houston TX</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mouseGlow = document.getElementById('mouseGlow');
+    document.addEventListener('mousemove', e => {
+      mouseGlow.style.left = e.clientX + 'px';
+      mouseGlow.style.top  = e.clientY + 'px';
+    });
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' }); }
+      });
+    });
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+    const sectionObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        document.querySelectorAll('.subnav-link').forEach(l => l.classList.remove('active'));
+        const link = document.querySelector('.subnav-link[href="#' + entry.target.id + '"]');
+        if (link) link.classList.add('active');
+      });
+    }, { rootMargin: '-15% 0px -75% 0px' });
+    ['s1','s2','s3','s4'].forEach(id => { const el = document.getElementById(id); if (el) sectionObs.observe(el); });
+  </script>
+</body>
+</html>
