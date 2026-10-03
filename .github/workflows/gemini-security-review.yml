@@ -37,7 +37,10 @@ jobs:
           REPOSITORY: ${{ github.repository }}
         with:
           gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
-          gemini_cli_version: '0.62.0'
+          # 0.26 installs extensions without an interactive consent prompt; newer CLIs hang in CI.
+          gemini_cli_version: '0.26.0'
+          # 0.26's default models are retired for new API keys, so pin a current one.
+          gemini_model: 'gemini-flash-latest'
           extensions: |
             ["https://github.com/gemini-cli-extensions/security.git"]
           settings: |-
