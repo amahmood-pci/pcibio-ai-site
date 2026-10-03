@@ -37,7 +37,7 @@ jobs:
           REPOSITORY: ${{ github.repository }}
         with:
           gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
-          gemini_cli_version: '0.26.0'
+          gemini_cli_version: '0.62.0'
           extensions: |
             ["https://github.com/gemini-cli-extensions/security.git"]
           settings: |-
