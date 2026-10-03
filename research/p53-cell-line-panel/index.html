@@ -1,40 +1,58 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <script>document.documentElement.classList.add('js')</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>p53 Cell Line Control Panel &#8212; PCI-AI Research</title>
+  <meta name="description" content="Peer-reviewed research (Int J Gynecol Pathol, 2019): a cell line-based p53 IHC control panel improves interrater reliability.">
+  <link rel="canonical" href="https://site-phi-six-61.vercel.app/research/p53-cell-line-panel">
+  <link rel="icon" href="/static/images/cancer-cell-mark-v2.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0f1f3d">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PCI-AI">
+  <meta property="og:title" content="p53 Cell Line Control Panel &#8212; PCI-AI Research">
+  <meta property="og:description" content="Peer-reviewed research (Int J Gynecol Pathol, 2019): a cell line-based p53 IHC control panel improves interrater reliability.">
+  <meta property="og:url" content="https://site-phi-six-61.vercel.app/research/p53-cell-line-panel">
+  <meta property="og:image" content="https://site-phi-six-61.vercel.app/static/images/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/static/css/main.css">
   <link rel="stylesheet" href="/static/css/education.css">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="mouse-glow" id="mouseGlow"></div>
 
   <nav class="nav" id="nav">
     <a href="/" class="nav-logo"><img src="/static/images/cancer-cell-mark-v2.svg" class="aperture-mark" width="28" height="28" alt="">PCI<span class="logo-dot">-</span><span class="logo-accent">AI</span></a>
-    <div class="nav-links">
-      <a href="https://www.pcibio.com" target="_blank">PCI-AI</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="https://pcibio.com/" target="_blank" rel="noopener">pcibio.com</a>
       <a href="/#features">Platform</a>
       <a href="/#products">Products</a>
       <a href="/education">Education</a>
-      <a href="/research" style="color:var(--accent);">Research</a>
+      <a href="/research/p53-cell-line-panel" style="color:var(--accent);">Research</a>
       <a href="/#workflow">Workflow</a>
       <a href="/#about">About</a>
-      <a href="/login" class="nav-signin">Sign in</a>
-      <a href="/register" class="btn-primary btn-sm">Get started &#8594;</a>
+      <a href="https://pcibio.com/viewer.html" target="_blank" rel="noopener" class="nav-signin">Sign in</a>
+      <a href="https://pcibio.com/viewer.html" target="_blank" rel="noopener" class="btn-primary btn-sm">Get started &#8594;</a>
     </div>
   </nav>
 
-  <!-- Spacer for fixed nav -->
+  
+  <main id="main">
+<!-- Spacer for fixed nav -->
   <div style="height:60px;"></div>
 
   <!-- Page header -->
   <div style="background:var(--bg);border-bottom:1px solid var(--border);">
     <div class="edu-page-header">
       <div class="edu-breadcrumb">
-        <a href="/research">Research</a>
+        <a href="/research/p53-cell-line-panel">Research</a>
         <span>/</span>
         Featured Publication
       </div>
@@ -64,7 +82,7 @@
         <div style="font-size:13px;color:var(--text2);margin-bottom:0.15rem;">September 2019</div>
         <div style="font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--text3);margin-bottom:1.25rem;">DOI: 10.1097/PGP.0000000000000543</div>
         <a href="https://journals.lww.com/intjgynpathology/abstract/2019/09000/a_cell_line_based_immunohistochemical_p53.9.aspx"
-           target="_blank" class="btn-primary btn-sm">View Abstract &#8594;</a>
+           target="_blank" rel="noopener" class="btn-primary btn-sm">View Abstract &#8594;</a>
       </div>
     </section>
 
@@ -123,12 +141,14 @@
         <div class="tricontrol-body">
           <h4>TriControl&#8482; &#8212; the panel described in this study</h4>
           <p>Null, wild-type, and diffuse expression profiles in a single FFPE cell block. Used as a reference standard for p53 IHC antibody optimization and clinical interpretation validation in gynecological pathology.</p>
-          <a href="https://www.pcibio.com/cell-line-quality-controls-page" target="_blank" class="btn-primary btn-sm">View TriControl&#8482; &#8594;</a>
+          <a href="https://pcibio.com/controls.html" target="_blank" rel="noopener" class="btn-primary btn-sm">View TriControl&#8482; &#8594;</a>
         </div>
       </div>
     </section>
 
   </div>
+
+  </main>
 
   <footer class="footer">
     <div class="footer-inner">
@@ -137,15 +157,16 @@
         <div class="footer-tagline">Digital Pathology Platform</div>
       </div>
       <div class="footer-links">
-        <a href="https://www.pcibio.com" target="_blank">pcibio.com</a>
-        <a href="https://www.pcibio.com/about" target="_blank">About</a>
-        <a href="https://www.pcibio.com/contact" target="_blank">Contact</a>
-        <a href="https://www.pcibio.com/products" target="_blank">Products</a>
+        <a href="https://pcibio.com/" target="_blank" rel="noopener">pcibio.com</a>
+        <a href="https://pcibio.com/about.html" target="_blank" rel="noopener">About</a>
+        <a href="https://pcibio.com/contact.html" target="_blank" rel="noopener">Contact</a>
+        <a href="https://pcibio.com/products.html" target="_blank" rel="noopener">Products</a>
         <a href="/privacy">Privacy Policy &amp; Terms of Use</a>
       </div>
       <div class="footer-right">
-        <span class="footer-copy">&#169; 2025 PCI-AI, Inc.</span>
+        <span class="footer-copy">&#169; 2026 Precision Cellular Immunology, LLC</span>
         <div class="footer-location"><span>Helix Park</span>, Houston TX</div>
+        <p class="footer-ruo">For Research Use Only. Not for use in diagnostic procedures.</p>
       </div>
     </div>
   </footer>
@@ -164,6 +185,20 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  </script>
+  <script>
+    (function () {
+      var t = document.getElementById('navToggle'), n = document.getElementById('nav');
+      if (!t || !n) return;
+      t.addEventListener('click', function () {
+        var open = n.classList.toggle('nav-open');
+        t.setAttribute('aria-expanded', open);
+        t.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+      n.querySelectorAll('.nav-links a').forEach(function (a) {
+        a.addEventListener('click', function () { n.classList.remove('nav-open'); t.setAttribute('aria-expanded', 'false'); });
+      });
+    })();
   </script>
 </body>
 </html>

@@ -1,13 +1,28 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <script>document.documentElement.classList.add('js')</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PCI-AI — Digital Pathology Platform</title>
+  <meta name="description" content="Characterized cell line IHC control panels (TriControl, QuadControl, DualControl) and AI-assisted biomarker assessment from Precision Cellular Immunology.">
+  <link rel="canonical" href="https://site-phi-six-61.vercel.app/">
+  <link rel="icon" href="/static/images/cancer-cell-mark-v2.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0f1f3d">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PCI-AI">
+  <meta property="og:title" content="PCI-AI — Digital Pathology Platform">
+  <meta property="og:description" content="Characterized cell line IHC control panels (TriControl, QuadControl, DualControl) and AI-assisted biomarker assessment from Precision Cellular Immunology.">
+  <meta property="og:url" content="https://site-phi-six-61.vercel.app/">
+  <meta property="og:image" content="https://site-phi-six-61.vercel.app/static/images/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/static/css/main.css">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Particle canvas background -->
   <canvas id="bgCanvas"></canvas>
@@ -26,19 +41,22 @@
   <!-- Nav -->
   <nav class="nav" id="nav">
     <a href="/" class="nav-logo"><img src="/static/images/cancer-cell-mark-v2.svg" class="aperture-mark" width="28" height="28" alt="">PCI<span class="logo-dot">-</span><span class="logo-accent">AI</span></a>
-    <div class="nav-links">
-      <a href="https://www.pcibio.com" target="_blank">PCI-AI</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="https://pcibio.com/" target="_blank" rel="noopener">pcibio.com</a>
       <a href="#features">Platform</a>
       <a href="#products">Products</a>
       <a href="/education">Education</a>
       <a href="#workflow">Workflow</a>
       <a href="#about">About</a>
-      <a href="/login" class="nav-signin">Sign in</a>
-      <a href="/register" class="btn-primary btn-sm">Get started →</a>
+      <a href="https://pcibio.com/viewer.html" target="_blank" rel="noopener" class="nav-signin">Sign in</a>
+      <a href="https://pcibio.com/viewer.html" target="_blank" rel="noopener" class="btn-primary btn-sm">Get started →</a>
     </div>
   </nav>
 
-  <!-- ── Hero ──────────────────────────────────────── -->
+  
+  <main id="main">
+<!-- ── Hero ──────────────────────────────────────── -->
   <section class="hero">
     <div class="hero-content">
       <div class="hero-badge reveal">
@@ -46,16 +64,16 @@
         PCI-AI — Digital Slide Viewer
       </div>
       <h1 class="reveal delay-1">Precision IHC Controls.<br><span class="gradient-text">AI-Powered Assessment.</span></h1>
-      <p class="hero-sub reveal delay-2">Improving pathologist accuracy and clinical efficiency through characterized cell line quality controls and automated AI biomarker analysis.</p>
+      <p class="hero-sub reveal delay-2">Improving IHC reproducibility and lab efficiency through characterized cell line quality controls and AI-assisted biomarker analysis.</p>
       <div class="hero-actions reveal delay-3">
-        <a href="https://www.pcibio.com/shop" class="btn-primary btn-lg" target="_blank">Browse Products →</a>
-        <a href="/login" class="btn-ghost btn-lg">Try the AI Viewer</a>
+        <a href="https://pcibio.com/products.html" class="btn-primary btn-lg" target="_blank" rel="noopener">Browse Products →</a>
+        <a href="https://pcibio.com/viewer.html" target="_blank" rel="noopener" class="btn-ghost btn-lg">Try the AI Viewer</a>
       </div>
 
       <!-- Objective zoom slider -->
       <div class="zoom-slider-wrap reveal delay-4">
         <span class="zoom-label">Objective</span>
-        <input type="range" class="zoom-slider" id="zoomSlider" min="0" max="4" step="1" value="4">
+        <input type="range" class="zoom-slider" id="zoomSlider" aria-label="Objective magnification" min="0" max="4" step="1" value="4">
         <span class="zoom-val" id="zoomVal">40×</span>
       </div>
 
@@ -70,11 +88,11 @@
         </div>
         <div class="stat">
           <span class="stat-num">Patent</span>
-          <span class="stat-lbl">Pending tech</span>
+          <span class="stat-lbl">Pending</span>
         </div>
         <div class="stat">
-          <span class="stat-num">&lt;10</span>
-          <span class="stat-lbl">Min AI speed</span>
+          <span class="stat-num">&lt;10 min</span>
+          <span class="stat-lbl">AI analysis</span>
         </div>
       </div>
     </div>
@@ -85,8 +103,8 @@
       <div class="viewer-mockup">
         <div class="mockup-bar">
           <div class="mockup-dots"><span></span><span></span><span></span></div>
-          <div class="mockup-url">pcibio.ai/viewer/slide</div>
-          <div class="mockup-controls"><span>⊕</span><span>⊗</span></div>
+          <div class="mockup-url">pcibio.com/viewer</div>
+          <div class="mockup-controls" aria-hidden="true"><span>⊕</span><span>⊗</span></div>
         </div>
         <div class="mockup-app">
           <div class="mockup-sidebar">
@@ -163,13 +181,13 @@
 
             <!-- Toolbar with annotation tools -->
             <div class="mockup-toolbar">
-              <button class="tool-btn active" data-tool="pan" title="Pan">↔</button>
-              <button class="tool-btn" data-tool="annotate" title="Annotate">✎</button>
-              <button class="tool-btn" data-tool="measure" title="Measure">⊿</button>
+              <button class="tool-btn active" data-tool="pan" title="Pan" aria-label="Pan">↔</button>
+              <button class="tool-btn" data-tool="annotate" title="Annotate" aria-label="Annotate">✎</button>
+              <button class="tool-btn" data-tool="measure" title="Measure" aria-label="Measure">⊿</button>
               <div class="tool-sep"></div>
-              <button id="tbZoomIn" title="Zoom in">+</button>
-              <button id="tbZoomOut" title="Zoom out">−</button>
-              <button id="tbFit" title="Fit to screen">⊡</button>
+              <button id="tbZoomIn" title="Zoom in" aria-label="Zoom in">+</button>
+              <button id="tbZoomOut" title="Zoom out" aria-label="Zoom out">−</button>
+              <button id="tbFit" title="Fit to screen" aria-label="Fit to screen">⊡</button>
             </div>
           </div>
         </div>
@@ -179,7 +197,7 @@
   </section>
 
   <!-- ── Ticker ──────────────────────────────────────── -->
-  <div class="ticker-wrap">
+  <div class="ticker-wrap" aria-hidden="true">
     <div class="ticker">
       <span>IHC Biomarkers</span><span class="sep">·</span>
       <span>p53 Controls</span><span class="sep">·</span>
@@ -225,27 +243,27 @@
 
   <!-- ── Features ──────────────────────────────────── -->
   <section class="features section-alt" id="features">
-    <div class="section-banner features-banner"><div class="banner-track"><span>ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · </span><span>ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · </span></div></div>
+    <div class="section-banner features-banner" aria-hidden="true"><div class="banner-track"><span>ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · </span><span>ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · </span></div></div>
     <div class="section-wrap">
       <div class="section-tag reveal">Our Offerings</div>
       <h2 class="reveal delay-1">Engineered for<br>Pathological Precision</h2>
-      <p class="section-sub reveal delay-2">Reimagining quality validation and clinical image workflows using our physical controls and machine-learning software tools.</p>
+      <p class="section-sub reveal delay-2">Reimagining quality validation and digital pathology workflows using our physical controls and machine-learning software tools.</p>
       <div class="features-grid features-grid-3">
-        <a class="feat-card reveal delay-1" href="https://www.pcibio.com/cell-line-quality-controls-page" target="_blank">
+        <a class="feat-card reveal delay-1" href="https://pcibio.com/controls.html" target="_blank" rel="noopener">
           <div class="feat-icon-wrap">IHC</div>
           <h3>Cell Line IHC Controls</h3>
           <p>Physical FFPE cell plugs arranged strategically. Built to standardize validation protocols and avoid staining failure pitfalls.</p>
           <div class="feat-extra">TriControl™, QuadControl™, and DualControl™ panels provide characterized null, wild-type, and diffuse expression profiles across standardized cell lines.</div>
           <span class="feat-tag">FFPE Controls</span>
         </a>
-        <a class="feat-card reveal delay-2" href="https://www.pcibio.com/new-page" target="_blank">
+        <a class="feat-card reveal delay-2" href="https://pcibio.com/ai.html" target="_blank" rel="noopener">
           <div class="feat-icon-wrap">AI</div>
           <h3>AI Biomarker Assessment</h3>
           <p>Automated image recognition scoring calibrated against characterized reference plug standards. Eliminates manual cognitive fatigue.</p>
           <div class="feat-extra">Machine learning algorithms measure DAB expression and separation compared to reference cells — preparing outputs in under 10 minutes.</div>
           <span class="feat-tag">&lt;10 min</span>
         </a>
-        <a class="feat-card reveal delay-3" href="https://www.pcibio.com/digital-pathology-education" target="_blank">
+        <a class="feat-card reveal delay-3" href="/education">
           <div class="feat-icon-wrap">EDU</div>
           <h3>Digital Pathology Education</h3>
           <p>A rich teaching compilation curated for pathologists, histologists, and research trainees to learn whole slide quantitative metrics.</p>
@@ -260,7 +278,7 @@
 
   <!-- ── Products ──────────────────────────────────── -->
   <section class="products-section" id="products">
-    <div class="section-banner products-banner"><div class="banner-track"><span>MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · </span><span>MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · </span></div></div>
+    <div class="section-banner products-banner" aria-hidden="true"><div class="banner-track"><span>MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · </span><span>MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · </span></div></div>
     <div class="section-wrap" style="position:relative;overflow:hidden;">
       <!-- Circular motifs -->
       <div class="circle-decor circle-decor-lg circle-hema" style="top:-80px;right:-100px;opacity:0.07;"></div>
@@ -271,21 +289,21 @@
       <h2 class="reveal delay-1">Precision cell line<br>control panels</h2>
       <p class="section-sub reveal delay-2">TriControl™, QuadControl™, and DualControl™ panels enrich biomarker antibody optimization and decrease time for IHC assessment. Characterized cell line plugs provide reproducible expression benchmarks across null, wild-type, and overexpression patterns.</p>
       <div class="products-grid">
-        <a class="product-card reveal delay-1" href="https://www.pcibio.com/cell-line-quality-controls-page" target="_blank">
+        <a class="product-card reveal delay-1" href="https://pcibio.com/controls.html" target="_blank" rel="noopener">
           <div class="product-circle">3</div>
           <h3><span>Tri</span>Control™</h3>
           <div class="product-name-sub">Three-cell-line IHC panel</div>
           <p>Three cell lines presenting null (mutant), wild-type, and diffuse (overexpressed) expression patterns. Built for antibody optimization and assay development across triple-biomarker IHC panels including p53 and p16.</p>
           <span class="product-badge">Null · Wild-type · Overexpressed</span>
         </a>
-        <a class="product-card reveal delay-2" href="https://www.pcibio.com/cell-line-quality-controls-page" target="_blank">
+        <a class="product-card reveal delay-2" href="https://pcibio.com/controls.html" target="_blank" rel="noopener">
           <div class="product-circle">4</div>
           <h3><span>Quad</span>Control™</h3>
           <div class="product-name-sub">Four-cell-line IHC panel</div>
           <p>Four cell lines covering null, low-normal, high-normal, and overexpression. The MMR QuadControl™ consolidates MLH1, MSH2, MSH6, and PMS2 mismatch repair proteins in a single, high-throughput FFPE block.</p>
           <span class="product-badge">MLH1 · MSH2 · MSH6 · PMS2</span>
         </a>
-        <a class="product-card reveal delay-3" href="https://www.pcibio.com/cell-line-quality-controls-page" target="_blank">
+        <a class="product-card reveal delay-3" href="https://pcibio.com/controls.html" target="_blank" rel="noopener">
           <div class="product-circle">2</div>
           <h3><span>Dual</span>Control™</h3>
           <div class="product-name-sub">Two-cell-line IHC panel</div>
@@ -322,7 +340,7 @@
 
   <!-- ── Education ─────────────────────────────────── -->
   <section class="education-section section-light" id="education">
-    <div class="section-banner education-banner"><div class="banner-track"><span>dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · </span><span>dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · </span></div></div>
+    <div class="section-banner education-banner" aria-hidden="true"><div class="banner-track"><span>dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · </span><span>dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · </span></div></div>
     <div class="section-wrap">
       <div class="section-tag section-tag-teal reveal">Digital Pathology Education</div>
       <h2 class="reveal delay-1">A Rich Teaching<br>Compilation</h2>
@@ -356,7 +374,7 @@
       </div>
       <div class="edu-footer reveal delay-5">
         <p class="edu-note">Topic modules and guided resources — powered by <span>PCI-AI</span></p>
-        <a href="https://www.pcibio.com/digital-pathology-education" target="_blank" class="btn-primary">Explore full education library →</a>
+        <a href="/education" class="btn-primary">Explore full education library →</a>
       </div>
     </div>
   </section>
@@ -365,7 +383,7 @@
 
   <!-- ── Workflow ───────────────────────────────────── -->
   <section class="workflow-section section-hema" id="workflow">
-    <div class="section-banner workflow-banner"><div class="banner-track"><span>IHC STAINING · UPLOAD · AI SCORE · STANDARDIZE · DIGITIZE · INTERPRET · DAB CALIBRATION · REFERENCE PLUG · BENCHMARK · IHC STAINING · UPLOAD · AI SCORE · STANDARDIZE · DIGITIZE · INTERPRET · DAB CALIBRATION · REFERENCE PLUG · BENCHMARK · IHC STAINING · UPLOAD · AI SCORE · </span><span>IHC STAINING · UPLOAD · AI SCORE · STANDARDIZE · DIGITIZE · INTERPRET · DAB CALIBRATION · REFERENCE PLUG · BENCHMARK · IHC STAINING · UPLOAD · AI SCORE · STANDARDIZE · DIGITIZE · INTERPRET · DAB CALIBRATION · REFERENCE PLUG · BENCHMARK · IHC STAINING · UPLOAD · AI SCORE · </span></div></div>
+    <div class="section-banner workflow-banner" aria-hidden="true"><div class="banner-track"><span>IHC STAINING · UPLOAD · AI SCORE · STANDARDIZE · DIGITIZE · INTERPRET · DAB CALIBRATION · REFERENCE PLUG · BENCHMARK · IHC STAINING · UPLOAD · AI SCORE · STANDARDIZE · DIGITIZE · INTERPRET · DAB CALIBRATION · REFERENCE PLUG · BENCHMARK · IHC STAINING · UPLOAD · AI SCORE · </span><span>IHC STAINING · UPLOAD · AI SCORE · STANDARDIZE · DIGITIZE · INTERPRET · DAB CALIBRATION · REFERENCE PLUG · BENCHMARK · IHC STAINING · UPLOAD · AI SCORE · STANDARDIZE · DIGITIZE · INTERPRET · DAB CALIBRATION · REFERENCE PLUG · BENCHMARK · IHC STAINING · UPLOAD · AI SCORE · </span></div></div>
     <div class="section-wrap">
       <div class="section-tag section-tag-hema reveal">Workflow</div>
       <h2 class="reveal delay-1">Pathology Staining<br>to AI Score</h2>
@@ -374,17 +392,17 @@
         <div class="workflow-step reveal delay-1">
           <div class="step-num">01</div>
           <h3>Run IHC Staining</h3>
-          <p>Insert a PCI slide carrying characterized cell line plugs during your routine patient run to serve as a benchmark for antibody calibration.</p>
+          <p>Insert a PCI slide carrying characterized cell line plugs during your routine staining run to serve as a benchmark for antibody calibration.</p>
         </div>
         <div class="workflow-step reveal delay-2">
           <div class="step-num">02</div>
           <h3>Upload Whole Slide Image</h3>
-          <p>Export the high-resolution scanner output and drop it into the secure, tiled PCI Digital Viewer at pcibio.ai for instant rendering.</p>
+          <p>Export the high-resolution scanner output and open it in the secure, tiled PCI Digital Viewer for instant rendering.</p>
         </div>
         <div class="workflow-step reveal delay-3">
           <div class="step-num">03</div>
-          <h3>Receive Objective Score</h3>
-          <p>Our machine learning algorithm measures DAB expression and separation compared to reference cells, preparing objective outputs in minutes.</p>
+          <h3>Receive a Quantitative Score</h3>
+          <p>Our machine learning algorithm measures DAB expression and separation compared to reference cells, producing quantitative outputs in minutes.</p>
         </div>
       </div>
     </div>
@@ -394,20 +412,20 @@
 
   <!-- ── About ──────────────────────────────────────── -->
   <section class="about-section section-light" id="about">
-    <div class="section-banner about-banner"><div class="banner-track"><span>NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · </span><span>NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · </span></div></div>
+    <div class="section-banner about-banner" aria-hidden="true"><div class="banner-track"><span>NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · </span><span>NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · </span></div></div>
     <div class="about-grid">
       <div class="about-text">
         <div class="section-tag section-tag-hema reveal">About PCI-AI</div>
         <h2 class="reveal delay-1">Precision Cellular<br>Immunology</h2>
-        <p class="reveal delay-2">PCI-AI improves patient care through precision cell line IHC control panels and AI assessment assistance. Our work in cell line characterization and biomarker quality control helps pathologists and histologists achieve higher reproducibility and clinical efficiency.</p>
+        <p class="reveal delay-2">PCI-AI supports pathology research through precision cell line IHC control panels and AI assessment assistance. Our work in cell line characterization and biomarker quality control helps pathologists and histologists achieve higher reproducibility and clinical efficiency.</p>
         <p class="reveal delay-3">Characterized FFPE cell line plugs enrich biomarker antibody optimization and decrease time for IHC assessment — assisting pathologists in their evaluation and reducing time spent on individual IHC cases.</p>
         <div class="about-links reveal delay-4">
-          <a href="https://www.pcibio.com" class="btn-ghost" target="_blank">Visit pcibio.com →</a>
-          <a href="https://www.pcibio.com/about" class="btn-text" target="_blank">Meet the team</a>
+          <a href="https://pcibio.com/" class="btn-ghost" target="_blank" rel="noopener">Visit pcibio.com →</a>
+          <a href="https://pcibio.com/about.html" class="btn-text" target="_blank" rel="noopener">Meet the team</a>
         </div>
       </div>
       <div class="about-cards">
-        <a class="about-card reveal delay-2" href="https://www.pcibio.com/cell-line-quality-controls-page" target="_blank">
+        <a class="about-card reveal delay-2" href="https://pcibio.com/controls.html" target="_blank" rel="noopener">
           <h4>Cell line IHC controls</h4>
           <p>TriControl™, QuadControl™ and DualControl™ panels for antibody optimization and quality control — defined null, wild-type, and diffuse expression profiles across validated cell lines.</p>
         </a>
@@ -415,7 +433,7 @@
           <h4>Biomarker AI assessment</h4>
           <p>AI algorithms to assist with IHC biomarker interpretation — automated classification of null, wild-type, and diffuse expression patterns to reduce pathologist evaluation time.</p>
         </a>
-        <a class="about-card reveal delay-4" href="https://www.pcibio.com/about" target="_blank">
+        <a class="about-card reveal delay-4" href="/education">
           <h4>Digital pathology education</h4>
           <p>Guided topic modules covering IHC interpretation, biomarker assessment, and digital pathology fundamentals. Curated examples help pathologists and scientists distinguish null from diffuse expression in complex biomarker panels.</p>
         </a>
@@ -427,7 +445,7 @@
 
   <!-- ── CTA ───────────────────────────────────────── -->
   <section class="cta-section section-alt">
-    <div class="section-banner cta-banner"><div class="banner-track"><span>PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · </span><span>PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · </span></div></div>
+    <div class="section-banner cta-banner" aria-hidden="true"><div class="banner-track"><span>PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · </span><span>PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · </span></div></div>
     <div class="cta-inner">
       <div class="cta-glow"></div>
       <!-- Circular motifs -->
@@ -435,15 +453,17 @@
       <div class="circle-decor circle-decor-md circle-teal"   style="top:50%;right:-60px;transform:translateY(-50%);opacity:0.07;"></div>
       <div class="section-tag reveal">Get started</div>
       <h2 class="reveal delay-1">Ready to Improve Your<br>IHC Assessment?</h2>
-      <p class="reveal delay-2">Achieve higher reproducibility, secure patient sample verification, and access seamless automated scoring algorithms. Located at Helix Park, Houston TX.</p>
+      <p class="reveal delay-2">Achieve higher reproducibility with characterized controls and automated, quantitative scoring. Based at Helix Park in Houston, TX.</p>
       <div class="hero-actions reveal delay-3" style="justify-content:center;">
-        <a href="https://www.pcibio.com/shop" class="btn-primary btn-lg" target="_blank">Shop Control Products →</a>
-        <a href="https://www.pcibio.com/contact" class="btn-ghost btn-lg" target="_blank">Contact Our Labs</a>
+        <a href="https://pcibio.com/products.html" class="btn-primary btn-lg" target="_blank" rel="noopener">Shop Control Products →</a>
+        <a href="https://pcibio.com/contact.html" class="btn-ghost btn-lg" target="_blank" rel="noopener">Contact Our Labs</a>
       </div>
     </div>
   </section>
 
   <!-- ── Footer ────────────────────────────────────── -->
+  </main>
+
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
@@ -451,23 +471,27 @@
         <div class="footer-tagline">Digital Pathology Platform</div>
       </div>
       <div class="footer-links">
-        <a href="https://www.pcibio.com" target="_blank">pcibio.com</a>
-        <a href="https://www.pcibio.com/about" target="_blank">About</a>
-        <a href="https://www.pcibio.com/contact" target="_blank">Contact</a>
-        <a href="https://www.pcibio.com/products" target="_blank">Products</a>
+        <a href="https://pcibio.com/" target="_blank" rel="noopener">pcibio.com</a>
+        <a href="https://pcibio.com/about.html" target="_blank" rel="noopener">About</a>
+        <a href="https://pcibio.com/contact.html" target="_blank" rel="noopener">Contact</a>
+        <a href="https://pcibio.com/products.html" target="_blank" rel="noopener">Products</a>
         <a href="/privacy">Privacy Policy &amp; Terms of Use</a>
       </div>
       <div class="footer-right">
-        <span class="footer-copy">© 2025 PCI-AI, Inc.</span>
+        <span class="footer-copy">&#169; 2026 Precision Cellular Immunology, LLC</span>
         <div class="footer-location"><span>Helix Park</span>, Houston TX</div>
+        <p class="footer-ruo">For Research Use Only. Not for use in diagnostic procedures.</p>
       </div>
     </div>
   </footer>
 
   <script>
+    const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const SMALL   = window.matchMedia('(max-width: 768px)').matches;
+
     /* ── Mouse glow ───────────────────────────────── */
     const mouseGlow = document.getElementById('mouseGlow');
-    document.addEventListener('mousemove', e => {
+    if (!REDUCED) document.addEventListener('mousemove', e => {
       mouseGlow.style.left = e.clientX + 'px';
       mouseGlow.style.top  = e.clientY + 'px';
     });
@@ -533,6 +557,8 @@
     const _gridOverlay = document.querySelector('.grid-overlay');
 
     (function animateOrbs(t) {
+      if (REDUCED) return;
+      if (document.hidden) { requestAnimationFrame(animateOrbs); return; }
       ORBS.forEach(o => {
         if (!o.el) return;
         const fx = Math.sin(t / o.period * Math.PI * 2) * o.fx;
@@ -576,6 +602,7 @@
     /* ── Background particle canvas ──────────────────── */
     (function() {
       const canvas = document.getElementById('bgCanvas');
+      if (REDUCED) { canvas.style.display = 'none'; return; }
       const ctx    = canvas.getContext('2d');
 
       function resize() {
@@ -586,7 +613,7 @@
       window.addEventListener('resize', resize, { passive: true });
 
       /* Particles */
-      const NUM_P  = 140;
+      const NUM_P  = SMALL ? 45 : 140;
       const MAX_D  = 210;
       const pts    = [];
 
@@ -727,6 +754,7 @@
       }
 
       function frame() {
+        if (document.hidden) { requestAnimationFrame(frame); return; }
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         /* Slowly lerp the repulsion scale in and out */
@@ -872,6 +900,7 @@
       });
 
       mc.addEventListener('wheel', function(e) {
+        if (!e.ctrlKey && !e.metaKey) return;
         e.preventDefault();
         var idx = curMag();
         setZoom(idx + (e.deltaY < 0 ? 1 : -1));
@@ -918,6 +947,7 @@
   </script>
   <script>
     /* ── 3D card tilt ── */
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.matchMedia('(hover: hover)').matches)
     document.querySelectorAll('.feat-card, .product-card, .edu-card, .about-card').forEach(function(card) {
       card.addEventListener('mousemove', function(e) {
         var r = card.getBoundingClientRect();
@@ -931,6 +961,20 @@
         card.style.transform  = '';
       });
     });
+  </script>
+  <script>
+    (function () {
+      var t = document.getElementById('navToggle'), n = document.getElementById('nav');
+      if (!t || !n) return;
+      t.addEventListener('click', function () {
+        var open = n.classList.toggle('nav-open');
+        t.setAttribute('aria-expanded', open);
+        t.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+      n.querySelectorAll('.nav-links a').forEach(function (a) {
+        a.addEventListener('click', function () { n.classList.remove('nav-open'); t.setAttribute('aria-expanded', 'false'); });
+      });
+    })();
   </script>
 </body>
 </html>

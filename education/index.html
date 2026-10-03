@@ -1,32 +1,50 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <script>document.documentElement.classList.add('js')</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Education &#8212; PCI-AI Digital Pathology</title>
+  <title>Digital Pathology Education &#8212; PCI-AI</title>
+  <meta name="description" content="Free digital pathology education: guided modules on IHC interpretation, p53 classification, MMR assessment, antibody optimization and AI-assisted scoring.">
+  <link rel="canonical" href="https://site-phi-six-61.vercel.app/education">
+  <link rel="icon" href="/static/images/cancer-cell-mark-v2.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0f1f3d">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PCI-AI">
+  <meta property="og:title" content="Digital Pathology Education &#8212; PCI-AI">
+  <meta property="og:description" content="Free digital pathology education: guided modules on IHC interpretation, p53 classification, MMR assessment, antibody optimization and AI-assisted scoring.">
+  <meta property="og:url" content="https://site-phi-six-61.vercel.app/education">
+  <meta property="og:image" content="https://site-phi-six-61.vercel.app/static/images/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/static/css/main.css">
   <link rel="stylesheet" href="/static/css/education.css">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="mouse-glow" id="mouseGlow"></div>
 
   <nav class="nav" id="nav">
     <a href="/" class="nav-logo"><img src="/static/images/cancer-cell-mark-v2.svg" class="aperture-mark" width="28" height="28" alt="">PCI<span class="logo-dot">-</span><span class="logo-accent">AI</span></a>
-    <div class="nav-links">
-      <a href="https://www.pcibio.com" target="_blank">PCI-AI</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="https://pcibio.com/" target="_blank" rel="noopener">pcibio.com</a>
       <a href="/#features">Platform</a>
       <a href="/#products">Products</a>
       <a href="/education" style="color:var(--accent);">Education</a>
       <a href="/#workflow">Workflow</a>
       <a href="/#about">About</a>
-      <a href="/login" class="nav-signin">Sign in</a>
-      <a href="/register" class="btn-primary btn-sm">Get started &#8594;</a>
+      <a href="https://pcibio.com/viewer.html" target="_blank" rel="noopener" class="nav-signin">Sign in</a>
+      <a href="https://pcibio.com/viewer.html" target="_blank" rel="noopener" class="btn-primary btn-sm">Get started &#8594;</a>
     </div>
   </nav>
 
-  <!-- ── Hero ───────────────────────────────────────────────── -->
+  
+  <main id="main">
+<!-- ── Hero ───────────────────────────────────────────────── -->
   <section class="hub-hero">
     <div class="hub-hero-texture"></div>
     <div class="hub-hero-glow"></div>
@@ -36,7 +54,7 @@
       <p class="hub-sub">Build your understanding of IHC interpretation and biomarker analysis. Guided topic modules for pathologists, research trainees, and laboratory scientists.</p>
       <div class="hub-cta-group">
         <a href="#curriculum" class="btn-primary hub-btn-lg">Explore the Curriculum &#8594;</a>
-        <a href="https://www.pcibio.com/contact" target="_blank" class="hub-btn-outline">View Full Platform</a>
+        <a href="https://pcibio.com/viewer.html" target="_blank" rel="noopener" class="hub-btn-outline">Try the AI Viewer</a>
       </div>
     </div>
   </section>
@@ -110,9 +128,11 @@
   <section class="hub-bottom-cta">
     <div class="hub-container hub-bottom-cta-inner">
       <p class="hub-bottom-cta-text">Want access to the full slide viewer?</p>
-      <a href="https://www.pcibio.com/contact" target="_blank" class="btn-primary hub-btn-lg">Contact PCI-AI &#8594;</a>
+      <a href="https://pcibio.com/contact.html" target="_blank" rel="noopener" class="btn-primary hub-btn-lg">Contact PCI-AI &#8594;</a>
     </div>
   </section>
+
+  </main>
 
   <footer class="footer">
     <div class="footer-inner">
@@ -121,15 +141,16 @@
         <div class="footer-tagline">Digital Pathology Platform</div>
       </div>
       <div class="footer-links">
-        <a href="https://www.pcibio.com" target="_blank">pcibio.com</a>
-        <a href="https://www.pcibio.com/about" target="_blank">About</a>
-        <a href="https://www.pcibio.com/contact" target="_blank">Contact</a>
-        <a href="https://www.pcibio.com/products" target="_blank">Products</a>
+        <a href="https://pcibio.com/" target="_blank" rel="noopener">pcibio.com</a>
+        <a href="https://pcibio.com/about.html" target="_blank" rel="noopener">About</a>
+        <a href="https://pcibio.com/contact.html" target="_blank" rel="noopener">Contact</a>
+        <a href="https://pcibio.com/products.html" target="_blank" rel="noopener">Products</a>
         <a href="/privacy">Privacy Policy &amp; Terms of Use</a>
       </div>
       <div class="footer-right">
-        <span class="footer-copy">&#169; 2025 PCI-AI, Inc.</span>
+        <span class="footer-copy">&#169; 2026 Precision Cellular Immunology, LLC</span>
         <div class="footer-location"><span>Helix Park</span>, Houston TX</div>
+        <p class="footer-ruo">For Research Use Only. Not for use in diagnostic procedures.</p>
       </div>
     </div>
   </footer>
@@ -154,6 +175,20 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  </script>
+  <script>
+    (function () {
+      var t = document.getElementById('navToggle'), n = document.getElementById('nav');
+      if (!t || !n) return;
+      t.addEventListener('click', function () {
+        var open = n.classList.toggle('nav-open');
+        t.setAttribute('aria-expanded', open);
+        t.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+      n.querySelectorAll('.nav-links a').forEach(function (a) {
+        a.addEventListener('click', function () { n.classList.remove('nav-open'); t.setAttribute('aria-expanded', 'false'); });
+      });
+    })();
   </script>
 </body>
 </html>

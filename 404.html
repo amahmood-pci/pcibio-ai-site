@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <script>document.documentElement.classList.add('js')</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Page not found &#8212; PCI-AI</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/static/images/cancer-cell-mark-v2.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0f1f3d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="/static/css/education.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="mouse-glow" id="mouseGlow"></div>
+
+  <nav class="nav" id="nav">
+    <a href="/" class="nav-logo"><img src="/static/images/cancer-cell-mark-v2.svg" class="aperture-mark" width="28" height="28" alt="">PCI<span class="logo-dot">-</span><span class="logo-accent">AI</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="https://pcibio.com/" target="_blank" rel="noopener">pcibio.com</a>
+      <a href="/#features">Platform</a>
+      <a href="/#products">Products</a>
+      <a href="/education">Education</a>
+      <a href="/#workflow">Workflow</a>
+      <a href="/#about">About</a>
+      <a href="https://pcibio.com/viewer.html" target="_blank" rel="noopener" class="nav-signin">Sign in</a>
+      <a href="https://pcibio.com/viewer.html" target="_blank" rel="noopener" class="btn-primary btn-sm">Get started &#8594;</a>
+    </div>
+  </nav>
+
+  
+  <main id="main">
+  <section style="min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 1.5rem 60px;">
+    <div class="section-tag">404</div>
+    <h1 style="font-size:clamp(2rem,5vw,3rem);margin:0.75rem 0;">Page not found</h1>
+    <p style="max-width:480px;color:var(--text2);margin-bottom:1.75rem;">The page you&#8217;re looking for has moved or no longer exists.</p>
+    <div class="hero-actions" style="justify-content:center;">
+      <a href="/" class="btn-primary btn-lg">Back to home &#8594;</a>
+      <a href="/education" class="btn-ghost btn-lg">Browse education</a>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo"><img src="/static/images/cancer-cell-mark-v2.svg" class="aperture-mark" width="28" height="28" alt="">PCI<span class="logo-dot">-</span><span class="logo-accent">AI</span></a>
+        <div class="footer-tagline">Digital Pathology Platform</div>
+      </div>
+      <div class="footer-links">
+        <a href="https://pcibio.com/" target="_blank" rel="noopener">pcibio.com</a>
+        <a href="https://pcibio.com/about.html" target="_blank" rel="noopener">About</a>
+        <a href="https://pcibio.com/contact.html" target="_blank" rel="noopener">Contact</a>
+        <a href="https://pcibio.com/products.html" target="_blank" rel="noopener">Products</a>
+        <a href="/privacy">Privacy Policy &amp; Terms of Use</a>
+      </div>
+      <div class="footer-right">
+        <span class="footer-copy">&#169; 2026 Precision Cellular Immunology, LLC</span>
+        <div class="footer-location"><span>Helix Park</span>, Houston TX</div>
+        <p class="footer-ruo">For Research Use Only. Not for use in diagnostic procedures.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mouseGlow = document.getElementById('mouseGlow');
+    document.addEventListener('mousemove', e => {
+      mouseGlow.style.left = e.clientX + 'px';
+      mouseGlow.style.top  = e.clientY + 'px';
+    });
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); }
+      });
+    });
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  </script>
+  <script>
+    (function () {
+      var t = document.getElementById('navToggle'), n = document.getElementById('nav');
+      if (!t || !n) return;
+      t.addEventListener('click', function () {
+        var open = n.classList.toggle('nav-open');
+        t.setAttribute('aria-expanded', open);
+        t.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+      n.querySelectorAll('.nav-links a').forEach(function (a) {
+        a.addEventListener('click', function () { n.classList.remove('nav-open'); t.setAttribute('aria-expanded', 'false'); });
+      });
+    })();
+  </script>
+</body>
+</html>
