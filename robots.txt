@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://site-phi-six-61.vercel.app/sitemap.xml
+Sitemap: https://pcibio.ai/sitemap.xml
