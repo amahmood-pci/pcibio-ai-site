@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <script>document.documentElement.classList.add('js')</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI-Assisted Biomarker Assessment &#8212; PCI-AI Education</title>
+  <title>AI-Assisted Biomarker Assessment · PCI-AI Education</title>
   <meta name="description" content="How AI-assisted image analysis supports quantitative IHC biomarker assessment, and how reference cell line controls calibrate it.">
   <link rel="canonical" href="https://pcibio.ai/education/ai-biomarker-assessment">
   <link rel="icon" href="/static/images/pci-ai-logo.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0f1f3d">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PCI-AI">
-  <meta property="og:title" content="AI-Assisted Biomarker Assessment &#8212; PCI-AI Education">
+  <meta property="og:title" content="AI-Assisted Biomarker Assessment · PCI-AI Education">
   <meta property="og:description" content="How AI-assisted image analysis supports quantitative IHC biomarker assessment, and how reference cell line controls calibrate it.">
   <meta property="og:url" content="https://pcibio.ai/education/ai-biomarker-assessment">
   <meta property="og:image" content="https://pcibio.ai/static/images/og-card.png">
@@ -54,7 +54,7 @@
       </div>
       <div class="section-tag" style="margin-bottom:1.25rem;">IHC Biomarker Series</div>
       <h1>AI-Assisted Biomarker<br>Assessment</h1>
-      <p class="section-sub">How machine learning transforms manual slide scoring into consistent, quantitative measurement &#8212; and what that means for reproducibility across labs and clinical trials.</p>
+      <p class="section-sub">How machine learning transforms manual slide scoring into consistent, quantitative measurement, and what that means for reproducibility across labs and clinical trials.</p>
       <div class="edu-header-tags">
         <span class="edu-tag">Digital Pathology</span>
         <span class="edu-tag">Automated Scoring</span>
@@ -88,17 +88,17 @@
     <section class="edu-section" id="s1">
       <div class="edu-section-num">Section 01</div>
       <h2 class="reveal">The Problem AI Is Solving</h2>
-      <p class="reveal">Manual IHC interpretation &#8212; a pathologist examining a stained slide under a microscope and estimating what percentage of cells stain positive, and at what intensity &#8212; has been the standard for decades. It works, but it has a known limitation: it&#8217;s inherently subjective.</p>
-      <p class="reveal">That subjectivity has real clinical consequences. <span class="gloss">Inter-observer variability<span class="gloss-tip">Disagreement between two pathologists interpreting the same slide &#8212; a known limitation of manual IHC scoring that AI tools help reduce.</span></span> &#8212; two pathologists looking at the same slide and arriving at different scores &#8212; is a documented feature of manual IHC, not an edge case. For biomarkers where a scoring threshold determines treatment eligibility (HER2 status for targeted therapy, MMR status for immunotherapy, PD-L1 for checkpoint blockade), these inconsistencies affect which patients receive which treatments. The same pathologist may also score a slide differently on two different days, compounding the reliability problem.</p>
-      <p class="reveal">Scale adds a third constraint. A single <span class="gloss">whole slide image<span class="gloss-tip">A digital scan of an entire glass slide at high resolution, enabling viewing at any magnification on a computer rather than a physical microscope.</span></span> can contain millions of cells. Manual scoring requires a pathologist to estimate from a representative sample rather than evaluate every cell &#8212; a practical necessity that introduces sampling variability alongside the observer variability already present. The more heterogeneous the tumor, the more consequential that sampling limitation becomes.</p>
+      <p class="reveal">Manual IHC interpretation (a pathologist examining a stained slide under a microscope and estimating what percentage of cells stain positive, and at what intensity) has been the standard for decades. It works, but it has a known limitation: it&#8217;s inherently subjective.</p>
+      <p class="reveal">That subjectivity has real clinical consequences. <span class="gloss">Inter-observer variability<span class="gloss-tip">Disagreement between two pathologists interpreting the same slide, a known limitation of manual IHC scoring that AI tools help reduce.</span></span> (two pathologists looking at the same slide and arriving at different scores) is a documented feature of manual IHC, not an edge case. For biomarkers where a scoring threshold determines treatment eligibility (HER2 status for targeted therapy, MMR status for immunotherapy, PD-L1 for checkpoint blockade), these inconsistencies affect which patients receive which treatments. The same pathologist may also score a slide differently on two different days, compounding the reliability problem.</p>
+      <p class="reveal">Scale adds a third constraint. A single <span class="gloss">whole slide image<span class="gloss-tip">A digital scan of an entire glass slide at high resolution, enabling viewing at any magnification on a computer rather than a physical microscope.</span></span> can contain millions of cells. Manual scoring requires a pathologist to estimate from a representative sample rather than evaluate every cell, a practical necessity that introduces sampling variability alongside the observer variability already present. The more heterogeneous the tumor, the more consequential that sampling limitation becomes.</p>
     </section>
 
     <!-- Section 2 -->
     <section class="edu-section" id="s2">
       <div class="edu-section-num">Section 02</div>
       <h2 class="reveal">What AI-Assisted Assessment Does</h2>
-      <p class="reveal">Machine learning allows algorithms to recognize patterns in annotated datasets and generalize those patterns to new inputs. Applied to <span class="gloss">digital pathology<span class="gloss-tip">The practice of converting glass slides into high-resolution digital images (whole slide images, or WSIs) that can be viewed, shared, and analyzed computationally.</span></span>, this enables <span class="gloss">automated image analysis<span class="gloss-tip">Software that scans a digital slide and quantifies features &#8212; like staining intensity or cell count &#8212; without requiring a human to score each cell manually.</span></span>: an algorithm scans the entire digitized slide, identifies individual cells, classifies each one by staining intensity, and produces a quantitative score that covers the full tissue section rather than a sampled subset &#8212; in a fraction of the time manual scoring would require.</p>
-      <p class="reveal">A direct comparison between manual pathological analysis and one such tool (IHC Profiler) resolved in a match rate of 88.6% &#8212; demonstrating that automated scoring can closely align with expert human interpretation while offering substantially greater consistency across repeated runs and participating laboratories.</p>
+      <p class="reveal">Machine learning allows algorithms to recognize patterns in annotated datasets and generalize those patterns to new inputs. Applied to <span class="gloss">digital pathology<span class="gloss-tip">The practice of converting glass slides into high-resolution digital images (whole slide images, or WSIs) that can be viewed, shared, and analyzed computationally.</span></span>, this enables <span class="gloss">automated image analysis<span class="gloss-tip">Software that scans a digital slide and quantifies features, like staining intensity or cell count, without requiring a human to score each cell manually.</span></span>: an algorithm scans the entire digitized slide, identifies individual cells, classifies each one by staining intensity, and produces a quantitative score that covers the full tissue section rather than a sampled subset, in a fraction of the time manual scoring would require.</p>
+      <p class="reveal">A direct comparison between manual pathological analysis and one such tool (IHC Profiler) resolved in a match rate of 88.6%, demonstrating that automated scoring can closely align with expert human interpretation while offering substantially greater consistency across repeated runs and participating laboratories.</p>
 
       <!-- Manual vs AI comparison -->
       <div class="comparison-grid reveal">
@@ -156,7 +156,7 @@
         </div>
       </div><!-- /.comparison-grid -->
 
-      <p class="reveal">The goal isn&#8217;t to replace the pathologist &#8212; it&#8217;s to give them a more consistent, quantitative starting point. Most regulatory-approved diagnostic tools using AI are designated as <span class="gloss">assistive AI<span class="gloss-tip">AI tools designed to support and augment a pathologist&#8217;s interpretation rather than replace it &#8212; currently the standard model for regulatory-approved diagnostic AI tools.</span></span>: they provide a score, the pathologist reviews it, applies clinical context, and makes the final determination. The human remains the decision-maker.</p>
+      <p class="reveal">The goal isn&#8217;t to replace the pathologist; it&#8217;s to give them a more consistent, quantitative starting point. Most regulatory-approved diagnostic tools using AI are designated as <span class="gloss">assistive AI<span class="gloss-tip">AI tools designed to support and augment a pathologist&#8217;s interpretation rather than replace it, currently the standard model for regulatory-approved diagnostic AI tools.</span></span>: they provide a score, the pathologist reviews it, applies clinical context, and makes the final determination. The human remains the decision-maker.</p>
 
       <!-- AI as assistant callout -->
       <div class="ai-assistant-callout reveal">
@@ -167,7 +167,7 @@
           </svg>
           <span class="ai-assistant-title">AI as Assistant, Not Replacement</span>
         </div>
-        <p>Current regulatory-approved AI diagnostic tools are designated as <strong>assistive</strong> &#8212; they provide a quantitative score as input to the pathologist&#8217;s review, not an independent diagnosis. The pathologist reviews the AI output, applies clinical context, and makes the final call. This is a deliberate regulatory design choice, not a temporary limitation: the goal is to augment expert judgment with quantitative data, not to automate away the expertise.</p>
+        <p>Current regulatory-approved AI diagnostic tools are designated as <strong>assistive</strong>: they provide a quantitative score as input to the pathologist&#8217;s review, not an independent diagnosis. The pathologist reviews the AI output, applies clinical context, and makes the final call. This is a deliberate regulatory design choice, not a temporary limitation: the goal is to augment expert judgment with quantitative data, not to automate away the expertise.</p>
       </div>
     </section>
 
@@ -175,8 +175,8 @@
     <section class="edu-section" id="s3">
       <div class="edu-section-num">Section 03</div>
       <h2 class="reveal">Why Standardization Matters</h2>
-      <p class="reveal">One of the most significant advantages of <span class="gloss">algorithmic scoring<span class="gloss-tip">A numerical score assigned by a machine learning model based on patterns it has learned from large datasets of annotated slides.</span></span> is reproducibility across sites. A manual score produced in one laboratory may not be directly comparable to a manual score produced in another &#8212; even using the same antibody and protocol &#8212; because different pathologists calibrate their visual estimates differently. An AI model, once validated, applies the same criteria consistently regardless of who is operating it or where it is deployed.</p>
-      <p class="reveal">This matters most for clinical trials, where biomarker scores from patients enrolled at different institutions need to be directly comparable for the trial data to be interpretable. It also matters for emerging biomarkers where scoring thresholds are still being established &#8212; consistency in measurement is critical to generating reliable evidence about where those thresholds should fall.</p>
+      <p class="reveal">One of the most significant advantages of <span class="gloss">algorithmic scoring<span class="gloss-tip">A numerical score assigned by a machine learning model based on patterns it has learned from large datasets of annotated slides.</span></span> is reproducibility across sites. A manual score produced in one laboratory may not be directly comparable to a manual score produced in another, even using the same antibody and protocol, because different pathologists calibrate their visual estimates differently. An AI model, once validated, applies the same criteria consistently regardless of who is operating it or where it is deployed.</p>
+      <p class="reveal">This matters most for clinical trials, where biomarker scores from patients enrolled at different institutions need to be directly comparable for the trial data to be interpretable. It also matters for emerging biomarkers where scoring thresholds are still being established; consistency in measurement is critical to generating reliable evidence about where those thresholds should fall.</p>
 
       <!-- Three advantage cards -->
       <div class="adv-cards reveal">
@@ -191,7 +191,7 @@
             <path d="M 17.5,34 L 19.5,36 L 22.5,31.5" fill="none" stroke="#1B4FD8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <div class="adv-card-title">Consistent across observers</div>
-          <p class="adv-card-body">The same criteria applied to every slide, every time &#8212; eliminating the variability inherent in pathologist-to-pathologist interpretation of staining intensity.</p>
+          <p class="adv-card-body">The same criteria applied to every slide, every time, eliminating the variability inherent in pathologist-to-pathologist interpretation of staining intensity.</p>
         </div>
 
         <div class="adv-card">
@@ -214,7 +214,7 @@
             <circle cx="31" cy="34" r="3" fill="rgba(46,204,154,0.32)" stroke="rgba(46,204,154,0.52)" stroke-width="1"/>
           </svg>
           <div class="adv-card-title">Full tissue coverage</div>
-          <p class="adv-card-body">AI scores every cell in the section rather than estimating from a representative sample &#8212; reducing sampling bias, especially in heterogeneous tumors.</p>
+          <p class="adv-card-body">AI scores every cell in the section rather than estimating from a representative sample, reducing sampling bias, especially in heterogeneous tumors.</p>
         </div>
 
         <div class="adv-card">
@@ -242,21 +242,21 @@
     <section class="edu-section" id="s4">
       <div class="edu-section-num">Section 04</div>
       <h2 class="reveal">Where This Is Headed</h2>
-      <p class="reveal">The next generation of biomarkers may be defined through AI-first or AI-only assays &#8212; tests designed from the outset without a manual scoring equivalent. Rather than automating an existing manual score, these systems would identify entirely new patterns in slide data that human visual inspection wouldn&#8217;t detect: spatial relationships between cell types, subtle texture features, microenvironmental signatures, and correlations between morphological features and treatment response or survival outcomes.</p>
-      <p class="reveal">These capabilities build on the same underlying infrastructure &#8212; whole slide imaging, standardized tissue preparation, validated antibody staining &#8212; that supports current AI-assisted scoring. The direction is toward increasing integration of computational analysis into standard pathology workflow, not as a replacement for expertise, but as a tool that expands what&#8217;s measurable.</p>
+      <p class="reveal">The next generation of biomarkers may be defined through AI-first or AI-only assays, tests designed from the outset without a manual scoring equivalent. Rather than automating an existing manual score, these systems would identify entirely new patterns in slide data that human visual inspection wouldn&#8217;t detect: spatial relationships between cell types, subtle texture features, microenvironmental signatures, and correlations between morphological features and treatment response or survival outcomes.</p>
+      <p class="reveal">These capabilities build on the same underlying infrastructure (whole slide imaging, standardized tissue preparation, validated antibody staining) that supports current AI-assisted scoring. The direction is toward increasing integration of computational analysis into standard pathology workflow, not as a replacement for expertise, but as a tool that expands what&#8217;s measurable.</p>
 
       <div class="tricontrol-callout reveal">
         <div class="product-circle" style="background:rgba(27,79,216,0.06);border-color:rgba(27,79,216,0.25);color:var(--accent);font-size:12px;font-weight:800;font-family:'IBM Plex Mono',monospace;">AI</div>
         <div class="tricontrol-body">
           <h4>Reliable AI starts with reliable staining</h4>
-          <p>An AI model trained to score a biomarker at a specific staining intensity can only perform consistently if the staining itself is consistent run to run. PCI-AI&#8217;s TriControl&#8482;, QuadControl&#8482;, and DualControl&#8482; panels are designed to meet that requirement &#8212; providing a standardized, validated reference point that ensures the staining input to an AI scoring system falls within the expected range every time.</p>
+          <p>An AI model trained to score a biomarker at a specific staining intensity can only perform consistently if the staining itself is consistent run to run. PCI-AI&#8217;s TriControl&#8482;, QuadControl&#8482;, and DualControl&#8482; panels are designed to meet that requirement, providing a standardized, validated reference point that ensures the staining input to an AI scoring system falls within the expected range every time.</p>
           <a href="https://pcibio.com/controls.html" target="_blank" rel="noopener" class="btn-primary btn-sm">View control panels &#8594;</a>
         </div>
       </div>
     </section>
 
     <div class="edu-citations">
-      <strong>Sources:</strong> MDPI Currents in Oncology (2026) &#8212; Machine Learning in Biomarker-Driven Precision Oncology: Automated IHC Scoring in Genitourinary Cancers; PMC (2022) &#8212; Digital Pathology: New Initiative in Pathology; PMC (2025) &#8212; Augmented Reality Microscopy to Bridge Trust Between AI and Pathologists (npj Precision Oncology); PMC (2014) &#8212; IHC Profiler: Open Source Plugin for Quantitative Evaluation and Automated Scoring of IHC Images (match rate 88.6% cited from this source); The Lancet Digital Health (2025) &#8212; Application of Artificial Intelligence and Digital Tools in Cancer Pathology.
+      <strong>Sources:</strong> MDPI Currents in Oncology (2026): Machine Learning in Biomarker-Driven Precision Oncology: Automated IHC Scoring in Genitourinary Cancers; PMC (2022): Digital Pathology: New Initiative in Pathology; PMC (2025): Augmented Reality Microscopy to Bridge Trust Between AI and Pathologists (npj Precision Oncology); PMC (2014): IHC Profiler: Open Source Plugin for Quantitative Evaluation and Automated Scoring of IHC Images (match rate 88.6% cited from this source); The Lancet Digital Health (2025): Application of Artificial Intelligence and Digital Tools in Cancer Pathology.
     </div>
 
   </div><!-- /.edu-content -->
