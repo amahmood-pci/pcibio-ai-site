@@ -1093,8 +1093,6 @@ body { background: linear-gradient(180deg, #F4F7FD 0%, #EEF3FC 40%, #F3F6FC 100%
   .mockup-app { height: 340px; }
 }
 @media (max-width: 480px) { .hero-actions { grid-template-columns: 1fr; } }
-/* Off-screen sections skip layout/paint until near the viewport */
-.section-wrap, .cta-section { content-visibility: auto; contain-intrinsic-size: auto 800px; }
 
 /* ── Hero fits one screen ── */
 .hero { min-height: 100svh; padding: 104px 2rem 32px; }

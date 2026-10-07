@@ -32,7 +32,10 @@
     return Math.sqrt(ox * ox + oy * oy) + Math.min(Math.max(qx, qy), 0) - r;
   }
 
+  var mapCache = {};
   function buildMap(w, h, r, bezel) {
+    var ck = w + ',' + h + ',' + r + ',' + bezel;
+    if (mapCache[ck]) return mapCache[ck];
     var c = document.createElement('canvas');
     c.width = w; c.height = h;
     var ctx = c.getContext('2d');
@@ -40,6 +43,11 @@
     var d = img.data, hw = w / 2, hh = h / 2, e = 0.75;
     for (var y = 0; y < h; y++) {
       for (var x = 0; x < w; x++) {
+        var i0 = (y * w + x) * 4;
+        // Interior beyond the bezel never displaces: skip the SDF work.
+        if (x > bezel && x < w - bezel && y > bezel && y < h - bezel) {
+          d[i0] = 128; d[i0 + 1] = 128; d[i0 + 2] = 128; d[i0 + 3] = 255; continue;
+        }
         var px = x + 0.5 - hw, py = y + 0.5 - hh;
         var dist = sdf(px, py, hw, hh, r);
         var inside = -dist, vx = 0, vy = 0;
@@ -57,7 +65,7 @@
       }
     }
     ctx.putImageData(img, 0, 0);
-    return c.toDataURL();
+    return (mapCache[ck] = c.toDataURL());
   }
 
   function channel(id, src, scale, keep) {
@@ -125,9 +133,19 @@
     });
   });
   var els = Array.prototype.slice.call(document.querySelectorAll('[data-glass]'));
-  els.forEach(apply);
-  if ('ResizeObserver' in window) {
-    var ro = new ResizeObserver(function (entries) { entries.forEach(function (en) { apply(en.target); }); });
-    els.forEach(function (el) { ro.observe(el); });
-  }
+  var ro = 'ResizeObserver' in window &&
+    new ResizeObserver(function (entries) { entries.forEach(function (en) { apply(en.target); }); });
+  function start(el) { apply(el); if (ro) ro.observe(el); }
+  // First screen renders immediately; everything below builds as it nears the viewport.
+  var vh = window.innerHeight, later = [];
+  els.forEach(function (el) {
+    var b = el.getBoundingClientRect();
+    if (getComputedStyle(el).position === 'fixed' || b.top < vh) start(el); else later.push(el);
+  });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { io.unobserve(en.target); start(en.target); } });
+    }, { rootMargin: '600px 0px' });
+    later.forEach(function (el) { io.observe(el); });
+  } else later.forEach(start);
 })();
