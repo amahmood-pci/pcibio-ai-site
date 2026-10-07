@@ -1095,3 +1095,16 @@ body { background: linear-gradient(180deg, #F4F7FD 0%, #EEF3FC 40%, #F3F6FC 100%
 @media (max-width: 480px) { .hero-actions { grid-template-columns: 1fr; } }
 /* Off-screen sections skip layout/paint until near the viewport */
 .section-wrap, .cta-section { content-visibility: auto; contain-intrinsic-size: auto 800px; }
+
+/* ── Hero fits one screen ── */
+.hero { min-height: 100svh; padding: 104px 2rem 32px; }
+.hero-badge { margin-bottom: 1rem; }
+.hero h1 { font-size: clamp(2rem, 3.6vw, 2.9rem); margin-bottom: 0.9rem; line-height: 1.12; }
+.hero-sub { font-size: 15px; line-height: 1.65; margin-bottom: 1.4rem; }
+.hero-actions { margin-bottom: 1.1rem; }
+.hero-actions .btn-lg { padding-block: 0.85rem; font-size: 15px; }
+.zoom-slider-wrap { margin-bottom: 1.1rem; padding: 0.6rem 1.1rem; }
+.stat { padding: 0.8rem 0.6rem; }
+.stat-num { font-size: 16px; }
+.hero-visual { max-width: 600px; }
+.mockup-app { height: 360px; }
