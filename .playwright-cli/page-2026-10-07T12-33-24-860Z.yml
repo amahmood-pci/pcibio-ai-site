@@ -1,0 +1,370 @@
+- generic [active] [ref=f1e1]:
+  - link "Skip to content" [ref=f1e2] [cursor=pointer]:
+    - /url: "#main"
+  - navigation [ref=f1e3]:
+    - link "PCI - AI" [ref=f1e4] [cursor=pointer]:
+      - /url: /
+      - text: PCI
+      - generic [ref=f1e5]: "-"
+      - generic [ref=f1e6]: AI
+    - generic [ref=f1e7]:
+      - link "PCIbio.com" [ref=f1e8] [cursor=pointer]:
+        - /url: https://pcibio.com/
+      - link "Platform" [ref=f1e9] [cursor=pointer]:
+        - /url: "#features"
+      - link "Products" [ref=f1e10] [cursor=pointer]:
+        - /url: "#products"
+      - link "Education" [ref=f1e11] [cursor=pointer]:
+        - /url: /education
+      - link "Workflow" [ref=f1e12] [cursor=pointer]:
+        - /url: "#workflow"
+      - link "About" [ref=f1e13] [cursor=pointer]:
+        - /url: "#about"
+      - link "Open Slide Viewer →" [ref=f1e14] [cursor=pointer]:
+        - /url: https://pcibio.com/viewer.html
+  - main [ref=f1e15]:
+    - generic [ref=f1e16]:
+      - generic [ref=f1e17]:
+        - generic [ref=f1e18]: PCI-AI · Digital Slide Viewer
+        - heading "Precision IHC Controls. AI-Powered Assessment." [level=1] [ref=f1e20]: Precision IHC Controls.AI-Powered Assessment.
+        - paragraph [ref=f1e21]: Improving IHC reproducibility and lab efficiency through characterized cell line quality controls and AI-assisted biomarker analysis.
+        - generic [ref=f1e22]:
+          - link "Shop Controls →" [ref=f1e23] [cursor=pointer]:
+            - /url: https://pcibio.com/products.html
+          - link "Open Slide Viewer" [ref=f1e24] [cursor=pointer]:
+            - /url: https://pcibio.com/viewer.html
+        - generic [ref=f1e25]:
+          - generic [ref=f1e26]: Objective
+          - slider "Objective magnification" [ref=f1e27]: "4"
+          - generic [ref=f1e28]: 40×
+        - generic [ref=f1e29]:
+          - generic [ref=f1e30]:
+            - generic [ref=f1e31]: "-1+"
+            - generic [ref=f1e32]: Biomarkers
+          - generic [ref=f1e33]:
+            - generic [ref=f1e34]: "-1×"
+            - generic [ref=f1e35]: Magnification
+          - generic [ref=f1e36]:
+            - generic [ref=f1e37]: PATENT
+            - generic [ref=f1e38]: Pending
+          - generic [ref=f1e39]:
+            - generic [ref=f1e40]: <10 min
+            - generic [ref=f1e41]: AI analysis
+      - generic [ref=f1e44]:
+        - generic [ref=f1e45]:
+          - generic [ref=f1e50]: pcibio.com/viewer
+          - generic [aria-hidden] [ref=f1e51]:
+            - generic [ref=f1e52]: ⊕
+            - generic [ref=f1e53]: ⊗
+        - generic [ref=f1e54]:
+          - generic [ref=f1e55]:
+            - generic [ref=f1e56]: Magnification
+            - generic [ref=f1e57]:
+              - button "1×" [ref=f1e58] [cursor=pointer]
+              - button "5×" [ref=f1e59] [cursor=pointer]
+              - button "10×" [ref=f1e60] [cursor=pointer]
+              - button "20×" [ref=f1e61] [cursor=pointer]
+              - button "40×" [ref=f1e62] [cursor=pointer]
+            - generic [ref=f1e64]: Slide info
+            - generic [ref=f1e65]:
+              - generic [ref=f1e66]: Stain
+              - generic [ref=f1e67]: H&E
+            - generic [ref=f1e68]:
+              - generic [ref=f1e69]: Vendor
+              - generic [ref=f1e70]: Aperio
+            - generic [ref=f1e71]:
+              - generic [ref=f1e72]: Scan
+              - generic [ref=f1e73]: 40×
+            - generic [ref=f1e74]:
+              - generic [ref=f1e75]: Size
+              - generic [ref=f1e76]: 2.1 GB
+            - generic [ref=f1e77]:
+              - generic [ref=f1e78]: MPP
+              - generic [ref=f1e79]: "0.2527"
+            - generic [ref=f1e81]: Navigator
+          - generic [ref=f1e83]:
+            - generic [ref=f1e91]:
+              - button "H&E" [ref=f1e92] [cursor=pointer]
+              - button "IHC" [ref=f1e93] [cursor=pointer]
+            - generic [ref=f1e94]: 40× · H&E · Aperio SVS
+            - generic [ref=f1e95]:
+              - button "Pan" [ref=f1e96] [cursor=pointer]: ↔
+              - button "Annotate" [ref=f1e97] [cursor=pointer]: ✎
+              - button "Measure" [ref=f1e98] [cursor=pointer]: ⊿
+              - button "Zoom in" [ref=f1e100] [cursor=pointer]: +
+              - button "Zoom out" [ref=f1e101] [cursor=pointer]: −
+              - button "Fit to screen" [ref=f1e102] [cursor=pointer]: ⊡
+    - generic [ref=f1e104]:
+      - generic [ref=f1e105]: IHC Biomarkers
+      - generic [ref=f1e106]: ·
+      - generic [ref=f1e107]: p53 Controls
+      - generic [ref=f1e108]: ·
+      - generic [ref=f1e109]: Antibody Optimization
+      - generic [ref=f1e110]: ·
+      - generic [ref=f1e111]: MLH1
+      - generic [ref=f1e112]: ·
+      - generic [ref=f1e113]: MSH2
+      - generic [ref=f1e114]: ·
+      - generic [ref=f1e115]: MSH6
+      - generic [ref=f1e116]: ·
+      - generic [ref=f1e117]: PMS2
+      - generic [ref=f1e118]: ·
+      - generic [ref=f1e119]: PD-L1
+      - generic [ref=f1e120]: ·
+      - generic [ref=f1e121]: PTEN
+      - generic [ref=f1e122]: ·
+      - generic [ref=f1e123]: BRAF V600E
+      - generic [ref=f1e124]: ·
+      - generic [ref=f1e125]: Diffuse Expression
+      - generic [ref=f1e126]: ·
+      - generic [ref=f1e127]: Null Expression
+      - generic [ref=f1e128]: ·
+      - generic [ref=f1e129]: Wild-type Expression
+      - generic [ref=f1e130]: ·
+      - generic [ref=f1e131]: H&E Staining
+      - generic [ref=f1e132]: ·
+      - generic [ref=f1e133]: DAB Calibration
+      - generic [ref=f1e134]: ·
+      - generic [ref=f1e135]: AI Assessment
+      - generic [ref=f1e136]: ·
+      - generic [ref=f1e137]: FFPE Controls
+      - generic [ref=f1e138]: ·
+      - generic [ref=f1e139]: Cell Line QC
+      - generic [ref=f1e140]: ·
+      - generic [ref=f1e141]: IHC Biomarkers
+      - generic [ref=f1e142]: ·
+      - generic [ref=f1e143]: p53 Controls
+      - generic [ref=f1e144]: ·
+      - generic [ref=f1e145]: Antibody Optimization
+      - generic [ref=f1e146]: ·
+      - generic [ref=f1e147]: MLH1
+      - generic [ref=f1e148]: ·
+      - generic [ref=f1e149]: MSH2
+      - generic [ref=f1e150]: ·
+      - generic [ref=f1e151]: MSH6
+      - generic [ref=f1e152]: ·
+      - generic [ref=f1e153]: PMS2
+      - generic [ref=f1e154]: ·
+      - generic [ref=f1e155]: PD-L1
+      - generic [ref=f1e156]: ·
+      - generic [ref=f1e157]: PTEN
+      - generic [ref=f1e158]: ·
+      - generic [ref=f1e159]: BRAF V600E
+      - generic [ref=f1e160]: ·
+      - generic [ref=f1e161]: Diffuse Expression
+      - generic [ref=f1e162]: ·
+      - generic [ref=f1e163]: Null Expression
+      - generic [ref=f1e164]: ·
+      - generic [ref=f1e165]: Wild-type Expression
+      - generic [ref=f1e166]: ·
+      - generic [ref=f1e167]: H&E Staining
+      - generic [ref=f1e168]: ·
+      - generic [ref=f1e169]: DAB Calibration
+      - generic [ref=f1e170]: ·
+      - generic [ref=f1e171]: AI Assessment
+      - generic [ref=f1e172]: ·
+      - generic [ref=f1e173]: FFPE Controls
+      - generic [ref=f1e174]: ·
+      - generic [ref=f1e175]: Cell Line QC
+      - generic [ref=f1e176]: ·
+    - separator [ref=f1e177]
+    - generic [ref=f1e178]:
+      - generic [ref=f1e180]: ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG · CTAG · CTAT · GCTA · ATGC · TAGC · TATG · CATG ·
+      - generic [ref=f1e181]:
+        - generic [ref=f1e182]: Our Offerings
+        - heading "Engineered for Pathological Precision" [level=2] [ref=f1e183]: Engineered forPathological Precision
+        - paragraph [ref=f1e184]: Reimagining quality validation and digital pathology workflows using our physical controls and machine-learning software tools.
+        - generic [ref=f1e185]:
+          - link "IHC Cell Line IHC Controls Physical FFPE cell plugs arranged strategically. Built to standardize validation protocols and avoid staining failure pitfalls. TriControl™, QuadControl™, and DualControl™ panels provide characterized null, wild-type, and diffuse expression profiles across standardized cell lines. FFPE Controls" [ref=f1e186] [cursor=pointer]:
+            - /url: https://pcibio.com/controls.html
+            - generic [ref=f1e187]: IHC
+            - heading "Cell Line IHC Controls" [level=3] [ref=f1e188]
+            - paragraph [ref=f1e189]: Physical FFPE cell plugs arranged strategically. Built to standardize validation protocols and avoid staining failure pitfalls.
+            - generic [ref=f1e190]: TriControl™, QuadControl™, and DualControl™ panels provide characterized null, wild-type, and diffuse expression profiles across standardized cell lines.
+            - generic [ref=f1e191]: FFPE Controls
+          - link "AI AI Biomarker Assessment Automated image recognition scoring calibrated against characterized reference plug standards. Eliminates manual cognitive fatigue. Machine learning algorithms measure DAB expression and separation compared to reference cells, preparing outputs in under 10 minutes. <10 min" [ref=f1e192] [cursor=pointer]:
+            - /url: https://pcibio.com/ai.html
+            - generic [ref=f1e193]: AI
+            - heading "AI Biomarker Assessment" [level=3] [ref=f1e194]
+            - paragraph [ref=f1e195]: Automated image recognition scoring calibrated against characterized reference plug standards. Eliminates manual cognitive fatigue.
+            - generic [ref=f1e196]: Machine learning algorithms measure DAB expression and separation compared to reference cells, preparing outputs in under 10 minutes.
+            - generic [ref=f1e197]: <10 min
+          - link "EDU Digital Pathology Education A rich teaching compilation curated for pathologists, histologists, and research trainees to learn whole slide quantitative metrics. Interactive topic modules covering IHC expression patterns, MMR protein assessment, antibody optimization, and AI-assisted scoring, for pathologists and laboratory scientists. Topic Modules" [ref=f1e198] [cursor=pointer]:
+            - /url: /education
+            - generic [ref=f1e199]: EDU
+            - heading "Digital Pathology Education" [level=3] [ref=f1e200]
+            - paragraph [ref=f1e201]: A rich teaching compilation curated for pathologists, histologists, and research trainees to learn whole slide quantitative metrics.
+            - generic [ref=f1e202]: Interactive topic modules covering IHC expression patterns, MMR protein assessment, antibody optimization, and AI-assisted scoring, for pathologists and laboratory scientists.
+            - generic [ref=f1e203]: Topic Modules
+    - separator [ref=f1e204]
+    - generic [ref=f1e205]:
+      - generic [ref=f1e207]: MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 · MSH2 · MSH6 · PMS2 · MMR · ER · PR · HER2 · Ki-67 · PD-L1 · p53 · TTF-1 · CK5/6 · MLH1 ·
+      - generic [ref=f1e208]:
+        - generic [ref=f1e209]: IHC Control Panels
+        - heading "Precision cell line control panels" [level=2] [ref=f1e210]: Precision cell linecontrol panels
+        - paragraph [ref=f1e211]: TriControl™, QuadControl™, and DualControl™ panels enrich biomarker antibody optimization and decrease time for IHC assessment. Characterized cell line plugs provide reproducible expression benchmarks across null, wild-type, and overexpression patterns.
+        - generic [ref=f1e212]:
+          - link "3 TriControl™ Three-cell-line IHC panel Three cell lines presenting null (mutant), wild-type, and diffuse (overexpressed) expression patterns. Built for antibody optimization and assay development across triple-biomarker IHC panels including p53 and p16. Null · Wild-type · Overexpressed" [ref=f1e213] [cursor=pointer]:
+            - /url: https://pcibio.com/controls.html
+            - generic [ref=f1e214]: "3"
+            - heading "TriControl™" [level=3] [ref=f1e215]
+            - generic [ref=f1e216]: Three-cell-line IHC panel
+            - paragraph [ref=f1e217]: Three cell lines presenting null (mutant), wild-type, and diffuse (overexpressed) expression patterns. Built for antibody optimization and assay development across triple-biomarker IHC panels including p53 and p16.
+            - generic [ref=f1e218]: Null · Wild-type · Overexpressed
+          - link "4 QuadControl™ Four-cell-line IHC panel Four cell lines covering null, low-normal, high-normal, and overexpression. The MMR QuadControl™ consolidates MLH1, MSH2, MSH6, and PMS2 mismatch repair proteins in a single, high-throughput FFPE block. MLH1 · MSH2 · MSH6 · PMS2" [ref=f1e219] [cursor=pointer]:
+            - /url: https://pcibio.com/controls.html
+            - generic [ref=f1e220]: "4"
+            - heading "QuadControl™" [level=3] [ref=f1e221]
+            - generic [ref=f1e222]: Four-cell-line IHC panel
+            - paragraph [ref=f1e223]: Four cell lines covering null, low-normal, high-normal, and overexpression. The MMR QuadControl™ consolidates MLH1, MSH2, MSH6, and PMS2 mismatch repair proteins in a single, high-throughput FFPE block.
+            - generic [ref=f1e224]: MLH1 · MSH2 · MSH6 · PMS2
+          - link "2 DualControl™ Two-cell-line IHC panel One or two cell lines contrasting in expression levels to improve assessment capabilities. Available in wildtype/knockout and overexpression variants, including MSH6, PDL1, PTEN, BRAF V600E, p53, and p16 configurations. Wildtype · Knockout" [ref=f1e225] [cursor=pointer]:
+            - /url: https://pcibio.com/controls.html
+            - generic [ref=f1e226]: "2"
+            - heading "DualControl™" [level=3] [ref=f1e227]
+            - generic [ref=f1e228]: Two-cell-line IHC panel
+            - paragraph [ref=f1e229]: One or two cell lines contrasting in expression levels to improve assessment capabilities. Available in wildtype/knockout and overexpression variants, including MSH6, PDL1, PTEN, BRAF V600E, p53, and p16 configurations.
+            - generic [ref=f1e230]: Wildtype · Knockout
+    - separator [ref=f1e231]
+    - generic [ref=f1e233]:
+      - generic [ref=f1e234]: Peer-Reviewed Research
+      - heading "Published Science Behind the Product" [level=2] [ref=f1e235]
+      - paragraph [ref=f1e236]: The science behind PCI-AI’s control panel approach, validated through peer review and published in an international pathology journal.
+      - link "Featured Publication · IJGyn Pathology 2019 p53 Cell Line Control Panel Peer-reviewed research demonstrating that a cell line–based p53 IHC control panel improves interrater reliability and reduces null pattern misinterpretation in ovarian cancer subtyping. Read the Study →" [ref=f1e237] [cursor=pointer]:
+        - /url: /research/p53-cell-line-panel
+        - generic [ref=f1e241]:
+          - generic [ref=f1e242]: Featured Publication · IJGyn Pathology 2019
+          - generic [ref=f1e243]: p53 Cell Line Control Panel
+          - paragraph [ref=f1e244]: Peer-reviewed research demonstrating that a cell line–based p53 IHC control panel improves interrater reliability and reduces null pattern misinterpretation in ovarian cancer subtyping.
+          - text: Read the Study →
+    - separator [ref=f1e245]
+    - generic [ref=f1e246]:
+      - generic [ref=f1e248]: dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED · CPS · TPS · TMB-H · MSI-H · IHC · FISH · NGS · WGS · dMMR · pMMR · H-SCORE · ALLRED ·
+      - generic [ref=f1e249]:
+        - generic [ref=f1e250]: Digital Pathology Education
+        - heading "A Rich Teaching Compilation" [level=2] [ref=f1e251]: A Rich TeachingCompilation
+        - paragraph [ref=f1e252]: Guided topic modules covering IHC expression classification, MMR protein assessment, antibody optimization, and AI-assisted scoring, for pathologists, trainees, and laboratory scientists.
+        - generic [ref=f1e253]:
+          - link "MMR Protein Assessment Interpret mismatch repair IHC staining for MLH1, MSH2, MSH6, and PMS2. Learn to distinguish intact from deficient nuclear expression using PCI-AI's QuadControl™ as your reference standard. MLH1 MSH2 MSH6 PMS2 QuadControl™" [ref=f1e254] [cursor=pointer]:
+            - /url: /education/mmr-assessment
+            - heading "MMR Protein Assessment" [level=3] [ref=f1e255]
+            - paragraph [ref=f1e256]: Interpret mismatch repair IHC staining for MLH1, MSH2, MSH6, and PMS2. Learn to distinguish intact from deficient nuclear expression using PCI-AI's QuadControl™ as your reference standard.
+            - generic [ref=f1e257]:
+              - generic [ref=f1e258]: MLH1
+              - generic [ref=f1e259]: MSH2
+              - generic [ref=f1e260]: MSH6
+              - generic [ref=f1e261]: PMS2
+              - generic [ref=f1e262]: QuadControl™
+          - link "Antibody Optimization with Cell Line Controls Use TriControl™ and QuadControl™ panels to eliminate batch-to-batch variability during antibody titration. Standardized null, wild-type, and diffuse controls accelerate assay development and sign-off. TriControl™ QuadControl™ Titration HIER" [ref=f1e263] [cursor=pointer]:
+            - /url: /education/antibody-optimization
+            - heading "Antibody Optimization with Cell Line Controls" [level=3] [ref=f1e264]
+            - paragraph [ref=f1e265]: Use TriControl™ and QuadControl™ panels to eliminate batch-to-batch variability during antibody titration. Standardized null, wild-type, and diffuse controls accelerate assay development and sign-off.
+            - generic [ref=f1e266]:
+              - generic [ref=f1e267]: TriControl™
+              - generic [ref=f1e268]: QuadControl™
+              - generic [ref=f1e269]: Titration
+              - generic [ref=f1e270]: HIER
+          - 'link "IHC Expression Classification Understand PCI-AI''s three-tier expression framework: null, wild-type, and diffuse. Learn how each tier maps to PCI-AI''s DualControl™ and TriControl™ panels for consistent, reproducible reporting. Null Wild-type Diffuse H-score" [ref=f1e271] [cursor=pointer]':
+            - /url: /education/p53-classification
+            - heading "IHC Expression Classification" [level=3] [ref=f1e272]
+            - paragraph [ref=f1e273]: "Understand PCI-AI's three-tier expression framework: null, wild-type, and diffuse. Learn how each tier maps to PCI-AI's DualControl™ and TriControl™ panels for consistent, reproducible reporting."
+            - generic [ref=f1e274]:
+              - generic [ref=f1e275]: "Null"
+              - generic [ref=f1e276]: Wild-type
+              - generic [ref=f1e277]: Diffuse
+              - generic [ref=f1e278]: H-score
+          - link "AI-Assisted Biomarker Assessment Explore how PCI-AI's AI algorithms assist with IHC scoring, reducing pathologist evaluation time on demanding caseloads while maintaining accuracy across complex biomarker expression patterns. AI Scoring Biomarker AI Automation" [ref=f1e279] [cursor=pointer]:
+            - /url: /education/ai-biomarker-assessment
+            - heading "AI-Assisted Biomarker Assessment" [level=3] [ref=f1e280]
+            - paragraph [ref=f1e281]: Explore how PCI-AI's AI algorithms assist with IHC scoring, reducing pathologist evaluation time on demanding caseloads while maintaining accuracy across complex biomarker expression patterns.
+            - generic [ref=f1e282]:
+              - generic [ref=f1e283]: AI Scoring
+              - generic [ref=f1e284]: Biomarker AI
+              - generic [ref=f1e285]: Automation
+        - generic [ref=f1e286]:
+          - paragraph [ref=f1e287]: Topic modules and guided resources, powered by PCI-AI
+          - link "Explore full education library →" [ref=f1e288] [cursor=pointer]:
+            - /url: /education
+    - separator [ref=f1e289]
+    - generic [ref=f1e290]:
+      - generic [ref=f1e292]: IHC STAINING · UPLOAD · AI SCORE · STANDARDIZE · DIGITIZE · INTERPRET · DAB CALIBRATION · REFERENCE PLUG · BENCHMARK · IHC STAINING · UPLOAD · AI SCORE · STANDARDIZE · DIGITIZE · INTERPRET · DAB CALIBRATION · REFERENCE PLUG · BENCHMARK · IHC STAINING · UPLOAD · AI SCORE · IHC STAINING · UPLOAD · AI SCORE · STANDARDIZE · DIGITIZE · INTERPRET · DAB CALIBRATION · REFERENCE PLUG · BENCHMARK · IHC STAINING · UPLOAD · AI SCORE · STANDARDIZE · DIGITIZE · INTERPRET · DAB CALIBRATION · REFERENCE PLUG · BENCHMARK · IHC STAINING · UPLOAD · AI SCORE ·
+      - generic [ref=f1e293]:
+        - generic [ref=f1e294]: Workflow
+        - heading "Pathology Staining to AI Score" [level=2] [ref=f1e295]: Pathology Stainingto AI Score
+        - paragraph [ref=f1e296]: Standardize, digitize, and interpret without any disruptive pipeline friction.
+        - generic [ref=f1e297]:
+          - generic [ref=f1e298]:
+            - generic [ref=f1e299]: "01"
+            - heading "Run IHC Staining" [level=3] [ref=f1e300]
+            - paragraph [ref=f1e301]: Insert a PCI slide carrying characterized cell line plugs during your routine staining run to serve as a benchmark for antibody calibration.
+          - generic [ref=f1e302]:
+            - generic [ref=f1e303]: "02"
+            - heading "Upload Whole Slide Image" [level=3] [ref=f1e304]
+            - paragraph [ref=f1e305]: Export the high-resolution scanner output and open it in the secure, tiled PCI Digital Viewer for instant rendering.
+          - generic [ref=f1e306]:
+            - generic [ref=f1e307]: "03"
+            - heading "Receive a Quantitative Score" [level=3] [ref=f1e308]
+            - paragraph [ref=f1e309]: Our machine learning algorithm measures DAB expression and separation compared to reference cells, producing quantitative outputs in minutes.
+    - separator [ref=f1e310]
+    - generic [ref=f1e311]:
+      - generic [ref=f1e313]: NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE · OVEREXPRESSION · LOW · HIGH · NULL · WILD-TYPE · DIFFUSE ·
+      - generic [ref=f1e314]:
+        - generic [ref=f1e315]:
+          - generic [ref=f1e316]: About PCI-AI
+          - heading "Precision Cellular Immunology" [level=2] [ref=f1e317]: Precision CellularImmunology
+          - paragraph [ref=f1e318]: PCI-AI supports pathology research through precision cell line IHC control panels and AI assessment assistance. Our work in cell line characterization and biomarker quality control helps pathologists and histologists achieve higher reproducibility and clinical efficiency.
+          - paragraph [ref=f1e319]: Characterized FFPE cell line plugs enrich biomarker antibody optimization and decrease time for IHC assessment, assisting pathologists in their evaluation and reducing time spent on individual IHC cases.
+          - generic [ref=f1e320]:
+            - link "Visit PCIbio.com →" [ref=f1e321] [cursor=pointer]:
+              - /url: https://pcibio.com/
+            - link "Meet the team" [ref=f1e322] [cursor=pointer]:
+              - /url: https://pcibio.com/about.html
+        - generic [ref=f1e323]:
+          - link [ref=f1e324] [cursor=pointer]:
+            - /url: https://pcibio.com/controls.html
+            - heading "Cell line IHC controls" [level=4] [ref=f1e325]
+            - paragraph [ref=f1e326]: "TriControl™, QuadControl™ and DualControl™ panels for antibody optimization and quality control: defined null, wild-type, and diffuse expression profiles across validated cell lines."
+          - link [ref=f1e327] [cursor=pointer]:
+            - /url: /education/ai-biomarker-assessment
+            - heading "Biomarker AI assessment" [level=4] [ref=f1e328]
+            - paragraph [ref=f1e329]: "AI algorithms to assist with IHC biomarker interpretation: automated classification of null, wild-type, and diffuse expression patterns to reduce pathologist evaluation time."
+          - link [ref=f1e330] [cursor=pointer]:
+            - /url: /education
+            - heading "Digital pathology education" [level=4] [ref=f1e331]
+            - paragraph [ref=f1e332]: Guided topic modules covering IHC interpretation, biomarker assessment, and digital pathology fundamentals. Curated examples help pathologists and scientists distinguish null from diffuse expression in complex biomarker panels.
+    - separator [ref=f1e333]
+    - generic [ref=f1e334]:
+      - generic [ref=f1e336]: PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS ·
+      - generic [ref=f1e337]:
+        - generic [ref=f1e338]: Get started
+        - heading "Ready to Improve Your IHC Assessment?" [level=2] [ref=f1e339]: Ready to Improve YourIHC Assessment?
+        - paragraph [ref=f1e340]: Achieve higher reproducibility with characterized controls and automated, quantitative scoring. Based at the CUBiO Innovation Hub in the Texas Medical Center, Houston.
+        - generic [ref=f1e341]:
+          - link "Shop Controls →" [ref=f1e342] [cursor=pointer]:
+            - /url: https://pcibio.com/products.html
+          - link "Talk to Our Team" [ref=f1e343] [cursor=pointer]:
+            - /url: https://pcibio.com/contact.html
+  - contentinfo [ref=f1e344]:
+    - generic [ref=f1e345]:
+      - generic [ref=f1e346]:
+        - link "PCI - AI" [ref=f1e347] [cursor=pointer]:
+          - /url: /
+          - text: PCI
+          - generic [ref=f1e348]: "-"
+          - generic [ref=f1e349]: AI
+        - generic [ref=f1e350]: Digital Pathology Platform
+      - generic [ref=f1e351]:
+        - link "PCIbio.com" [ref=f1e352] [cursor=pointer]:
+          - /url: https://pcibio.com/
+        - link "About" [ref=f1e353] [cursor=pointer]:
+          - /url: https://pcibio.com/about.html
+        - link "Contact" [ref=f1e354] [cursor=pointer]:
+          - /url: https://pcibio.com/contact.html
+        - link "Products" [ref=f1e355] [cursor=pointer]:
+          - /url: https://pcibio.com/products.html
+        - link "Privacy Policy & Terms of Use" [ref=f1e356] [cursor=pointer]:
+          - /url: /privacy
+      - generic [ref=f1e357]:
+        - generic [ref=f1e358]: © 2026 Precision Cellular Immunology, LLC
+        - generic [ref=f1e359]: CUBiO Innovation Hub, Houston TX
+        - paragraph [ref=f1e360]: For Research Use Only. Not for use in diagnostic procedures.

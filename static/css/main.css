@@ -1046,9 +1046,6 @@ body { background: linear-gradient(180deg, #F4F7FD 0%, #EEF3FC 40%, #F3F6FC 100%
 }
 
 /* Feature badges: controls blue, AI blended, education violet */
-.feat-card:nth-child(1) .feat-icon-wrap { color: #fff; background: linear-gradient(135deg, #2F6BFF, #1B4FD8); border-color: transparent; }
-.feat-card:nth-child(2) .feat-icon-wrap { color: #fff; background: var(--grad-ai); border-color: transparent; }
-.feat-card:nth-child(3) .feat-icon-wrap { color: #fff; background: linear-gradient(135deg, #7A68F0, #5B48D9); border-color: transparent; }
 
 /* Education = violet family */
 #education .section-tag { color: var(--violet-600); border-color: rgba(91,72,217,0.20); background: rgba(91,72,217,0.07); }
@@ -1074,3 +1071,27 @@ body { background: linear-gradient(180deg, #F4F7FD 0%, #EEF3FC 40%, #F3F6FC 100%
 .cta-section .lava span:nth-child(2) { background: radial-gradient(circle, rgba(116,92,240,0.6), transparent 70%); }
 .progress-fill { background: var(--grad-ai); }
 .footer-copy { white-space: nowrap; }
+
+/* ── Hero proportions: one aligned left column, larger viewer ── */
+.hero { gap: 3.5rem; }
+.hero-content { flex: 0 1 500px; }
+.hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; max-width: 500px; }
+.hero-actions .btn-lg { justify-content: center; text-align: center; padding-block: 1.05rem; font-size: 16px; }
+.zoom-slider-wrap { max-width: 500px; padding: 0.8rem 1.25rem; }
+.zoom-label { font-size: 12px; }
+.zoom-val { font-size: 14px; }
+.hero-stats { max-width: 500px; }
+.stat { padding: 1.05rem 0.75rem; }
+.stat-num { font-size: 18px; margin-bottom: 5px; }
+.stat-lbl { font-size: 10px; }
+.hero-visual { flex: 1 1 640px; max-width: 660px; }
+.mockup-app { height: 420px; }
+.mockup-sidebar { width: 160px; }
+@media (max-width: 960px) {
+  .hero-content, .hero-actions, .zoom-slider-wrap, .hero-stats { max-width: 100%; width: 100%; }
+  .hero-visual { max-width: 100%; }
+  .mockup-app { height: 340px; }
+}
+@media (max-width: 480px) { .hero-actions { grid-template-columns: 1fr; } }
+/* Off-screen sections skip layout/paint until near the viewport */
+.section-wrap, .cta-section { content-visibility: auto; contain-intrinsic-size: auto 800px; }

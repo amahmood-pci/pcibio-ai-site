@@ -125,9 +125,17 @@
     });
   });
   var els = Array.prototype.slice.call(document.querySelectorAll('[data-glass]'));
-  els.forEach(apply);
-  if ('ResizeObserver' in window) {
-    var ro = new ResizeObserver(function (entries) { entries.forEach(function (en) { apply(en.target); }); });
-    els.forEach(function (el) { ro.observe(el); });
+  // Lazy: build each filter only when its element nears the viewport, in idle time.
+  var ro = 'ResizeObserver' in window &&
+    new ResizeObserver(function (entries) { entries.forEach(function (en) { apply(en.target); }); });
+  var idle = window.requestIdleCallback || function (fn) { return setTimeout(fn, 1); };
+  function start(el) { idle(function () { apply(el); if (ro) ro.observe(el); }); }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { io.unobserve(en.target); start(en.target); } });
+    }, { rootMargin: '300px 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  } else {
+    els.forEach(start);
   }
 })();
