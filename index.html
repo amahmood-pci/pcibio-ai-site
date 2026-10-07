@@ -945,23 +945,6 @@
     })();
   </script>
   <script>
-    /* ── 3D card tilt ── */
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.matchMedia('(hover: hover)').matches)
-    document.querySelectorAll('.feat-card, .product-card, .edu-card, .about-card').forEach(function(card) {
-      card.addEventListener('mousemove', function(e) {
-        var r = card.getBoundingClientRect();
-        var x = (e.clientX - r.left) / r.width  - 0.5;
-        var y = (e.clientY - r.top)  / r.height - 0.5;
-        card.style.transition = 'transform 0.05s ease, box-shadow 0.18s, border-color 0.18s';
-        card.style.transform  = 'perspective(700px) rotateX(' + (-y * 7) + 'deg) rotateY(' + (x * 7) + 'deg) translateY(-3px)';
-      });
-      card.addEventListener('mouseleave', function() {
-        card.style.transition = 'transform 0.35s ease, box-shadow 0.18s, border-color 0.18s';
-        card.style.transform  = '';
-      });
-    });
-  </script>
-  <script>
     (function () {
       var t = document.getElementById('navToggle'), n = document.getElementById('nav');
       if (!t || !n) return;
