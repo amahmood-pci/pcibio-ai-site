@@ -1009,3 +1009,17 @@ body { background: linear-gradient(180deg, #F4F7FD 0%, #EEF3FC 40%, #F3F6FC 100%
 
 .edu-grid-3 { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 900px) { .edu-grid-3 { grid-template-columns: 1fr; } }
+
+/* Wordmark blues: deeper, more saturated true blue (no indigo drift) */
+.logo-dot, .footer .logo-dot { color: #2F80FF; }
+.nav-logo .logo-accent, .footer .logo-accent {
+  background: linear-gradient(135deg, #5AAEFF 0%, #2F80FF 50%, #1463F5 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* Footer brand: larger lockup, tagline centred under it */
+.footer-brand { display: flex; flex-direction: column; align-items: center; text-align: center; justify-self: start; }
+.footer .nav-logo { font-size: 46px; gap: 10px; }
+.footer .nav-logo .aperture-mark { width: 54px; height: 54px; }
+.footer-tagline { margin-top: 8px; }
+@media (max-width: 960px) { .footer-brand { justify-self: center; } }
