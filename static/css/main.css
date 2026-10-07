@@ -1019,7 +1019,6 @@ body { background: linear-gradient(180deg, #F4F7FD 0%, #EEF3FC 40%, #F3F6FC 100%
 
 /* Footer brand: larger lockup, tagline centred under it */
 .footer-brand { display: flex; flex-direction: column; align-items: center; text-align: center; justify-self: start; }
-.footer .nav-logo { font-size: 46px; gap: 10px; }
-.footer .nav-logo .aperture-mark { width: 54px; height: 54px; }
 .footer-tagline { margin-top: 8px; }
 @media (max-width: 960px) { .footer-brand { justify-self: center; } }
+.footer-tagline { font-size: 10px; letter-spacing: 0.07em; }
