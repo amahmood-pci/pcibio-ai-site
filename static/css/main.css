@@ -1002,3 +1002,14 @@ body { background: linear-gradient(180deg, #F4F7FD 0%, #EEF3FC 40%, #F3F6FC 100%
 .cta-section { box-shadow: inset 0 0 160px rgba(0,0,0,0.32), inset 0 24px 40px -24px rgba(0,0,0,0.4); }
 .footer { box-shadow: inset 0 28px 40px -28px rgba(0,0,0,0.55); }
 .hero h1 { text-shadow: 0 1px 1px rgba(0,0,0,0.04); }
+
+/* Quieter background: particles only behind the hero, no cursor glow */
+.mouse-glow { display: none; }
+#bgCanvas { opacity: 1; transition: opacity 0.2s linear; }
+.grid-overlay { opacity: 0.5; }
+
+/* Active nav link stays legible on the blue glass bar */
+.nav-links a[style*="--accent"] { color: #9CCBFF !important; font-weight: 500; }
+
+.edu-grid-3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { .edu-grid-3 { grid-template-columns: 1fr; } }

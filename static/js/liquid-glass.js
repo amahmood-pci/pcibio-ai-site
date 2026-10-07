@@ -109,7 +109,7 @@
   // Targets and per-type strength. Nav is dark glass (backdrop dimmed) so the
   // white wordmark stays legible over light content.
   var PRESETS = [
-    ['.nav',                { scale: 52, bezel: 28, blur: 1.6, sat: 2.0, bright: 0.62 }],
+    ['.nav',                { scale: 52, bezel: 28, blur: 5, sat: 2.0, bright: 0.62 }],
     ['.btn-ghost',          { scale: 30, bezel: 14, blur: 1.0, sat: 1.8 }],
     ['.hero-badge',         { scale: 24, bezel: 12, blur: 0.8, sat: 1.8 }],
     ['.hero-stats, .zoom-slider-wrap', { scale: 30, bezel: 18, blur: 1.4, sat: 1.7 }],
