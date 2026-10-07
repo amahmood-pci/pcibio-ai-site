@@ -886,12 +886,9 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 }
 .nav.scrolled {
   background: linear-gradient(180deg, rgba(16,58,122,0.62), rgba(11,46,95,0.56));
-  backdrop-filter: url(#lg-refract) blur(20px) saturate(190%) brightness(0.82);
+  backdrop-filter: blur(20px) saturate(190%) brightness(0.82);
   -webkit-backdrop-filter: blur(20px) saturate(190%) brightness(0.82);
   box-shadow: var(--lg-spec), 0 10px 34px rgba(11,31,68,0.18);
-}
-@supports not (backdrop-filter: url(#lg-refract)) {
-  .nav.scrolled { backdrop-filter: blur(20px) saturate(190%) brightness(0.82); }
 }
 
 /* Wordmark: "AI" in a cool sky-to-blue gradient; hyphen stays violet */
@@ -944,3 +941,64 @@ body { background: linear-gradient(180deg, #F4F7FD 0%, #EEF3FC 40%, #F3F6FC 100%
 
 /* Feature row spans the shared grid like the other card rows */
 .features-grid-3 { max-width: none; }
+
+/* ── Liquid Glass v2: real edge refraction via static/js/liquid-glass.js ──
+   When the script runs (Chromium), elements get .lg-live and an SVG lens
+   filter; tints drop so the refracted backdrop shows through. */
+.nav.lg-live, .nav.lg-live.scrolled {
+  background: linear-gradient(180deg, rgba(14,48,110,0.58) 0%, rgba(11,40,92,0.46) 100%);
+  border-bottom: 1px solid rgba(255,255,255,0.16);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.35),
+    inset 0 -1px 0 rgba(255,255,255,0.10),
+    0 10px 30px rgba(8,24,60,0.22);
+}
+.btn-ghost.lg-live {
+  background: rgba(255,255,255,0.22);
+  border-color: rgba(255,255,255,0.7);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(255,255,255,0.3), 0 6px 18px rgba(11,31,68,0.10);
+}
+.cta-section .btn-ghost.lg-live { background: rgba(255,255,255,0.10); border-color: rgba(255,255,255,0.5); }
+.hero-badge.lg-live, .hero-stats.lg-live, .zoom-slider-wrap.lg-live {
+  background: linear-gradient(145deg, rgba(255,255,255,0.42), rgba(255,255,255,0.20));
+}
+.feat-card.lg-live, .product-card.lg-live, .edu-card.lg-live, .about-card.lg-live, .workflow-step.lg-live {
+  background: linear-gradient(145deg, rgba(255,255,255,0.58) 0%, rgba(255,255,255,0.30) 100%);
+}
+.feat-card.lg-live:hover, .product-card.lg-live:hover, .edu-card.lg-live:hover, .about-card.lg-live:hover, .workflow-step.lg-live:hover {
+  background: linear-gradient(145deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.44) 100%);
+}
+
+/* Wordmark: strictly white and blue */
+.nav-logo, .footer .nav-logo { color: #FFFFFF; }
+.logo-dot, .footer .logo-dot { color: #60A5FA; }
+.nav-logo .logo-accent, .footer .logo-accent {
+  background: linear-gradient(135deg, #BFE3FF 0%, #6BB6FF 45%, #3B82F6 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* ── Footer typography (matches pcibio.com) ─────────────────── */
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(/static/fonts/Inter-latin.woff2) format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400 600; font-display: swap; src: url(/static/fonts/JetBrainsMono-latin.woff2) format('woff2'); }
+@font-face { font-family: 'Sora'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(/static/fonts/Sora-latin.woff2) format('woff2'); }
+.footer-tagline { font-family: 'Sora', 'Inter', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+.footer-links a { font-family: 'Inter', sans-serif; font-weight: 300; font-size: 14px; color: rgba(255,255,255,0.55); }
+.footer-links a:hover { color: #93C5FD; }
+.footer-copy, .footer-location, .footer-ruo { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: rgba(255,255,255,0.45); }
+.footer-location span { color: inherit; }
+
+/* ── Black shading for depth ───────────────────────────────── */
+.nav { box-shadow: inset 0 1px 0 rgba(255,255,255,0.30), 0 1px 0 rgba(0,0,0,0.25), 0 12px 32px rgba(0,0,0,0.28) !important; }
+.feat-card, .product-card, .edu-card, .about-card, .workflow-step, .hero-stats, .zoom-slider-wrap {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), inset 0 -1px 0 rgba(255,255,255,0.25),
+              0 1px 2px rgba(0,0,0,0.06), 0 14px 34px -10px rgba(0,0,0,0.22);
+}
+.feat-card:hover, .product-card:hover, .edu-card:hover, .about-card:hover, .workflow-step:hover {
+  box-shadow: inset 0 1px 0 #fff, inset 0 -1px 0 rgba(255,255,255,0.3),
+              0 2px 4px rgba(0,0,0,0.08), 0 24px 48px -12px rgba(0,0,0,0.30);
+}
+.viewer-mockup { box-shadow: 0 40px 80px -20px rgba(0,0,0,0.55), 0 12px 24px rgba(0,0,0,0.20); }
+.btn-primary { box-shadow: 0 6px 16px -4px rgba(0,0,0,0.35); }
+.cta-section { box-shadow: inset 0 0 160px rgba(0,0,0,0.32), inset 0 24px 40px -24px rgba(0,0,0,0.4); }
+.footer { box-shadow: inset 0 28px 40px -28px rgba(0,0,0,0.55); }
+.hero h1 { text-shadow: 0 1px 1px rgba(0,0,0,0.04); }
