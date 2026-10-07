@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="/static/css/main.css?v=20261008a">
+  <link rel="stylesheet" href="/static/css/main.css?v=20261008b">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -568,10 +568,7 @@
         const fy = Math.cos(t / o.period * Math.PI * 2) * o.fy + pageScrollY * o.px;
         o.el.style.transform = 'translate(' + fx.toFixed(2) + 'px,' + fy.toFixed(2) + 'px)';
       });
-      if (_bgCanvas) {
-        _bgCanvas.style.transform = 'translateY(' + (pageScrollY * 0.14).toFixed(2) + 'px)';
-        _bgCanvas.style.opacity = Math.max(0, 1 - pageScrollY / 520).toFixed(3);
-      }
+      if (_bgCanvas)    _bgCanvas.style.transform    = 'translateY(' + (pageScrollY * 0.14).toFixed(2) + 'px)';
       if (_gridOverlay) _gridOverlay.style.transform = 'translateY(' + (pageScrollY * 0.07).toFixed(2) + 'px)';
       requestAnimationFrame(animateOrbs);
     })(0);
@@ -619,7 +616,7 @@
       window.addEventListener('resize', resize, { passive: true });
 
       /* Particles */
-      const NUM_P  = SMALL ? 26 : 70;
+      const NUM_P  = SMALL ? 45 : 140;
       const MAX_D  = 210;
       const pts    = [];
 
@@ -665,7 +662,7 @@
         var H     = canvas.height;
         var dnaWL = 140;
         var amp   = 28 * (0.72 + 0.28 * Math.sin(dnaAmpP));
-        var op    = 0.18;
+        var op    = 0.30;
         var nSt   = Math.ceil(W / 3);
 
         /* Spine: base wave + radial repulsion from mouse (Y-only so shape is preserved) */
@@ -982,6 +979,6 @@
       });
     })();
   </script>
-  <script src="/static/js/liquid-glass.js?v=20261008a" defer></script>
+  <script src="/static/js/liquid-glass.js?v=20261008b" defer></script>
 </body>
 </html>
