@@ -1075,8 +1075,8 @@ body { background: linear-gradient(180deg, #F4F7FD 0%, #EEF3FC 40%, #F3F6FC 100%
 /* ── Hero proportions: one aligned left column, larger viewer ── */
 .hero { gap: 3.5rem; }
 .hero-content { flex: 0 1 500px; }
-.hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; max-width: 500px; }
-.hero-actions .btn-lg { justify-content: center; text-align: center; padding-block: 1.05rem; font-size: 16px; }
+.hero .hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; max-width: 500px; }
+.hero .hero-actions .btn-lg { justify-content: center; text-align: center; padding-block: 1.05rem; font-size: 16px; }
 .zoom-slider-wrap { max-width: 500px; padding: 0.8rem 1.25rem; }
 .zoom-label { font-size: 12px; }
 .zoom-val { font-size: 14px; }
@@ -1088,19 +1088,19 @@ body { background: linear-gradient(180deg, #F4F7FD 0%, #EEF3FC 40%, #F3F6FC 100%
 .mockup-app { height: 420px; }
 .mockup-sidebar { width: 160px; }
 @media (max-width: 960px) {
-  .hero-content, .hero-actions, .zoom-slider-wrap, .hero-stats { max-width: 100%; width: 100%; }
+  .hero-content, .hero .hero-actions, .zoom-slider-wrap, .hero-stats { max-width: 100%; width: 100%; }
   .hero-visual { max-width: 100%; }
   .mockup-app { height: 340px; }
 }
-@media (max-width: 480px) { .hero-actions { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .hero .hero-actions { grid-template-columns: 1fr; } }
 
 /* ── Hero fits one screen ── */
 .hero { min-height: 100svh; padding: 104px 2rem 32px; }
 .hero-badge { margin-bottom: 1rem; }
 .hero h1 { font-size: clamp(2rem, 3.6vw, 2.9rem); margin-bottom: 0.9rem; line-height: 1.12; }
 .hero-sub { font-size: 15px; line-height: 1.65; margin-bottom: 1.4rem; }
-.hero-actions { margin-bottom: 1.1rem; }
-.hero-actions .btn-lg { padding-block: 0.85rem; font-size: 15px; }
+.hero .hero-actions { margin-bottom: 1.1rem; }
+.hero .hero-actions .btn-lg { padding-block: 0.85rem; font-size: 15px; }
 .zoom-slider-wrap { margin-bottom: 1.1rem; padding: 0.6rem 1.1rem; }
 .stat { padding: 0.8rem 0.6rem; }
 .stat-num { font-size: 16px; }
