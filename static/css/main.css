@@ -102,14 +102,14 @@ h1,h2,h3,h4 { line-height: 1.2; }
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0 2rem; height: 60px;
+  padding: 0 2rem; height: 80px;
   background: rgba(11,46,95,0.97);
   border-bottom: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 .nav.scrolled { border-color: rgba(255,255,255,0.12); box-shadow: 0 1px 14px rgba(11,46,95,0.28); }
-.nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 17px; letter-spacing: -0.02em; color: #fff; text-decoration: none; }
+.nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 38px; line-height: 1; letter-spacing: -0.03em; color: #fff; text-decoration: none; }
 .aperture-mark { flex-shrink: 0; display: block; }
 .logo-accent { color: rgba(99,178,255,0.92); }
 .logo-dot    { color: rgba(46,204,154,0.82); }
@@ -182,7 +182,7 @@ h1,h2,h3,h4 { line-height: 1.2; }
 
 /* ── Hero ─────────────────────────────────────────────────── */
 .hero {
-  min-height: 100vh; padding: 120px 2rem 80px;
+  min-height: 100vh; padding: 140px 2rem 80px;
   max-width: 1200px; margin: 0 auto;
   display: flex; align-items: center; gap: 4rem;
 }
@@ -709,7 +709,7 @@ h1,h2,h3,h4 { line-height: 1.2; }
 
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 960px) {
-  .hero { flex-direction: column; padding: 100px 1.5rem 60px; gap: 3rem; }
+  .hero { flex-direction: column; padding: 120px 1.5rem 60px; gap: 3rem; }
   .hero-visual { max-width: 100%; }
   .features-grid, .products-grid, .workflow-grid { grid-template-columns: repeat(2,1fr); }
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -766,7 +766,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .nav { padding: 0 1rem; }
   .nav-toggle { display: flex; }
   .nav-links {
-    display: none; position: absolute; top: 60px; left: 0; right: 0;
+    display: none; position: absolute; top: 80px; left: 0; right: 0;
     flex-direction: column; align-items: stretch; gap: 0;
     background: rgba(11,46,95,0.98); padding: 0.5rem 1rem 1rem;
     border-bottom: 1px solid rgba(255,255,255,0.08);

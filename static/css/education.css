@@ -26,7 +26,7 @@
 
 /* Sticky in-page subnav */
 .edu-subnav {
-  position: sticky; top: 60px; z-index: 90;
+  position: sticky; top: 80px; z-index: 90;
   background: rgba(255,255,255,0.95);
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
@@ -904,7 +904,7 @@
   .edu-hub-cta-inner { grid-template-columns: 1fr; }
   .edu-hub-cta-divider { height: 1px; width: auto; margin: 0.5rem 0; }
   .edu-hub-cta-col { padding: 0.5rem 0 !important; }
-  .edu-hub-hero { padding: 4rem 1.5rem 3.5rem; }
+  .edu-hub-hero { padding: 6rem 1.5rem 3.5rem; }
 }
 
 /* ══ Hub Redesign (hub-*) ════════════════════════════════════ */
@@ -1044,14 +1044,14 @@
   .hub-featured-content { border-left: none; border-top: 1px solid rgba(27,79,216,0.14); }
 }
 @media (max-width: 640px) {
-  .hub-hero { padding: 4.5rem 1.5rem 4rem; }
+  .hub-hero { padding: 6.5rem 1.5rem 4rem; }
   .hub-featured-section, .hub-topics-section { padding: 2.5rem 0; }
 }
 
 /* ══ Case Viewer (case-*) ════════════════════════════════════ */
 
 .case-progress-strip {
-  position: sticky; top: 60px; z-index: 90;
+  position: sticky; top: 80px; z-index: 90;
   background: var(--bg); border-bottom: 1px solid var(--border);
   box-shadow: 0 2px 12px rgba(11,46,95,0.06);
 }
