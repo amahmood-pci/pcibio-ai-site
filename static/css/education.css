@@ -171,7 +171,7 @@
   border-radius: var(--radius-lg); padding: 1.5rem;
   box-shadow: var(--shadow); transition: border-color 0.35s;
 }
-.pattern-panel.state-wildtype { border-color: rgba(20,160,133,0.28); }
+.pattern-panel.state-wildtype { border-color: rgba(14,165,233,0.28); }
 .pattern-panel.state-null     { border-color: rgba(100,116,139,0.25); }
 .pattern-panel.state-diffuse  { border-color: rgba(192,57,43,0.25); }
 
@@ -296,7 +296,7 @@
   background: rgba(27,79,216,0.08); border-color: rgba(27,79,216,0.28); color: var(--accent);
 }
 #node-msh2 .mmr-node-inner, #node-msh6 .mmr-node-inner {
-  background: rgba(46,204,154,0.08); border-color: rgba(46,204,154,0.28); color: var(--teal);
+  background: rgba(124,108,240,0.08); border-color: rgba(124,108,240,0.28); color: var(--teal);
 }
 .mmr-node-badge {
   font-size: 8px; font-weight: 700; text-transform: uppercase;
@@ -385,7 +385,7 @@
 .ptab[data-pattern="intact"].active    { color: var(--teal); }
 .ptab[data-pattern="deficient"].active { color: var(--hematoxylin); }
 
-.pattern-panel.state-intact    { border-color: rgba(46,204,154,0.28); }
+.pattern-panel.state-intact    { border-color: rgba(124,108,240,0.28); }
 .pattern-panel.state-deficient { border-color: rgba(11,46,95,0.28); }
 
 .state-intact .pattern-name    { color: var(--teal); }
@@ -403,8 +403,8 @@
   transition: border-color 0.35s, background 0.35s;
 }
 .state-intact .img-placeholder {
-  border-color: rgba(46,204,154,0.28);
-  background: rgba(46,204,154,0.03);
+  border-color: rgba(124,108,240,0.28);
+  background: rgba(124,108,240,0.03);
 }
 .state-deficient .img-placeholder {
   border-color: rgba(11,46,95,0.28);
@@ -415,7 +415,7 @@
   display: flex; align-items: center; justify-content: center;
   transition: background 0.35s;
 }
-.state-intact .img-placeholder-icon    { background: rgba(46,204,154,0.10); }
+.state-intact .img-placeholder-icon    { background: rgba(124,108,240,0.10); }
 .state-deficient .img-placeholder-icon { background: rgba(11,46,95,0.10); }
 .img-placeholder-label {
   font-size: 11px; color: var(--text3);
@@ -432,8 +432,8 @@
   border: 1px solid; transition: all 0.35s;
 }
 .state-intact .mmr-status {
-  background: rgba(46,204,154,0.08);
-  border-color: rgba(46,204,154,0.28); color: var(--teal);
+  background: rgba(124,108,240,0.08);
+  border-color: rgba(124,108,240,0.28); color: var(--teal);
 }
 .state-deficient .mmr-status {
   background: rgba(11,46,95,0.08);
@@ -494,8 +494,8 @@
   border: 1.5px solid rgba(27,79,216,0.25); color: var(--accent);
 }
 .mmr-protein.msh2, .mmr-protein.msh6 {
-  background: rgba(46,204,154,0.09);
-  border: 1.5px solid rgba(46,204,154,0.25); color: var(--teal);
+  background: rgba(124,108,240,0.09);
+  border: 1.5px solid rgba(124,108,240,0.25); color: var(--teal);
 }
 .mmr-connector {
   font-size: 20px; color: var(--text3); flex-shrink: 0; line-height: 1;
@@ -535,8 +535,8 @@
   color: var(--hematoxylin);
 }
 .mmr-protein-tag.intact-tag {
-  background: rgba(46,204,154,0.07);
-  border: 1px solid rgba(46,204,154,0.20);
+  background: rgba(124,108,240,0.07);
+  border: 1px solid rgba(124,108,240,0.20);
   color: var(--teal); font-size: 9px;
 }
 .mmr-loss-text {

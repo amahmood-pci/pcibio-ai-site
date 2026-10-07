@@ -7,7 +7,9 @@
   <title>PCI-AI · Digital Pathology Platform</title>
   <meta name="description" content="Characterized cell line IHC control panels (TriControl, QuadControl, DualControl) and AI-assisted biomarker assessment from Precision Cellular Immunology.">
   <link rel="canonical" href="https://pcibio.ai/">
-  <link rel="icon" href="/static/images/pci-ai-logo.svg" type="image/svg+xml">
+  <link rel="icon" href="/static/images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/static/images/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta name="theme-color" content="#0f1f3d">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PCI-AI">
@@ -18,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="/static/css/main.css?v=20261007">
+  <link rel="stylesheet" href="/static/css/main.css?v=20261007b">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -444,6 +446,7 @@
 
   <!-- ── CTA ───────────────────────────────────────── -->
   <section class="cta-section section-alt">
+    <div class="lava" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
     <div class="section-banner cta-banner" aria-hidden="true"><div class="banner-track"><span>PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · </span><span>PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · QUALITY IMPACT · PRECISION CELLULAR IMMUNOLOGY · PATIENT FOCUS · REPRODUCIBLE STANDARDS · </span></div></div>
     <div class="cta-inner">
       <div class="cta-glow"></div>
@@ -464,6 +467,7 @@
   </main>
 
   <footer class="footer">
+    <div class="lava" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="/" class="nav-logo"><img src="/static/images/pci-ai-logo.svg" class="aperture-mark" width="44" height="44" alt="">PCI<span class="logo-dot">-</span><span class="logo-accent">AI</span></a>
@@ -624,7 +628,7 @@
           vy: (Math.random() - 0.5) * 0.28,
           r:  Math.random() * 2.2 + 0.9,
           op: Math.random() * 0.60 + 0.28,
-          c:  Math.random() > 0.5 ? '27,79,216' : '46,204,154',
+          c:  Math.random() > 0.5 ? '27,79,216' : '124,108,240',
         };
       }
       for (var i = 0; i < NUM_P; i++) pts.push(mkPt());
@@ -685,7 +689,7 @@
           var py = spineY(px) + Math.sin(px / dnaWL * Math.PI * 2 + dnaph) * amp;
           si === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
         }
-        ctx.strokeStyle = 'rgba(46,204,154,' + op + ')';
+        ctx.strokeStyle = 'rgba(124,108,240,' + op + ')';
         ctx.stroke();
 
         ctx.beginPath();
@@ -725,7 +729,7 @@
             var gy = spineY(gx) + Math.sin(gx / dnaWL * Math.PI * 2 + dnaph) * amp;
             gi === 0 ? ctx.moveTo(gx, gy) : ctx.lineTo(gx, gy);
           }
-          ctx.strokeStyle = 'rgba(46,204,154,' + gop + ')';
+          ctx.strokeStyle = 'rgba(124,108,240,' + gop + ')';
           ctx.stroke();
 
           ctx.beginPath();
