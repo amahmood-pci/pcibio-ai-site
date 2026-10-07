@@ -1690,9 +1690,3 @@
 .research-conclusion-sub {
   font-size: 13.5px; color: var(--text2); line-height: 1.7; margin: 0;
 }
-
-/* Carbon layer (IBM DESIGN.md): light display headings, square controls */
-.edu-page-header h1, .hub-headline, .edu-hub-hero h1 { font-weight: 300; letter-spacing: -0.4px; }
-.edu-section h2 { font-weight: 400; }
-.mmr-scenario-btn, .ptab, .step-btn, .hub-btn-outline, .hub-btn-lg { border-radius: 2px; }
-.edu-tag, .edu-hub-hero-tag { border-radius: 2px; }
