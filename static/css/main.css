@@ -790,7 +790,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 /* ── Premium layer ─────────────────────────────────────────── */
 :root {
-  --content-max: 1200px;
+  --content-max: 1280px;
   --violet:      #A99CFF;
   --sky:         #4CC3F5;
   --glass-light: rgba(255,255,255,0.58);
@@ -1110,3 +1110,8 @@ body { background: linear-gradient(180deg, #F4F7FD 0%, #EEF3FC 40%, #F3F6FC 100%
 /* Perf: lava blobs soften via gradient falloff instead of a per-frame blur filter */
 .lava { overflow: hidden; }
 .lava span { background-size: 100% 100%; -webkit-mask-image: radial-gradient(closest-side, #000 35%, transparent 100%); mask-image: radial-gradient(closest-side, #000 35%, transparent 100%); }
+
+/* Match pcibio.com container: 1280px max, 32px gutters */
+.hero .hero-content { flex: 0 1 560px; }
+.hero .hero-actions, .hero .zoom-slider-wrap, .hero .hero-stats { max-width: 560px; }
+.hero-visual { max-width: 640px; }
