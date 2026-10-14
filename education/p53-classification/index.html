@@ -20,8 +20,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="/static/css/main.css?v=20261008j">
-  <link rel="stylesheet" href="/static/css/education.css?v=20261008j">
+  <link rel="stylesheet" href="/static/css/main.css?v=20261014a">
+  <link rel="stylesheet" href="/static/css/education.css?v=20261014a">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -226,9 +226,10 @@
   <script>
     /* Mouse glow */
     const mouseGlow = document.getElementById('mouseGlow');
+    let gx = 0, gy = 0, gq = false;
     document.addEventListener('mousemove', e => {
-      mouseGlow.style.left = e.clientX + 'px';
-      mouseGlow.style.top  = e.clientY + 'px';
+      gx = e.clientX; gy = e.clientY;
+      if (!gq) { gq = true; requestAnimationFrame(function () { gq = false; mouseGlow.style.transform = 'translate3d(' + (gx - 200) + 'px,' + (gy - 200) + 'px,0)'; }); }
     });
 
     /* Nav scroll shadow */
@@ -339,6 +340,6 @@
       });
     })();
   </script>
-  <script src="/static/js/liquid-glass.js?v=20261008j" defer></script>
+  <script src="/static/js/liquid-glass.js?v=20261014a" defer></script>
 </body>
 </html>

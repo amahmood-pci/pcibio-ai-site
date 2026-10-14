@@ -120,8 +120,7 @@
     ['.nav',                { scale: 52, bezel: 28, blur: 5, sat: 2.0, bright: 0.62 }],
     ['.btn-ghost',          { scale: 30, bezel: 14, blur: 1.0, sat: 1.8 }],
     ['.hero-badge',         { scale: 24, bezel: 12, blur: 0.8, sat: 1.8 }],
-    ['.hero-stats, .zoom-slider-wrap', { scale: 30, bezel: 18, blur: 1.4, sat: 1.7 }],
-    ['.feat-card, .product-card, .edu-card, .about-card, .workflow-step', { scale: 26, bezel: 22, blur: 2.2, sat: 1.6 }]
+    ['.hero-stats, .zoom-slider-wrap', { scale: 30, bezel: 18, blur: 1.4, sat: 1.7 }]
   ];
   PRESETS.forEach(function (p) {
     document.querySelectorAll(p[0]).forEach(function (el) {

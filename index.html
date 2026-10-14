@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="/static/css/main.css?v=20261008j">
+  <link rel="stylesheet" href="/static/css/main.css?v=20261014a">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -494,9 +494,10 @@
 
     /* ── Mouse glow ───────────────────────────────── */
     const mouseGlow = document.getElementById('mouseGlow');
+    let gx = 0, gy = 0, gq = false;
     if (!REDUCED) document.addEventListener('mousemove', e => {
-      mouseGlow.style.left = e.clientX + 'px';
-      mouseGlow.style.top  = e.clientY + 'px';
+      gx = e.clientX; gy = e.clientY;
+      if (!gq) { gq = true; requestAnimationFrame(function () { gq = false; mouseGlow.style.transform = 'translate3d(' + (gx - 200) + 'px,' + (gy - 200) + 'px,0)'; }); }
     });
 
     /* ── Nav scroll ───────────────────────────────── */
@@ -616,7 +617,7 @@
       window.addEventListener('resize', resize, { passive: true });
 
       /* Particles */
-      const NUM_P  = SMALL ? 45 : 140;
+      const NUM_P  = SMALL ? 45 : 110;
       const MAX_D  = 210;
       const pts    = [];
 
@@ -631,7 +632,17 @@
           c:  Math.random() > 0.5 ? '27,79,216' : '56,189,248',
         };
       }
-      for (var i = 0; i < NUM_P; i++) pts.push(mkPt());
+      for (var i = 0; i < NUM_P; i++) { var np = mkPt(); np.blue = np.c === '27,79,216'; pts.push(np); }
+      var NB = 6, bucketsB = [], bucketsS = [];
+      for (var bk = 0; bk < NB; bk++) { bucketsB.push([]); bucketsS.push([]); }
+      function sprite(c) {
+        var sc = document.createElement('canvas'); sc.width = sc.height = 64;
+        var g = sc.getContext('2d');
+        g.fillStyle = 'rgba(' + c + ',0.42)'; g.beginPath(); g.arc(32, 32, 32, 0, Math.PI * 2); g.fill();
+        g.fillStyle = 'rgba(' + c + ',1)';    g.beginPath(); g.arc(32, 32, 32 / 3.5, 0, Math.PI * 2); g.fill();
+        return sc;
+      }
+      var spriteB = sprite('27,79,216'), spriteS = sprite('56,189,248');
 
       /* DNA helix — single full-screen wandering strand */
       var dnaph   = 0;   /* helix scroll phase */
@@ -756,8 +767,14 @@
         }
       }
 
-      function frame() {
-        if (document.hidden) { requestAnimationFrame(frame); return; }
+      var running = true, lastT = 0, heroH = window.innerHeight;
+      document.addEventListener('visibilitychange', function () {
+        if (!document.hidden && !running) { running = true; requestAnimationFrame(frame); }
+      });
+      function frame(t) {
+        if (document.hidden) { running = false; return; }
+        if (window.scrollY > heroH && t - lastT < 32) { requestAnimationFrame(frame); return; }
+        lastT = t;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         /* Slowly lerp the repulsion scale in and out */
@@ -779,25 +796,34 @@
         dnaSph2 += 0.007;
         drawDNA();
 
-        /* Connection lines */
+        /* Connection lines: bucketed by opacity, one stroke per bucket */
         ctx.lineWidth = 0.5;
+        for (var k = 0; k < NB; k++) { bucketsB[k].length = 0; bucketsS[k].length = 0; }
         for (var a = 0; a < pts.length; a++) {
+          var pa = pts[a];
           for (var b = a + 1; b < pts.length; b++) {
-            var dx = pts[a].x - pts[b].x;
-            var dy = pts[a].y - pts[b].y;
+            var dx = pa.x - pts[b].x;
+            if (dx > MAX_D || dx < -MAX_D) continue;
+            var dy = pa.y - pts[b].y;
             var d2 = dx * dx + dy * dy;
             if (d2 < MAX_D * MAX_D) {
-              var fade = (1 - Math.sqrt(d2) / MAX_D) * 0.42;
-              ctx.beginPath();
-              ctx.moveTo(pts[a].x, pts[a].y);
-              ctx.lineTo(pts[b].x, pts[b].y);
-              ctx.strokeStyle = 'rgba(' + pts[a].c + ',' + fade + ')';
-              ctx.stroke();
+              var bi = Math.min(NB - 1, Math.floor(Math.sqrt(d2) / MAX_D * NB));
+              (pa.blue ? bucketsB : bucketsS)[bi].push(pa.x, pa.y, pts[b].x, pts[b].y);
             }
           }
         }
+        for (var k2 = 0; k2 < NB; k2++) {
+          var fade = (1 - (k2 + 0.5) / NB) * 0.42;
+          [[bucketsB[k2], '27,79,216'], [bucketsS[k2], '56,189,248']].forEach(function (bk) {
+            var L = bk[0]; if (!L.length) return;
+            ctx.beginPath();
+            for (var q = 0; q < L.length; q += 4) { ctx.moveTo(L[q], L[q + 1]); ctx.lineTo(L[q + 2], L[q + 3]); }
+            ctx.strokeStyle = 'rgba(' + bk[1] + ',' + fade + ')';
+            ctx.stroke();
+          });
+        }
 
-        /* Particles */
+        /* Particles: pre-rendered sprites */
         for (var pi = 0; pi < pts.length; pi++) {
           var p = pts[pi];
           p.x += p.vx; p.y += p.vy;
@@ -805,15 +831,11 @@
           if (p.x > canvas.width)  p.x = 0;
           if (p.y < 0) p.y = canvas.height;
           if (p.y > canvas.height) p.y = 0;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r * 3.5, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(' + p.c + ',' + (p.op * 0.42) + ')';
-          ctx.fill();
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(' + p.c + ',' + p.op + ')';
-          ctx.fill();
+          var R = p.r * 3.5;
+          ctx.globalAlpha = p.op;
+          ctx.drawImage(p.blue ? spriteB : spriteS, p.x - R, p.y - R, R * 2, R * 2);
         }
+        ctx.globalAlpha = 1;
 
         requestAnimationFrame(frame);
       }
@@ -979,6 +1001,6 @@
       });
     })();
   </script>
-  <script src="/static/js/liquid-glass.js?v=20261008j" defer></script>
+  <script src="/static/js/liquid-glass.js?v=20261014a" defer></script>
 </body>
 </html>
