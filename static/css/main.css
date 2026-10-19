@@ -1175,3 +1175,29 @@ body { background: linear-gradient(180deg, #F4F7FD 0%, #EEF3FC 40%, #F3F6FC 100%
 @media (max-width: 560px) { .how-steps { grid-template-columns: 1fr; } }
 @media (max-width: 960px) { .hero-visual { width: 100%; flex: none; } }
 @media (max-width: 600px) { .scan-card { width: 170px; padding: 10px 11px; } .scan-rows { display: none; } .scan-score span { font-size: 24px; } }
+
+/* ── Hologram treatment for the AI scan ────────────────────── */
+.ai-scan { background: #0C0620; border: 1px solid transparent;
+  background-image: linear-gradient(#0C0620, #0C0620), linear-gradient(135deg, #8B5CF6, #5AAEFF 35%, #F472D0 65%, #8B5CF6);
+  background-origin: border-box; background-clip: padding-box, border-box;
+  box-shadow: 0 40px 90px -24px rgba(76,29,149,0.65), 0 0 0 1px rgba(167,139,250,0.15), 0 0 60px -10px rgba(139,92,246,0.45); }
+.ai-scan::before, .ai-scan::after { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+.ai-scan::before { background: repeating-linear-gradient(0deg, rgba(200,180,255,0.05) 0 1px, transparent 1px 3px); mix-blend-mode: screen; }
+.ai-scan::after { inset: -40%; background: conic-gradient(from 0deg, transparent 0 18%, rgba(139,92,246,0.16) 25%, rgba(90,174,255,0.12) 32%, rgba(244,114,208,0.14) 40%, transparent 48% 100%);
+  mix-blend-mode: screen; animation: holo-sheen 14s linear infinite; will-change: transform; }
+@keyframes holo-sheen { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .ai-scan::after { animation: none; } }
+.ai-scan > .scan-chip, .ai-scan > .scan-legend, .ai-scan > .scan-card { z-index: 2; }
+.scan-chip { background: rgba(30,12,70,0.72); border: 1px solid rgba(167,139,250,0.35); color: #E9DDFF; }
+.scan-dot { background: #F0ABFC; box-shadow: 0 0 8px #F0ABFC; }
+.scan-legend { background: rgba(30,12,70,0.72); color: #E9DDFF; border: 1px solid rgba(167,139,250,0.3); }
+.scan-legend .lg-pos { border-color: #FFBEF0; background: rgba(255,110,210,0.85); box-shadow: 0 0 6px rgba(255,110,210,0.8); }
+.scan-legend .lg-neg { border-color: #8CE6FF; background: rgba(130,120,255,0.8); box-shadow: 0 0 6px rgba(130,120,255,0.8); }
+.scan-card { background: linear-gradient(160deg, rgba(46,18,104,0.80), rgba(20,8,52,0.88));
+  border: 1px solid rgba(196,167,255,0.32); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 18px 40px -12px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08), 0 0 30px -8px rgba(167,139,250,0.5); }
+.scan-marker { color: #F0ABFC; text-shadow: 0 0 10px rgba(240,171,252,0.6); }
+.scan-score span { background: linear-gradient(90deg, #FFFFFF, #E9D5FF 50%, #A5F3FC); -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-shadow: 0 0 18px rgba(196,167,255,0.35); }
+.scan-bar span { background: linear-gradient(90deg, #8B5CF6, #F472D0 60%, #A5F3FC); box-shadow: 0 0 10px rgba(244,114,208,0.6); }
+.scan-rows b.ctrl-ok { color: #A5F3FC; text-shadow: 0 0 8px rgba(165,243,252,0.6); }

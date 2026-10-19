@@ -52,50 +52,47 @@
     g.closePath();
   }
 
-  // Pale hematoxylin-counterstained tissue: eosin-free background, pink-grey
-  // stroma with wavy collagen, slightly bluer tumour nests, fine grain.
+  // Holographic rendering of the same tissue architecture: a deep violet
+  // projection field, faint luminous collagen, and nuclei that glow by class.
   function paintTissue(g, isTumor, fibre, s) {
-    g.fillStyle = '#F6F3EF'; g.fillRect(0, 0, W, H);
+    var bg = g.createRadialGradient(W * 0.45, H * 0.4, 0, W * 0.5, H * 0.5, Math.max(W, H) * 0.75);
+    bg.addColorStop(0, '#24104F'); bg.addColorStop(0.6, '#160A36'); bg.addColorStop(1, '#0C0620');
+    g.fillStyle = bg; g.fillRect(0, 0, W, H);
     var step = 6;
     for (var y = 0; y < H; y += step) for (var x = 0; x < W; x += step) {
-      g.fillStyle = isTumor(x, y) ? 'rgba(186,184,214,0.30)' : 'rgba(214,190,200,0.26)';
-      g.fillRect(x, y, step, step);
+      if (isTumor(x, y)) { g.fillStyle = 'rgba(130,90,255,0.10)'; g.fillRect(x, y, step, step); }
     }
-    g.save(); g.filter = 'blur(3px)'; g.drawImage(g.canvas, 0, 0, W, H); g.restore();
-    g.lineCap = 'round';
-    for (var f = 0; f < 140; f++) {
+    g.save(); g.filter = 'blur(6px)'; g.drawImage(g.canvas, 0, 0, W, H); g.restore();
+    g.save(); g.globalCompositeOperation = 'lighter'; g.lineCap = 'round';
+    for (var f = 0; f < 150; f++) {
       var fx = Math.random() * W, fy = Math.random() * H;
       if (isTumor(fx, fy)) continue;
       var a = fibre(fx / s, fy / s) * 1.6, len = (30 + Math.random() * 60) * s;
-      g.strokeStyle = 'rgba(196,162,178,' + (0.18 + Math.random() * 0.18) + ')';
-      g.lineWidth = (1 + Math.random() * 2.2) * s;
+      g.strokeStyle = 'rgba(150,110,255,' + (0.05 + Math.random() * 0.08) + ')';
+      g.lineWidth = (0.8 + Math.random() * 1.8) * s;
       g.beginPath(); g.moveTo(fx, fy);
       g.quadraticCurveTo(fx + Math.cos(a) * len * 0.5 + (Math.random() - 0.5) * 10, fy + Math.sin(a) * len * 0.5 + (Math.random() - 0.5) * 10,
                          fx + Math.cos(a) * len, fy + Math.sin(a) * len);
       g.stroke();
     }
-    for (var n = 0; n < W * H / 40; n++) {                  // grain
-      g.fillStyle = 'rgba(120,110,140,' + Math.random() * 0.06 + ')';
-      g.fillRect(Math.random() * W, Math.random() * H, 1, 1);
-    }
+    g.restore();
   }
 
-  // DAB nuclei: warm brown with darker rim; negative: hematoxylin blue-violet.
+  // Positive (DAB) nuclei glow magenta-rose; negative glow violet-blue.
   function paintNucleus(g, c, s) {
-    if (c.t) { g.fillStyle = 'rgba(200,186,214,0.35)'; outline(g, c, 4 * s); g.fill(); }   // cytoplasm
-    var col = c.p ? [110 + c.d * 30, 62 + c.d * 18, 28] : [70 + c.d * 20, 78 + c.d * 16, 150 + c.d * 30];
-    var alpha = c.p ? 0.62 + c.d * 0.32 : (c.t ? 0.50 + c.d * 0.30 : 0.55 + c.d * 0.25);
-    var gr = g.createRadialGradient(c.x - c.rx * 0.25, c.y - c.ry * 0.25, 0, c.x, c.y, Math.max(c.rx, c.ry) * 1.1);
-    gr.addColorStop(0, 'rgba(' + (col[0] + 25 | 0) + ',' + (col[1] + 20 | 0) + ',' + (col[2] + 20 | 0) + ',' + alpha * 0.85 + ')');
-    gr.addColorStop(1, 'rgba(' + (col[0] - 25 | 0) + ',' + (col[1] - 20 | 0) + ',' + (col[2] - 25 | 0) + ',' + alpha + ')');
+    var col = c.p ? [255, 110, 210] : (c.t ? [130, 120, 255] : [110, 130, 240]);
+    var a = c.p ? 0.55 + c.d * 0.35 : (c.t ? 0.35 + c.d * 0.3 : 0.28 + c.d * 0.22);
+    g.save(); g.globalCompositeOperation = 'lighter';
+    g.shadowColor = 'rgba(' + col + ',' + a * 0.9 + ')'; g.shadowBlur = (c.p ? 9 : 6) * s;
+    var gr = g.createRadialGradient(c.x, c.y, 0, c.x, c.y, Math.max(c.rx, c.ry) * 1.1);
+    gr.addColorStop(0, 'rgba(255,255,255,' + a * 0.55 + ')');
+    gr.addColorStop(0.45, 'rgba(' + col + ',' + a + ')');
+    gr.addColorStop(1, 'rgba(' + col + ',' + a * 0.35 + ')');
     g.fillStyle = gr; outline(g, c, 0); g.fill();
-    var specks = c.t ? 5 : 2;                               // chromatin texture
-    for (var i = 0; i < specks; i++) {
-      g.fillStyle = 'rgba(30,20,40,' + (0.12 + Math.random() * 0.15) + ')';
-      g.beginPath();
-      g.arc(c.x + (Math.random() - 0.5) * c.rx, c.y + (Math.random() - 0.5) * c.ry, (0.5 + Math.random() * 0.8) * s, 0, TAU);
-      g.fill();
-    }
+    g.shadowBlur = 0;
+    g.strokeStyle = 'rgba(' + col + ',' + a * 0.6 + ')'; g.lineWidth = 0.6;
+    outline(g, c, 0.6); g.stroke();
+    g.restore();
   }
 
   function build() {
@@ -148,7 +145,6 @@
     var t = layer(), g = t[1]; tissue = t[0];
     paintTissue(g, isTumor, fibre, s);
     cells.forEach(function (c) { paintNucleus(g, c, s); });
-    g.save(); g.filter = 'blur(0.45px)'; g.drawImage(tissue, 0, 0, W, H); g.restore();   // optical softness
     var o = layer(); overlay = o[0]; octx = o[1];
     scanned = 0; pos = 0;
     return true;
@@ -173,7 +169,7 @@
   function classifyUpTo(sx) {
     while (scanned < cells.length && cells[scanned].x <= sx) {
       var c = cells[scanned++]; if (c.p) pos++;
-      octx.strokeStyle = c.p ? 'rgba(255,164,60,0.85)' : 'rgba(90,174,255,0.6)';
+      octx.strokeStyle = c.p ? 'rgba(255,190,240,0.9)' : 'rgba(140,230,255,0.55)';
       octx.lineWidth = 1;
       outline(octx, c, 1.8); octx.stroke();                 // segmentation contour
     }
@@ -185,9 +181,10 @@
     ctx.drawImage(overlay, 0, 0, W, H);
     if (!showLine) return;
     var g = ctx.createLinearGradient(sx - 90, 0, sx, 0);
-    g.addColorStop(0, 'rgba(47,128,255,0)'); g.addColorStop(1, 'rgba(47,128,255,0.22)');
+    g.addColorStop(0, 'rgba(160,110,255,0)'); g.addColorStop(0.7, 'rgba(160,110,255,0.16)'); g.addColorStop(1, 'rgba(120,230,255,0.32)');
     ctx.fillStyle = g; ctx.fillRect(sx - 90, 0, 90, H);
-    ctx.fillStyle = 'rgba(47,128,255,0.9)'; ctx.fillRect(sx - 1, 0, 2, H);
+    ctx.fillStyle = 'rgba(190,240,255,0.95)'; ctx.fillRect(sx - 1, 0, 2, H);
+    ctx.fillStyle = 'rgba(255,120,220,0.5)'; ctx.fillRect(sx + 2, 0, 1, H);   // chromatic fringe
   }
 
   function frame(now) {
