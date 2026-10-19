@@ -1129,8 +1129,8 @@ body { background: linear-gradient(180deg, #F4F7FD 0%, #EEF3FC 40%, #F3F6FC 100%
   font: 600 10.5px/1 'IBM Plex Sans', sans-serif; color: #0b1f44; background: rgba(255,255,255,0.88); }
 .scan-legend span { display: inline-flex; align-items: center; gap: 5px; }
 .scan-legend i { width: 9px; height: 9px; border-radius: 50%; border: 1.6px solid; }
-.scan-legend .lg-pos { border-color: #FFAA40; background: rgba(122,78,36,0.8); }
-.scan-legend .lg-neg { border-color: #5AAEFF; background: rgba(78,92,168,0.7); }
+.scan-legend .lg-pos { border-color: #FFBEF0; background: rgba(255,110,210,0.85); }
+.scan-legend .lg-neg { border-color: #8CE6FF; background: rgba(140,128,255,0.8); }
 .scan-card { position: absolute; right: 14px; bottom: 14px; width: 232px; padding: 14px 15px 13px; border-radius: 14px;
   color: #fff; background: linear-gradient(160deg, rgba(14,40,92,0.92), rgba(9,24,58,0.94));
   border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 18px 40px -12px rgba(0,0,0,0.5); }
@@ -1188,16 +1188,4 @@ body { background: linear-gradient(180deg, #F4F7FD 0%, #EEF3FC 40%, #F3F6FC 100%
 @keyframes holo-sheen { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .ai-scan::after { animation: none; } }
 .ai-scan > .scan-chip, .ai-scan > .scan-legend, .ai-scan > .scan-card { z-index: 2; }
-.scan-chip { background: rgba(30,12,70,0.72); border: 1px solid rgba(167,139,250,0.35); color: #E9DDFF; }
-.scan-dot { background: #F0ABFC; box-shadow: 0 0 8px #F0ABFC; }
-.scan-legend { background: rgba(30,12,70,0.72); color: #E9DDFF; border: 1px solid rgba(167,139,250,0.3); }
-.scan-legend .lg-pos { border-color: #FFBEF0; background: rgba(255,110,210,0.85); box-shadow: 0 0 6px rgba(255,110,210,0.8); }
-.scan-legend .lg-neg { border-color: #8CE6FF; background: rgba(130,120,255,0.8); box-shadow: 0 0 6px rgba(130,120,255,0.8); }
-.scan-card { background: linear-gradient(160deg, rgba(46,18,104,0.80), rgba(20,8,52,0.88));
-  border: 1px solid rgba(196,167,255,0.32); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 18px 40px -12px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08), 0 0 30px -8px rgba(167,139,250,0.5); }
-.scan-marker { color: #F0ABFC; text-shadow: 0 0 10px rgba(240,171,252,0.6); }
-.scan-score span { background: linear-gradient(90deg, #FFFFFF, #E9D5FF 50%, #A5F3FC); -webkit-background-clip: text; background-clip: text; color: transparent;
-  text-shadow: 0 0 18px rgba(196,167,255,0.35); }
-.scan-bar span { background: linear-gradient(90deg, #8B5CF6, #F472D0 60%, #A5F3FC); box-shadow: 0 0 10px rgba(244,114,208,0.6); }
-.scan-rows b.ctrl-ok { color: #A5F3FC; text-shadow: 0 0 8px rgba(165,243,252,0.6); }
+
