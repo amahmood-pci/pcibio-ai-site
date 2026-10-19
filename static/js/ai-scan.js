@@ -78,20 +78,41 @@
     g.restore();
   }
 
-  // Positive (DAB) nuclei glow magenta-rose; negative glow violet-blue.
+  // Glass cells: translucent cytoplasm with a fresnel rim, a membrane line,
+  // a nucleus (magenta when DAB-positive) with nucleolus, and a specular glint.
   function paintNucleus(g, c, s) {
-    var col = c.p ? [255, 110, 210] : (c.t ? [130, 120, 255] : [110, 130, 240]);
-    var a = c.p ? 0.55 + c.d * 0.35 : (c.t ? 0.35 + c.d * 0.3 : 0.28 + c.d * 0.22);
-    g.save(); g.globalCompositeOperation = 'lighter';
-    g.shadowColor = 'rgba(' + col + ',' + a * 0.9 + ')'; g.shadowBlur = (c.p ? 9 : 6) * s;
-    var gr = g.createRadialGradient(c.x, c.y, 0, c.x, c.y, Math.max(c.rx, c.ry) * 1.1);
-    gr.addColorStop(0, 'rgba(255,255,255,' + a * 0.55 + ')');
-    gr.addColorStop(0.45, 'rgba(' + col + ',' + a + ')');
-    gr.addColorStop(1, 'rgba(' + col + ',' + a * 0.35 + ')');
-    g.fillStyle = gr; outline(g, c, 0); g.fill();
+    var nuc = c.p ? [255, 110, 210] : [140, 128, 255];
+    var cb = c.t ? 2.05 : 1.55;                              // cell body relative to nucleus
+    var body = { x: c.x, y: c.y, rx: c.rx * cb, ry: c.ry * (c.t ? cb * 1.05 : 1.9), a: c.a, poly: c.poly };
+    var R = Math.max(body.rx, body.ry);
+    g.save();
+    // Cytoplasm: dark core, bright rim (fresnel) gives the glass-bead read.
+    var cy = g.createRadialGradient(c.x, c.y, R * 0.15, c.x, c.y, R * 1.02);
+    cy.addColorStop(0, 'rgba(90,60,180,0.10)');
+    cy.addColorStop(0.72, 'rgba(120,90,230,0.16)');
+    cy.addColorStop(0.93, 'rgba(196,170,255,' + (c.t ? 0.42 : 0.28) + ')');
+    cy.addColorStop(1, 'rgba(225,210,255,0.10)');
+    g.fillStyle = cy; outline(g, body, 0); g.fill();
+    g.strokeStyle = 'rgba(210,190,255,' + (c.t ? 0.35 : 0.22) + ')'; g.lineWidth = 0.7;
+    outline(g, body, 0); g.stroke();                         // membrane
+    // Nucleus with soft glow.
+    g.globalCompositeOperation = 'lighter';
+    g.shadowColor = 'rgba(' + nuc + ',0.7)'; g.shadowBlur = (c.p ? 8 : 4) * s;
+    var na = c.p ? 0.55 + c.d * 0.35 : 0.28 + c.d * 0.25;
+    var ng = g.createRadialGradient(c.x - c.rx * 0.2, c.y - c.ry * 0.25, 0, c.x, c.y, Math.max(c.rx, c.ry));
+    ng.addColorStop(0, 'rgba(' + nuc + ',' + na * 0.7 + ')');
+    ng.addColorStop(1, 'rgba(' + nuc + ',' + na + ')');
+    g.fillStyle = ng; outline(g, c, 0); g.fill();
     g.shadowBlur = 0;
-    g.strokeStyle = 'rgba(' + col + ',' + a * 0.6 + ')'; g.lineWidth = 0.6;
-    outline(g, c, 0.6); g.stroke();
+    if (c.t) {                                               // nucleolus
+      g.fillStyle = 'rgba(255,235,255,' + (0.35 + c.d * 0.3) + ')';
+      g.beginPath(); g.arc(c.x + c.rx * 0.18, c.y - c.ry * 0.1, Math.max(0.8, c.rx * 0.2), 0, TAU); g.fill();
+    }
+    // Specular glint on the upper-left of the cell body.
+    var hx = c.x - body.rx * 0.42, hy = c.y - body.ry * 0.48;
+    var sp = g.createRadialGradient(hx, hy, 0, hx, hy, R * 0.45);
+    sp.addColorStop(0, 'rgba(255,255,255,' + (c.t ? 0.45 : 0.25) + ')'); sp.addColorStop(1, 'rgba(255,255,255,0)');
+    g.fillStyle = sp; g.beginPath(); g.ellipse(hx, hy, R * 0.45, R * 0.28, -0.6, 0, TAU); g.fill();
     g.restore();
   }
 
@@ -110,7 +131,7 @@
     var isLumen = function (x, y) { return lumenField(x * 2.4 / s, y * 2.4 / s) > 0.62; };
 
     // Blue-noise placement (dart throwing on a hash grid): dense in tumour, sparse in stroma.
-    var minT = 11.5 * s, minS = 21 * s, cs = minT, grid = {}, pts = [];
+    var minT = 17 * s, minS = 26 * s, cs = minT, grid = {}, pts = [];
     var key = function (x, y) { return Math.floor(x / cs) + ',' + Math.floor(y / cs); };
     for (var tries = 0, want = W * H / (minT * minT) * 1.6; tries < want; tries++) {
       var px = Math.random() * W, py = Math.random() * H, tum = isTumor(px, py);
@@ -132,7 +153,7 @@
     var thr = sorted.length ? sorted[Math.floor((1 - m.target) * sorted.length)] : 0;
 
     cells = pts.map(function (p) {
-      var r = (p.t ? 5.6 : 3.0) * s * (0.85 + Math.random() * 0.35);
+      var r = (p.t ? 4.6 : 3.4) * s * (0.85 + Math.random() * 0.35);
       var elong = p.t ? 0.72 + Math.random() * 0.25 : 0.32 + Math.random() * 0.18;   // stroma = spindle nuclei
       var ang = p.t ? Math.random() * Math.PI : fibre(p.x / s, p.y / s) * 1.6;
       var poly = [];                                        // irregular nuclear outline
@@ -155,7 +176,7 @@
   function readout(frac, final) {
     var pct = scanned ? Math.round(pos / scanned * 100) : 0;
     setText(ui.marker, MARKERS[mi].name);
-    setText(ui.pct, scanned < 25 ? '–' : String(pct));   // avoid noisy early percentages
+    setText(ui.pct, scanned < 25 ? '0' : String(pct));   // avoid noisy early percentages
     setText(ui.cells, scanned.toLocaleString());
     if (ui.bar) ui.bar.style.transform = 'scaleX(' + (pct / 100) + ')';
     setText(ui.pattern, final ? MARKERS[mi].label : 'Scanning… ' + Math.round(frac * 100) + '%');
@@ -171,7 +192,8 @@
       var c = cells[scanned++]; if (c.p) pos++;
       octx.strokeStyle = c.p ? 'rgba(255,190,240,0.9)' : 'rgba(140,230,255,0.55)';
       octx.lineWidth = 1;
-      outline(octx, c, 1.8); octx.stroke();                 // segmentation contour
+      var ob = { x: c.x, y: c.y, rx: c.rx * (c.t ? 2.05 : 1.55) + 1.2, ry: c.ry * (c.t ? 2.15 : 1.9) + 1.2, a: c.a, poly: c.poly };
+      outline(octx, ob, 0); octx.stroke();                  // segmentation contour on the membrane
     }
   }
 
