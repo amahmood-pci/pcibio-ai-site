@@ -1115,3 +1115,63 @@ body { background: linear-gradient(180deg, #F4F7FD 0%, #EEF3FC 40%, #F3F6FC 100%
 .hero .hero-content { flex: 0 1 560px; }
 .hero .hero-actions, .hero .zoom-slider-wrap, .hero .hero-stats { max-width: 560px; }
 .hero-visual { max-width: 640px; }
+
+/* ── Hero: AI scan illustration ─────────────────────────────── */
+.ai-scan { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 16 / 11;
+  background: #F4F1EC; border: 1px solid rgba(11,31,68,0.10);
+  box-shadow: 0 40px 80px -24px rgba(11,31,68,0.45), 0 10px 24px rgba(27,79,216,0.10); }
+.ai-scan canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.scan-chip { position: absolute; top: 14px; left: 14px; display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 11px; border-radius: 99px; font: 600 11px/1 'IBM Plex Mono', monospace; letter-spacing: 0.04em;
+  color: #fff; background: rgba(11,31,68,0.80); }
+.scan-dot { width: 6px; height: 6px; border-radius: 50%; background: #5AAEFF; animation: pulse 2s ease infinite; }
+.scan-legend { position: absolute; top: 14px; right: 14px; display: flex; gap: 10px; padding: 6px 10px; border-radius: 99px;
+  font: 600 10.5px/1 'IBM Plex Sans', sans-serif; color: #0b1f44; background: rgba(255,255,255,0.88); }
+.scan-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.scan-legend i { width: 9px; height: 9px; border-radius: 50%; border: 1.6px solid; }
+.scan-legend .lg-pos { border-color: #FFAA40; background: rgba(122,78,36,0.8); }
+.scan-legend .lg-neg { border-color: #5AAEFF; background: rgba(78,92,168,0.7); }
+.scan-card { position: absolute; right: 14px; bottom: 14px; width: 232px; padding: 14px 15px 13px; border-radius: 14px;
+  color: #fff; background: linear-gradient(160deg, rgba(14,40,92,0.92), rgba(9,24,58,0.94));
+  border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 18px 40px -12px rgba(0,0,0,0.5); }
+.scan-card-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+.scan-marker { font: 700 13px/1 'IBM Plex Mono', monospace; color: #9CCBFF; }
+.scan-pattern { font-size: 10.5px; color: rgba(255,255,255,0.72); text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.scan-score { display: flex; align-items: baseline; gap: 6px; }
+.scan-score span { font: 700 34px/1 'IBM Plex Mono', monospace; font-feature-settings: 'tnum'; min-width: 2ch; }
+.scan-score small { font-size: 11px; color: rgba(255,255,255,0.72); }
+.scan-bar { height: 4px; border-radius: 99px; background: rgba(255,255,255,0.14); margin: 9px 0 10px; overflow: hidden; }
+.scan-bar span { display: block; height: 100%; border-radius: inherit; transform-origin: left; transform: scaleX(0);
+  background: linear-gradient(90deg, #5AAEFF, #2F80FF 60%, #6E5CF0); }
+.scan-rows div { display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,0.72); padding: 2px 0; }
+.scan-rows b { font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #fff; }
+.scan-rows b.ctrl-ok { color: #7FD4FF; }
+.scan-rows b.ctrl-wait { color: rgba(255,255,255,0.55); }
+.scan-note { margin-top: 10px; font-size: 11px; color: var(--text3); text-align: right; }
+.hero-visual { animation: float-mock 6s ease-in-out 1.5s infinite; }
+@media (prefers-reduced-motion: reduce) { .hero-visual { animation: none; } }
+@media (max-width: 960px) { .scan-card { width: 200px; } .scan-score span { font-size: 28px; } }
+@media (max-width: 480px) { .scan-legend { display: none; } .ai-scan { aspect-ratio: 4 / 3.4; } }
+
+/* ── How it works: five steps ─────────────────────────────── */
+.how-section { padding: 96px 0 72px; }
+.how-steps { list-style: none; margin: 2.75rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 1rem; position: relative; }
+.how-steps::before { content: ""; position: absolute; top: 31px; left: 10%; right: 10%; height: 2px; z-index: 0;
+  background: linear-gradient(90deg, rgba(47,128,255,0.15), rgba(47,128,255,0.55) 50%, rgba(110,92,240,0.35)); }
+.how-step { position: relative; z-index: 1; padding: 0 0.4rem; }
+.how-ico { width: 62px; height: 62px; border-radius: 18px; display: grid; place-items: center; margin-bottom: 1.1rem;
+  background: #fff; border: 1px solid rgba(27,79,216,0.16); box-shadow: 0 10px 24px -10px rgba(11,31,68,0.35); }
+.how-ico svg { width: 26px; height: 26px; fill: none; stroke: #1B4FD8; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.how-step:nth-child(4) .how-ico { background: linear-gradient(135deg, #1B4FD8, #4A4FE0); border-color: transparent; }
+.how-step:nth-child(4) .how-ico svg { stroke: #fff; }
+.how-num { display: block; font: 600 11px/1 'IBM Plex Mono', monospace; letter-spacing: 0.08em; color: var(--text3); margin-bottom: 0.45rem; }
+.how-step h3 { font-size: 17px; font-weight: 600; color: var(--ink-deep, #0b1f44); margin-bottom: 0.45rem; }
+.how-step p { font-size: 13.5px; line-height: 1.65; color: var(--text2); }
+@media (max-width: 960px) {
+  .how-steps { grid-template-columns: repeat(2, 1fr); row-gap: 2rem; }
+  .how-steps::before { display: none; }
+}
+@media (max-width: 560px) { .how-steps { grid-template-columns: 1fr; } }
+@media (max-width: 960px) { .hero-visual { width: 100%; flex: none; } }
+@media (max-width: 600px) { .scan-card { width: 170px; padding: 10px 11px; } .scan-rows { display: none; } .scan-score span { font-size: 24px; } }
